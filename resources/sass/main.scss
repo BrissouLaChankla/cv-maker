@@ -1,0 +1,226 @@
+//GENERAL
+html {
+    scroll-behavior: smooth;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    font-family:$font-title;
+    color:$darkcyan;
+  }
+:is(h1, h2, h3) {
+    font-weight: 600;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+    #app {
+        margin-left:300px
+    }
+  }
+
+.med-size {
+    font-size:$font-size-medium;
+}
+
+.progress, .progress-bar {
+    height: 8px;
+}
+
+.rea-card {
+    height: 300px;
+    width: 200px;
+    img {
+    }
+}
+
+.text-grey {
+    color:#a8a9b4;
+}
+
+.fit-cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.bg-light-grey {
+    background-color:#cdcdcd22;
+}
+
+// Navbar 
+
+nav {
+    a.onit{
+        i {
+            color:$primary;
+        }
+        span {
+            color:white;
+        }
+    }
+    i, span {
+        transition: all .3s ease;
+    }
+    a:hover {
+        i {
+            color:$primary;
+        }
+        span {
+            color:white;
+        }
+    }
+}
+
+
+.arrowed {
+    &:before {
+        font-family: "Font Awesome 5 Free"; 
+        font-weight: 900; 
+        content: "\f105";
+        font-size:1.5em;
+        margin-right: 10px;
+    }
+}
+.section-title {
+    h2 {
+        position: relative;
+        padding-bottom: 14px;
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 3px;
+            background:$primary;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    p {
+        margin-top:14px;
+    }
+}
+
+header {
+    width:300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background:$darkcyan;
+    color:$grey;
+
+    .avatar {
+        width: 120px;
+        border: 6px solid #2c2f3f;
+    }
+}
+
+#hero {
+    background-image: url('/img/background.jpg');
+}
+
+
+// CV 
+
+.item-cv {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    border-left: 2px solid $primary;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50px;
+        left: -9px;
+        top: 0;
+        background: #fff;
+        border: 2px solid $primary;
+    }
+
+    .date {
+        font-size:13px;
+        background: #e4edf9;
+        padding: 5px 15px;
+        display: inline-block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        border-radius: 50px;
+    }
+}
+
+
+
+// PORTFOLIO
+
+.portfolio-sort {
+    border-radius: 2rem;
+    span {
+        transition: all .2s ease;
+        &:last-child {
+            border-top-right-radius:2rem;
+            border-bottom-right-radius:2rem;
+        }
+        &:hover {
+            background:$primary;
+            color:white;
+        }
+        &:first-child {
+            border-top-left-radius:2rem;
+            border-bottom-left-radius:2rem;
+        }
+    }
+}
+
+.realisations {
+    & > div {
+        height: 350px;
+        &:hover {
+            .rea-content {
+                transform: translate(-50%, -180px);
+            }
+            p {
+                opacity: 1;
+                visibility: visible;
+            }
+            .btn {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    img {
+
+    }
+    h5 {
+        
+    }
+    p {
+        transition: all .25s ease;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .btn {
+        transition: all .25s ease;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .rea-content  {
+        position: absolute;
+        bottom: -75px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all .25s ease-out;
+    }
+}
+
+.sort-active {
+    background-color:$primary;
+    color:white;
+}
