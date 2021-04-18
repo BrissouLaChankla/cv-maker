@@ -5,21 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class Contact extends Model
 {
     protected $fillable = [
         'description',
-        'details',
-        'birthday',
-        'diploma',
-        'phone',
-        'email',
         'location',
-        'status',
-        'hobbies'
-    ];
-
-    protected $dates = [
-        'birthday'
+        'isometric'
+        
     ];
 }

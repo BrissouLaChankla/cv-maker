@@ -3,6 +3,13 @@ html {
     scroll-behavior: smooth;
 }
 
+.admin-btn {
+    position: fixed;
+    z-index: 100;
+    top: 20px;
+    right: 20px;
+}
+
 :is(h1, h2, h3, h4, h5, h6) {
     font-family:$font-title;
     color:$darkcyan;

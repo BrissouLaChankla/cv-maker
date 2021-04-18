@@ -22,10 +22,7 @@
     </head>
     <body>
         <div id="app" >
-            @auth
-                <a href="{{route('admin')}}" class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-user-ninja"></i></a>
-            @endauth
-            @include('layouts.nav')
+            @include('layouts.admin.nav')
                 <main id="{{$view_name}}">
                     @yield('content')
                 </main>

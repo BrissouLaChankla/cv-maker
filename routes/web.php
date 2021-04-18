@@ -5,6 +5,7 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\RealisationController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Http;
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,9 @@ Route::get('/infos/competences', [ResumeController::class, 'getInfosCompetences'
 
 Route::get('/projets', [RealisationController::class, 'showAll'])->name('allProjects');
 Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->name('project');
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+// Admin
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+

@@ -26,14 +26,6 @@ class CreateAboutsTable extends Migration
             $table->string('location')->nullable();
             $table->string('status')->nullable();
             $table->string('hobbies')->nullable();
-
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('git')->nullable();
-
-
             $table->timestamps();
         });
     }

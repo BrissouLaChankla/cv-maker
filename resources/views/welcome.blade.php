@@ -21,7 +21,7 @@
     <div id="portfolio" class="p-5 bg-light-grey">
         <div class="section-title mb-4">
             <h2>Mes réalisations</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci inventore culpa quae ex iure tempora totam, excepturi consequuntur quidem officia, accusamus architecto quisquam eum cumque veritatis! Exercitationem fuga officia in.</p>
+            <p>{!! nl2br(e($portfolio->description)) !!}</p>
         </div>
         @include('includes.portfolio')
     </div>
@@ -29,7 +29,7 @@
     <div id="contact" class="p-5">
         <div class="section-title mb-4">
             <h2>Contact</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci inventore culpa quae ex iure tempora totam, excepturi consequuntur quidem officia, accusamus architecto quisquam eum cumque veritatis! Exercitationem fuga officia in.</p>
+            <p>{!! nl2br(e($contact->description)) !!}</p>
         </div>
         @include('includes.contact')
     </div>
