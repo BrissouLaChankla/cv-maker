@@ -16,6 +16,7 @@ class CreateRealisationsTable extends Migration
         Schema::create('realisations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->string('logo_path')->nullable();
             $table->string('background_path')->nullable();

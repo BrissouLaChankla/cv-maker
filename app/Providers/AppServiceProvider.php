@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use View;
+use Carbon\Carbon;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Carbon::setLocale(config('app.locale'));
     }
 }

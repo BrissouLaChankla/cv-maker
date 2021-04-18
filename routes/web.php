@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\RealisationController;
 use Illuminate\Support\Facades\Http;
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,7 @@ Route::get('/', [WelcomeController::class, 'welcome']);
 
 Route::get('/infos/competences', [ResumeController::class, 'getInfosCompetences']);
 
+Route::get('/projets', [RealisationController::class, 'showAll'])->name('allProjects');
+Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->name('project');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

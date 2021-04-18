@@ -7,5 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class About extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'description',
+        'details',
+        'birthday',
+        'diploma',
+        'phone',
+        'email',
+        'location',
+        'status',
+        'hobbies',
+        'facebook',
+        'instagram',
+        'linkedin',
+        'twitter',
+        'git'
+    ];
+
+    protected $dates = [
+        'birthday'
+    ];
 }

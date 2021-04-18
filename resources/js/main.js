@@ -2,7 +2,7 @@ const { throttle } = require("lodash");
 
 $(function() {
     let about = $('#about').offset().top;
-    let cv = $('#cv').offset().top;
+    let resume = $('#resume').offset().top;
     let portfolio = $('#portfolio').offset().top;
     let contact = $('#contact').offset().top;
     
@@ -21,7 +21,7 @@ $(function() {
                 $('nav a').removeClass('onit');
                 $('nav a:nth-last-child(2)').addClass('onit');
             }
-        } else if (scroll >= cv) {
+        } else if (scroll >= resume) {
             if($('nav a:nth-last-child(3)').hasClass('onit')) {
             } else {
                 $('nav a').removeClass('onit');

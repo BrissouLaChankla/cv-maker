@@ -18,14 +18,17 @@ class WelcomeController extends Controller
         $resume = Resume::first();
         $jobs = Job::all();
         $studies = Study::all();
-        $competences = Technology::all();
-        
+        $technologies = Technology::all();
+        $realisations = Realisation::all();
+        $lastJob = Job::orderBy('start_date', 'DESC')->first();
         return view('welcome')->with([
             'about' => $about,
             'resume' => $resume,
             'jobs' => $jobs,
             'studies' => $studies,
-            'technologies' => $technologies
+            'technologies' => $technologies,
+            'realisations' => $realisations,
+            'lastJob' => $lastJob
         ]);
     }
 }

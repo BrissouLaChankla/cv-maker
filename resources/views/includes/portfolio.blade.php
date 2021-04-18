@@ -6,51 +6,18 @@
         <span data-sort="web" class="pointer sort text-uppercase py-2 px-3">WEB</span>
     </div>
 </div>
-    <div class="realisations row">
-        <div class="app col-sm-4 my-3 p-3 position-relative text-center">
-            <img src="https://i.pinimg.com/736x/6d/6d/a1/6d6da1386014c5a3d5877a14488eeb5d.jpg" class=" fit-cover rounded shadow" alt="">
-            <div class="rea-content">
-                <h5 class="text-center text-white font-weight-bold">Nekjeu</h5>
-                <p class="text-center text-white">
-                    <em>
-                        Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains
-                    </em>
-                </p>
-                <div class="btn btn-dark">En savoir +</div>
+    <div class="row">
+        @foreach ($realisations as $realisation)
+            <div class="col-sm-4 my-3 p-3">
+                <img src="https://i.pinimg.com/736x/6d/6d/a1/6d6da1386014c5a3d5877a14488eeb5d.jpg" class=" fit-cover rounded shadow " alt="">
+                <div class="content text-center text-white">
+                    <h5 class="text-center">{{$realisation->name}}</h5>
+                    <p>{!! nl2br(e($realisation->description)) !!}</p>
+                    <a href="{{route('project', $realisation->slug)}}" class="btn btn-dark">En savoir +</a>
+                </div>
             </div>
-        </div>
-        <div class="app col-sm-4 my-3 p-3">
-            <img src="https://i.pinimg.com/736x/6d/6d/a1/6d6da1386014c5a3d5877a14488eeb5d.jpg" class="fit-cover rounded shadow pointer" alt="">
-            <h5 class="text-center">Ceci est un text exemple</h5>
-        </div>
-        <div class="test col-sm-4 my-3 p-3">
-            <img src="https://i.pinimg.com/736x/6d/6d/a1/6d6da1386014c5a3d5877a14488eeb5d.jpg" class="fit-cover rounded shadow pointer" alt="">
-            <h5 class="text-center">Ceci est un text exemple</h5>
-        </div>
-        <div class="web col-sm-4 my-3 p-3">
-            <img src="https://i.pinimg.com/736x/6d/6d/a1/6d6da1386014c5a3d5877a14488eeb5d.jpg" class=" fit-cover rounded shadow pointer" alt="">
-            <h5 class="text-center">Ceci est un text exemple</h5>
-        </div>
+        @endforeach
     </div>
-
-<script>
-    $('.sort').on('click', function() {
-        let sort = $(this).data('sort');
-        $('.sort').removeClass('sort-active');
-        $(this).addClass('sort-active');
-
-        if (sort == "all") {
-            $('.sort').removeClass('sort-active');
-            $('.realisations > div').show("1000");
-        } else {
-            $('.realisations > div').each(function(i, obj) {
-                if ($(obj).hasClass(sort)) {
-                    $(this).show("1000")
-                } else {
-                    $(this).hide("1000"); 
-                }
-            });
-        }
-    });
-
-</script>
+<div class="text-right">
+    <a href="{{route('allProjects')}}" class="btn btn-primary">Voir tous les projets <i class="fas fa-arrow-right ml-1"></i></a>
+</div>

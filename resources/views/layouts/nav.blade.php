@@ -1,7 +1,7 @@
 <header class="vh-100 bg-grey px-5 py-3 d-none d-xl-block">
     <div class="profile text-center mb-2">
         <img src="{{asset('img/profile.jpg')}}" class="avatar img-fluid rounded-circle" alt="Avatar">
-        <h2 class="text-white my-2">Brice Eliasse</h2>
+        <h2 class="text-white my-2">{{$about->firstname}} {{$about->lastname}}</h2>
         <div class="d-flex justify-content-center">
             <a href="https://www.linkedin.com/in/brice-eliasse-585977115" class="rounded-circle btn btn-primary m-1" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
@@ -23,7 +23,7 @@
             <i class="fas fa-user-alt"></i>
             <span class="ml-2">A propos</span>
         </a>
-        <a href="#cv" class="text-grey text-decoration-none py-3 med-size">
+        <a href="#resume" class="text-grey text-decoration-none py-3 med-size">
             <i class="fas fa-id-card"></i>
             <span class="ml-2">CV</span>
         </a>

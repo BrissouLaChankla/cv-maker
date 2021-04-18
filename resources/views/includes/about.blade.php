@@ -2,58 +2,63 @@
     <div class="col-md-4">
         <img src="{{asset('img/profile.jpg')}}" class="img-fluid" alt="photo-moi">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 mt-md-0 mt-3">
         <div class="row">
-            <h3>Développeur Full Stack</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni veniam, a iste ut quia corporis quae inventore dolore eaque illo, recusandae deserunt alias maiores, eius ratione expedita doloremque molestias sit?</p>
+            <h3>{{$lastJob->name}}</h3>
+            <p>{!! nl2br(e($about->details))!!}</p>
             <div class="col-lg-6">
                 <p class="arrowed">
                     <strong>Date de naissance :</strong>
-                    4 Mai 1998
+                    <span class="birthday">
+                        {{ $about->birthday->format('d-m-Y') }}
+                    </span>
                 </p>
             </div>
             <div class="col-lg-6">
                 <p class="arrowed">
                     <strong>Age :</strong>
-                    4 Mai 1998
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <p class="arrowed">
-                    <strong>Date de naissance :</strong>
-                    4 Mai 1998
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <p class="arrowed">
-                    <strong>Diplôme :</strong>
-                    Master
+                    <span class="age">
+                        {{ $about->birthday->age }} ans
+                    </span>
                 </p>
             </div>
             <div class="col-lg-6">
                 <p class="arrowed">
                     <strong>Téléphone :</strong>
-                    <a href="tel:+0619630877">06 19 63 08 77</a>
+                    <a href="tel:+{{$about->phone}}">{{$about->phone}}</a>
                 </p>
             </div>
             <div class="col-lg-6">
                 <p class="arrowed">
                     <strong>E-mail :</strong>
-                    <a href="mailto:contact@brice-eliasse.com">contact@brice-eliasse.com</a>
+                    <a href="mailto:{{$about->email}}">{{$about->email}}</a>
                 </p>
             </div>
             <div class="col-lg-6">
                 <p class="arrowed">
                     <strong>Département :</strong>
-                    Antibes (06)
+                    {{$about->location}}
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p class="arrowed">
+                    <strong>Diplôme :</strong>
+                    {{ $about->diploma }}
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p class="arrowed">
+                    <strong>Hobbies :</strong>
+                    {{ $about->hobbies }}
                 </p>
             </div>
             <div class="col-lg-6">
                 <p class="arrowed">
                     <strong>Statut :</strong>
-                    Alternant / Freelance 
+                    {{$about->status}} 
                 </p>
             </div>
         </div>
     </div>
 </div>
+

@@ -17,6 +17,13 @@ class RealisationController extends Controller
         //
     }
 
+    public function showAll() {
+        return 'caca';
+    }
+
+    public function showProject($slug) {
+        return 'caca';
+    }
     /**
      * Show the form for creating a new resource.
      *

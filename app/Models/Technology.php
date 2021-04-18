@@ -22,4 +22,8 @@ class Technology extends Model
     public function resume() {
         return $this->belongsTo(Resume::class);
     }
+
+    public function realisations() {
+        return $this->belongsToMany(Realisation::class);
+    }
 }
