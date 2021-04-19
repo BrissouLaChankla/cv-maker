@@ -4,82 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class AboutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+       /**
+     * Create a new controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function editAbout(Request $request) {
+        
+            // Select l'activite en question
+            $about = About::first();
+            
+            // récupère l'image actuelle
+            $currentimg = storage_path('app/public/uploads/abouts'.$about->photo);
+            
+            //La supprime
+            @unlink($currentimg);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function show(About $about)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(About $about)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, About $about)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(About $about)
-    {
-        //
+            //Récupère l'image reçue 
+            $file = $request->file('image');
+            
+            // = storage/app/uploads/images ;
+            $destinationPath = storage_path('app/public/uploads/abouts/avatar-left.jpg');
+            
+            // = Crée l'objet Image ;
+            $image = Image::make($file->getRealPath());
+            
+            // Croppe et Enregistre l'image
+            $image->fit(120, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg',100)->save($destinationPath);
+            
+            return('avatar-left.jpg');
     }
 }

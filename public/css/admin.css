@@ -1,0 +1,22 @@
+.edit-picture {
+  position: relative;
+}
+.edit-picture:hover img {
+  filter: brightness(30%);
+}
+.edit-picture:hover .icon-hover {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.icon-hover {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  font-size: 1.8rem;
+}

@@ -1,6 +1,6 @@
 <header class="vh-100 bg-grey px-5 py-3 d-none d-xl-block">
     <div class="profile text-center mb-2">
-        <img src="{{asset('img/profile.jpg')}}" class="avatar img-fluid rounded-circle" alt="Avatar">
+        <img src="{{asset('storage/uploads/abouts/'.$about->nav_picture_path)}}" class="avatar img-fluid rounded-circle" alt="Avatar">
         <h2 class="text-white my-2">{{$about->firstname}} {{$about->lastname}}</h2>
         <div class="d-flex justify-content-center">
             @foreach ($socials as $social)

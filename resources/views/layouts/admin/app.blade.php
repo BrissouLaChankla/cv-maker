@@ -20,10 +20,11 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app" >
-            <a href="{{route('front')}}" class="btn btn-primary shadow rounded-circle admin-btn py-2"><i class="fas fa-home"></i></a>
+            <a href="{{route('front')}}" class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-home"></i></a>
             @include('layouts.admin.nav')
                 <main id="{{$view_name}}">
                     @yield('content')

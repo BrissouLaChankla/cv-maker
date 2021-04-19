@@ -16140,6 +16140,15 @@ html {
   z-index: 100;
   top: 20px;
   right: 20px;
+  height: 42px;
+  width: 42px;
+}
+.admin-btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -16239,6 +16248,7 @@ header {
 }
 header .avatar {
   width: 120px;
+  height: 120px;
   border: 6px solid #2c2f3f;
 }
 

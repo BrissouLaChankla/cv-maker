@@ -9,6 +9,8 @@ class About extends Model
 {
     protected $fillable = [
         'description',
+        'picture_path',
+        'nav_picture_path',
         'details',
         'birthday',
         'diploma',
@@ -16,7 +18,7 @@ class About extends Model
         'email',
         'location',
         'status',
-        'hobbies'
+        'hobbies' 
     ];
 
     protected $dates = [

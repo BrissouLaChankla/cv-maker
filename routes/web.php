@@ -6,6 +6,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\RealisationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\SocialController;
+use App\Http\Controllers\StudyController;
+use App\Http\Controllers\TechnologyController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\NavigationController;
 use Illuminate\Support\Facades\Http;
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +46,17 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 //
 Route::get('/admin/{slug}', [AdminController::class, 'showSection'])->name('show-section');
+
+
+// Edit 
+Route::post('/edit/about', [AboutController::class, 'editAbout'])->name('edit-about');
+Route::post('/edit/contact', [ContactController::class, 'editContact'])->name('edit-contact');
+Route::post('/edit/resume', [ResumeController::class, 'editResume'])->name('edit-resume');
+Route::post('/edit/job', [JobController::class, 'editJob'])->name('edit-job');
+Route::post('/edit/navigation', [NavigationController::class, 'editNavigation'])->name('edit-navigation');
+Route::post('/edit/portfolio', [PortfolioController::class, 'editPortfolio'])->name('edit-portfolio');
+Route::post('/edit/realisation', [RealisationController::class, 'editRealisation'])->name('edit-realisation');
+Route::post('/edit/social', [SocialController::class, 'editSocial'])->name('edit-social');
+Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-study');
+Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])->name('edit-technology');
+

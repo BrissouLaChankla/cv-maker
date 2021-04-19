@@ -1,0 +1,26 @@
+
+// PERMET HOVER EDIT IMAGE
+.edit-picture{
+    position: relative;
+    &:hover{
+        & img {
+            filter: brightness(30%);
+        }
+        & .icon-hover {
+            opacity: 1;
+            transform: translate(-50%, -50%) ;
+        }
+    }
+}
+
+.icon-hover {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    z-index: 10;
+    transition: all .3s ease;
+    opacity: 0;
+    transform: translate(-50%, 20px);
+    font-size:1.8rem;
+}
