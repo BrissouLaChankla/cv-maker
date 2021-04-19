@@ -17,14 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         View::composer('*', function($view){
-            $socials = Social::whereRaw('link <> ""')->get();
-            $navigations = Navigation::all();
-
             View::share([
-                'view_name' => $view->getName(),
-                'socials' => $socials,
-                'navigations' => $navigations
-            
+                'view_name' => $view->getName()
             ]);
             
         });
@@ -37,6 +31,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        $socials = Social::whereRaw('link <> ""')->get();
+        $navigations = Navigation::all();
+        
+        View::share([
+            'socials' => $socials,
+            'navigations' => $navigations
+        ]);
     }
 }

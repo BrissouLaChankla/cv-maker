@@ -11,6 +11,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/admin.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,6 +23,7 @@
     </head>
     <body>
         <div id="app" >
+            <a href="{{route('front')}}" class="btn btn-primary shadow rounded-circle admin-btn py-2"><i class="fas fa-home"></i></a>
             @include('layouts.admin.nav')
                 <main id="{{$view_name}}">
                     @yield('content')

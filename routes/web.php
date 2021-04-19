@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Http;
 */
 Auth::routes();
 
-Route::get('/', [WelcomeController::class, 'welcome']);
+Route::get('/', [WelcomeController::class, 'welcome'])->name('front');
 // $response = Http::withHeaders([
   //     'api_key' => 'RGAPI-ca20d3a2-8e7a-44b0-b1c1-f152a91fd3db',
   // ])->get('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Pr%C3%A9puce%20Endolori');
@@ -33,5 +33,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // Admin
+
+//Index
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
+//
+Route::get('/admin/{slug}', [AdminController::class, 'showSection'])->name('show-section');
