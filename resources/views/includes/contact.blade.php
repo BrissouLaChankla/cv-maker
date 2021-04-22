@@ -1,3 +1,8 @@
+<div class="section-title mb-4">
+    <h2>Contact</h2>
+    <p>{!! nl2br(e($contact->description)) !!}</p>
+</div>
+
 <div class="row">
     <div class="col-md-5">
         <div class="bg-white p-4 shadow-sm h-100">

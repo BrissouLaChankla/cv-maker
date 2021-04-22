@@ -14,6 +14,8 @@ use App\Http\Controllers\TechnologyController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\NavigationController;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +38,9 @@ Route::get('/infos/competences', [ResumeController::class, 'getInfosCompetences'
 
 Route::get('/projets', [RealisationController::class, 'showAll'])->name('allProjects');
 Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->name('project');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// Route::get('/home', [HomeController::class, 'index']);
 
 
 // Admin

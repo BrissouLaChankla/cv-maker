@@ -4,6 +4,7 @@ namespace App\Providers;
 use View;
 use Carbon\Carbon;
 use App\Models\Social;
+use App\Models\About;
 use App\Models\Navigation;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,10 +34,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $socials = Social::whereRaw('link <> ""')->get();
         $navigations = Navigation::all();
+        $about = About::first();
         
         View::share([
             'socials' => $socials,
-            'navigations' => $navigations
+            'navigations' => $navigations,
+            'about' => $about
         ]);
     }
 }

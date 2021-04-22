@@ -1,3 +1,8 @@
+<div class="section-title mb-4">
+    <h2>Curriculum Vitae</h2>
+    <p>{!! nl2br(e($resume->description)) !!}</p>
+</div>
+
 <div class="row">
     <div class="col-lg-6">
         <h3 class="my-3">Parcours Pro.</h3>

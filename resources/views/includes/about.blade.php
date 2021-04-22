@@ -1,3 +1,8 @@
+<div class="section-title mb-4">
+    <h2>A propos</h2>
+    <p>{!! nl2br(e($about->description)) !!}</p>
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <img src="{{asset('img/profile.jpg')}}" class="img-fluid" alt="photo-moi">

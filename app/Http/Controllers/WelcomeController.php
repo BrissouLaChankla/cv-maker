@@ -17,7 +17,6 @@ class WelcomeController extends Controller
 {
     public function welcome()
     {
-        $about = About::first();
         $resume = Resume::first();
         $jobs = Job::all();
         $studies = Study::all();
@@ -27,7 +26,6 @@ class WelcomeController extends Controller
         $contact = Contact::first();
         $lastJob = Job::orderBy('start_date', 'DESC')->first();
         return view('welcome')->with([
-            'about' => $about,
             'resume' => $resume,
             'jobs' => $jobs,
             'studies' => $studies,

@@ -16,6 +16,7 @@ class Realisation extends Model
         'description',
         'logo_path',
         'background_path',
+        'background_path_small',
         'category',
         'link',
         'date'
@@ -28,7 +29,9 @@ class Realisation extends Model
     public function technologies() {
         return $this->belongsToMany(Technology::class);
     }
-
+    public function pictures() {
+        return $this->hasMany(Picture::class);
+    }
 
     public function sluggable(): array
     {

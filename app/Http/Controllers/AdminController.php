@@ -28,7 +28,6 @@ class AdminController extends Controller
     
     public function index() {
         $user = Auth::user();
-        $about = About::first();
         $resume = Resume::first();
         $jobs = Job::all();
         $studies = Study::all();
@@ -40,7 +39,6 @@ class AdminController extends Controller
 
         return view('admin.welcome')->with([
             'user' => $user,
-            'about' => $about,
             'resume' => $resume,
             'jobs' => $jobs,
             'studies' => $studies,
@@ -54,8 +52,25 @@ class AdminController extends Controller
     
     
     public function showSection($slug) {
+
+        $resume = Resume::first();
+        $jobs = Job::all();
+        $studies = Study::all();
+        $technologies = Technology::all();
+        $realisations = Realisation::all();
+        $portfolio = Portfolio::first();
+        $contact = Contact::first();
+        $lastJob = Job::orderBy('start_date', 'DESC')->first();
         return view('admin.section')->with([
            'section' => $slug, 
+           'resume' => $resume,
+           'jobs' => $jobs,
+           'studies' => $studies,
+           'technologies' => $technologies,
+           'realisations' => $realisations,
+           'lastJob' => $lastJob,
+           'contact' => $contact,
+           'portfolio' => $portfolio
         ]);
     }
 }

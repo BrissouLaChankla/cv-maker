@@ -22,7 +22,12 @@ class RealisationController extends Controller
     }
 
     public function showProject($slug) {
-        return 'caca';
+        $realisation = Realisation::where('slug', $slug)->first();
+        $pictures = $realisation->pictures;
+        return view('realisation')->with([
+            'realisation' => $realisation,
+            'pictures' => $pictures
+        ]);
     }
     /**
      * Show the form for creating a new resource.

@@ -1,3 +1,8 @@
+<div class="section-title mb-4">
+    <h2>Mes réalisations</h2>
+    <p>{!! nl2br(e($portfolio->description)) !!}</p>
+</div>
+
 <div class="d-flex justify-content-center my-3">
     <div class="d-flex bg-light portfolio-sort px-2 bg-primary">
         <span data-sort="all" class="pointer sort text-uppercase py-2 px-3">ALL</span>
@@ -14,6 +19,7 @@
                     <h5 class="text-center">{{$realisation->name}}</h5>
                     <p>{!! nl2br(e($realisation->description)) !!}</p>
                     <a href="{{route('project', $realisation->slug)}}" class="btn btn-dark">En savoir +</a>
+                    <a href="{{route('project', $realisation->slug)}}" class="btn btn-dark">Visiter</a>
                 </div>
             </div>
         @endforeach
