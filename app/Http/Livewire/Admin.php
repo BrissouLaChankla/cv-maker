@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Livewire;
 
 use Illuminate\Http\Request;
 use App\Models\About;
@@ -13,20 +13,12 @@ use App\Models\Technology;
 use App\Models\Contact;
 use Auth;
 
-class AdminController extends Controller
+use Livewire\Component;
+
+class Admin extends Component
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function render()
     {
-        $this->middleware('auth');
-    }
-    
-    
-    public function index() {
         $user = Auth::user();
         $resume = Resume::first();
         $jobs = Job::all();
@@ -36,8 +28,8 @@ class AdminController extends Controller
         $portfolio = Portfolio::first();
         $contact = Contact::first();
         $lastJob = Job::orderBy('start_date', 'DESC')->first();
-
-        return view('admin.welcome')->with([
+        
+        return view('livewire.admin', [
             'user' => $user,
             'resume' => $resume,
             'jobs' => $jobs,
@@ -47,14 +39,6 @@ class AdminController extends Controller
             'lastJob' => $lastJob,
             'contact' => $contact,
             'portfolio' => $portfolio
-        ]);
-    }
-    
-    
-    public function showSection($slug) {
-
-        return view('admin.section')->with([
-           'section' => $slug
         ]);
     }
 }

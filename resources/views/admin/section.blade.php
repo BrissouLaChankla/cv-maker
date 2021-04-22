@@ -4,7 +4,9 @@
     <h1>Modification de la section {{$section}}</h1>
     
     
-    @include("admin.includes.".$section)
+    {{-- @include("admin.includes.".$section) --}}
+    @livewire($section.'-admin')
+
 </div>
 
 @endsection
