@@ -12,7 +12,7 @@ use App\Models\Study;
 use App\Models\Technology;
 use App\Models\Contact;
 use Auth;
-
+     
 use Livewire\Component;
 
 class Admin extends Component
