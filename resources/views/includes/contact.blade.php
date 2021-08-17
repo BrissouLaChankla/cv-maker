@@ -7,7 +7,7 @@
     <div class="col-md-5">
         <div class="bg-white p-4 shadow-sm h-100">
             <div class="d-flex align-items-start my-4">
-                <span class="rounded-circle btn btn-primary mr-3">
+                <span class="rounded-circle btn btn-primary mr-3 cursor">
                     <i class="fas fa-map-marker-alt"></i>
                 </span>
                 <div>
@@ -40,26 +40,26 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    {!! Form::label('name', 'Nom')!!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('name', 'Nom')!!}<sup class="text-danger">*</sup>
+                    {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
                   </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    {!! Form::label('mail', 'E-mail')!!}
-                    {!! Form::email('mail', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('mail', 'E-mail')!!}<sup class="text-danger">*</sup>
+                    {!! Form::email('mail', null, ['class' => 'form-control', 'required']) !!}
                   </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    {!! Form::label('subject', 'Sujet')!!}
-                    {!! Form::select('subject', ['L' => 'Large', 'S' => 'Small'], null, ['class'=>'form-control']) !!}
+                    {!! Form::label('subject', 'Sujet')!!}<sup class="text-danger">*</sup>
+                    {!! Form::select('subject', ['emploi' => 'Proposition d\'emploi', 'mission' => 'Proposition de mission', 'question' => 'Question(s)',  'autre' => 'Autre'], null, ['class'=>'form-control', 'required']) !!}
                   </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    {!! Form::label('message', 'Message')!!}
-                    {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('message', 'Message')!!}<sup class="text-danger">*</sup>
+                    {!! Form::textarea('message', null, ['class' => 'form-control', 'required']) !!}
                   </div>
             </div>
             <div class="col-12 text-right">

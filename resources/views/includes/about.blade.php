@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <img src="{{asset('img/brice_eliasse.png')}}" class="img-fluid profile-cv" alt="Brice Eliasse">
+        <img src="{{asset('img/brice_eliasse.png')}}" class="img-fluid profile-cv " alt="Brice Eliasse">
     </div>
     <div class="col-md-8 mt-md-0 mt-3 p-5">
         <div class="row">

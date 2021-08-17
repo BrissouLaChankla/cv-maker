@@ -18,7 +18,7 @@ class RealisationController extends Controller
     }
 
     public function showAll() {
-        return 'caca';
+        return 'cringe';
     }
 
     public function showProject($slug) {
@@ -36,7 +36,7 @@ class RealisationController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**

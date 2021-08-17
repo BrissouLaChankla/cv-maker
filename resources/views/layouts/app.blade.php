@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>CV de Brice Eliasse - Développeur Full-Stack </title>
+        <title>CV - Brice Eliasse, développeur Full-Stack </title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
@@ -30,9 +30,11 @@
                 <a href="{{route('admin')}}" class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-user-ninja"></i></a>
             @endauth
             @include('layouts.nav')
+            <div id="swup">
                 <main id="{{$view_name}}">
                     @yield('content')
                 </main>
+            </div>
             @include('layouts.footer')
         </div>
         @yield('scripts')

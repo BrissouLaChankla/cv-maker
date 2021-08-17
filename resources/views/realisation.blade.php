@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="bandeau d-flex align-items-center" style="background-image:url('{{$realisation->background_path}}')">
+<div class="bandeau d-flex align-items-center" style="background-image:url('/img/realisations/{{$realisation->background_path}}')">
     <h1 class="pl-5 text-white">{{$realisation->name}}</h1>
 </div>
 <div class="infos p-5">

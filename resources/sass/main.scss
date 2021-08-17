@@ -27,8 +27,16 @@ html {
     font-weight: 600;
 }
 
+.rounded-big {
+    border-radius:50px;
+}
+
 .pointer {
     cursor: pointer;
+}
+
+.cursor {
+    cursor: default!important;
 }
 
 @media screen and (min-width: 1200px) {
@@ -142,6 +150,10 @@ header {
 
 
 // CV 
+
+.wow {
+    visibility: hidden;
+}
 
 .item-cv {
     padding: 0 0 20px 20px;
