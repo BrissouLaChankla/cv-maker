@@ -15,7 +15,7 @@
         </div>
         <nav class="d-flex flex-column">
             @foreach ($navigations as $navigation)
-                <a href="/#{{$navigation->anchor}}" class="text-grey text-decoration-none py-3 med-size @if($loop->first) onit @endif">
+                <a data-no-swup href="/#{{$navigation->anchor}}" class="text-grey text-decoration-none py-3 med-size @if($loop->first) onit @endif">
                     {!! $navigation->icon !!}
                     <span class="ml-2">{{$navigation->name}}</span>
                 </a>

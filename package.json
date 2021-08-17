@@ -25,6 +25,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
         "@swup/overlay-theme": "^1.1.1",
+        "@swup/scroll-plugin": "^1.1.0",
         "@swup/slide-theme": "^1.0.5",
         "animate.css": "^3.5.2",
         "flatpickr": "^4.6.9",

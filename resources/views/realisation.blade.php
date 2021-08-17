@@ -2,7 +2,10 @@
 
 @section('content')
 
-<div class="bandeau d-flex align-items-center" style="background-image:url('/img/realisations/{{$realisation->background_path}}')">
+<div class="bandeau d-flex align-items-center position-relative" style="background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/img/realisations/{{$realisation->background_path}}')">
+    <a class="text-white return-home" href="/#portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
     <h1 class="pl-5 text-white">{{$realisation->name}}</h1>
 </div>
 <div class="infos p-5">

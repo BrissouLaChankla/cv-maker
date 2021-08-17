@@ -17288,18 +17288,16 @@ header .avatar {
   transform: translateY(0);
 }
 
+.return-home {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 3rem;
+}
+
 .sort-active {
   background-color: #149ddd;
   color: white;
-}
-
-.profile-cv {
-  transform: scale(116%) translate(1.5rem, 1.5rem);
-}
-
-.shortdesc-rea {
-  transform: translateY(4rem);
-  transition: all 0.3s ease;
 }
 
 @-webkit-keyframes pulse {

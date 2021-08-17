@@ -1,13 +1,16 @@
 const { throttle } = require("lodash");
 
 
+
 document.addEventListener( 'DOMContentLoaded', function () {
 	const swup = new Swup({
-        plugins: [new SwupOverlayTheme({
-            color: '#040b14',
-        }
-        )]
+            plugins: [new SwupOverlayTheme({
+                color: '#040b14',
+            }),
+            // new SwupScrollPlugin()
+        ]
     }); 
+
     
     function init() {
         window.wow.init();
