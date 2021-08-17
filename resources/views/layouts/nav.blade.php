@@ -18,4 +18,5 @@
             </a>
         @endforeach
     </nav>
+    <a href="#" class="btn btn-light rounded">Télécharger le CV</a>
 </header>

@@ -8,12 +8,12 @@
     J'aime Laravel, j'utilise Laravel et je continue de m'éxercer sur Laravel : 90%
 </p>
 <p>
-    J'aime Flutter, j'utilise très peu Flutter et je ne m'exerce plus tellement aujourd'hui dessus : 60%
+    J'aime Tailwind, j'utilise très peu Tailwind et je ne m'exerce plus tellement aujourd'hui dessus : 60%
 </p>
 <p>
-    Si quelqu'un veut que j'utilise Flutter pour son projet, je pourrais car je connais et aime suffisamment cette technologie pour la mettre sur mon CV, mais je n'excel pas dedans.
+    Si quelqu'un veut que j'utilise Tailwind pour son projet, je pourrais car je connais et aime suffisamment cette technologie pour la mettre sur mon CV, mais je n'excel pas dedans.
 </p>
 <p>
-    Libre à vous d'aimer ou ne pas aimer, je comprends aussi les détracteurs de cette façon de faire, une barre veut tout et rien dire et ça vaut bien la peine d'avoir "Aperçu rapide" s'il faut derrière écrire tout un texte pour expliquer ce qu'elles représentent !
+    Libre à vous d'aimer ou ne pas aimer, je comprends aussi les détracteurs de cette façon de faire, une barre veut tout et rien dire et ça vaut bien la peine d'avoir un "Aperçu rapide" s'il faut derrière écrire tout un texte pour expliquer ce qu'elles représentent !
 </p>
 

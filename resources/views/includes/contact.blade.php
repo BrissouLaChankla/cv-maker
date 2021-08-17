@@ -16,18 +16,18 @@
                 </div>
             </div>
             <div class="d-flex align-items-start my-4">
-                <span class="rounded-circle btn btn-primary mr-3">
+                <a href="mailto:contact@brice-eliasse.com" class="rounded-circle btn btn-primary mr-3">
                     <i class="far fa-paper-plane"></i>
-                </span>
+                </a>
                 <div>
                     <h5>Email</h5>
                     <a href="mailto:contact@brice-eliasse.com">contact@brice-eliasse.com</a>
                 </div>
             </div>
             <div class="d-flex align-items-start my-4">
-                <span class="rounded-circle btn btn-primary mr-3">
+                <a href="tel:+0619630877" class="rounded-circle btn btn-primary mr-3">
                     <i class="fas fa-phone"></i>
-                </span>
+                </a>
                 <div>
                     <h5>Téléphone</h5>
                     <a href="tel:+0619630877">0619630877</a>

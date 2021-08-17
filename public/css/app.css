@@ -17216,9 +17216,16 @@ header .avatar {
   height: 16px;
   border-radius: 50px;
   left: -9px;
-  top: 0;
+  top: 4px;
   background: #fff;
   border: 2px solid #149ddd;
+}
+.item-cv.pulsed:before {
+  top: 0;
+  box-shadow: 0 0 0 0 #149ddd;
+  transform: scale(1);
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
 }
 .item-cv .date {
   font-size: 13px;
@@ -17249,39 +17256,55 @@ header .avatar {
   border-bottom-left-radius: 2rem;
 }
 
-.realisations > div {
-  height: 350px;
+.bg-rea {
+  height: 15rem;
+  background-size: cover !important;
+  background-position: center !important;
 }
-.realisations > div:hover .rea-content {
-  transform: translate(-50%, -180px);
-}
-.realisations > div:hover p {
-  opacity: 1;
-  visibility: visible;
-}
-.realisations > div:hover .btn {
-  opacity: 1;
-  visibility: visible;
-}
-.realisations p {
-  transition: all 0.25s ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.realisations .btn {
-  transition: all 0.25s ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.realisations .rea-content {
-  position: absolute;
-  bottom: -75px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: all 0.25s ease-out;
+.bg-rea:hover .shortdesc-rea {
+  transform: translateY(0);
 }
 
 .sort-active {
   background-color: #149ddd;
   color: white;
+}
+
+.profile-cv {
+  transform: scale(116%) translate(1.5rem, 1.5rem);
+}
+
+.shortdesc-rea {
+  transform: translateY(4rem);
+  transition: all 0.3s ease;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(20, 157, 221, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(20, 157, 221, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(20, 157, 221, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(20, 157, 221, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(20, 157, 221, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(20, 157, 221, 0);
+  }
 }

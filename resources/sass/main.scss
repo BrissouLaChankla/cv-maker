@@ -156,9 +156,16 @@ header {
         height: 16px;
         border-radius: 50px;
         left: -9px;
-        top: 0;
+        top: 4px;
         background: #fff;
         border: 2px solid $primary;
+
+    }
+    &.pulsed:before{
+        top: 0;
+        box-shadow: 0 0 0 0 rgba(20, 157, 221, 1);
+        transform: scale(1);
+        animation: pulse 2s infinite;
     }
 
     .date {
@@ -195,49 +202,50 @@ header {
     }
 }
 
-.realisations {
-    & > div {
-        height: 350px;
-        &:hover {
-            .rea-content {
-                transform: translate(-50%, -180px);
-            }
-            p {
-                opacity: 1;
-                visibility: visible;
-            }
-            .btn {
-                opacity: 1;
-                visibility: visible;
-            }
+.bg-rea {
+    height: 15rem;
+    background-size:cover!important;
+    background-position: center!important;
+
+    &:hover {
+        & .shortdesc-rea {
+            transform:translateY(0);
         }
     }
-    img {
+}
 
-    }
-    h5 {
-        
-    }
-    p {
-        transition: all .25s ease;
-        opacity: 0;
-        visibility: hidden;
-    }
-    .btn {
-        transition: all .25s ease;
-        opacity: 0;
-        visibility: hidden;
-    }
-    .rea-content  {
-        position: absolute;
-        bottom: -75px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: all .25s ease-out;
-    }
+.realisations {
+
 }
 
 .sort-active {
     background-color:$primary;
     color:white;
+}
+
+.profile-cv {
+    transform: scale(116%) translate(1.5rem, 1.5rem);
+}
+
+.shortdesc-rea {
+    transform: translateY(4rem);
+    transition: all .3s ease;
+}
+
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(20, 157, 221, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(20, 157, 221, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(20, 157, 221, 0);
+	}
 }

@@ -10,7 +10,7 @@
             <div class="item-cv">
                 @foreach ($jobs as $job)
                     <h4><strong>{{$job->name}}</strong> | {{$job->company}}</h4>
-                    <div class="date">{{$job->start_date_month}} <i class="fas fa-long-arrow-alt-right mx-1"></i> @if(null !== $job->end_date) {{$job->end_date_month}} @else Aujourd'hui @endif </div> <small><i class="far fa-clock mx-1"></i> {{$job->time_passed}}</small>
+                    <div class="date text-muted">{{$job->start_date_month}} <i class="fas fa-long-arrow-alt-right mx-1"></i> @if(null !== $job->end_date) {{$job->end_date_month}} @else Aujourd'hui @endif </div> <small><i class="far fa-clock mx-1"></i> {{$job->time_passed}}</small>
                     <p>{!! nl2br(e($job->description)) !!}</p>
                 @endforeach
             </div>
@@ -20,7 +20,7 @@
             @foreach ($resume->studies as $study)
                 <div class="item-cv">
                     <h4><strong>{{$study->name}}</strong> | {{$study->school}}</h4>
-                    <div class="date"> {{$study->start_date->format('Y')}} <i class="fas fa-long-arrow-alt-right mx-1"></i> {{$study->end_date->format('Y')}} </div> @if (null !== $study->job) <small><i class="fas fa-briefcase mx-1"></i> En alternance chez {{$study->job->company}}</small> @endif
+                    <div class="date text-muted"> {{$study->start_date->format('Y')}} <i class="fas fa-long-arrow-alt-right mx-1"></i> {{$study->end_date->format('Y')}} </div> @if (null !== $study->job) <small><i class="fas fa-briefcase mx-1"></i> En alternance chez {{$study->job->company}}</small> @endif
                     <p>{!! nl2br(e($study->description)) !!}</p>
                 </div>
             @endforeach
