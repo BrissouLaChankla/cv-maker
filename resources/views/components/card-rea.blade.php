@@ -1,4 +1,4 @@
-    <div id="curve" class="rea-card" style="background:url('{{asset('img/realisations/small/'.$realisation->background_path_small)}}">
+    <div id="curve" class="rea-card position-relative" style="background:url('{{asset('img/realisations/small/'.$realisation->background_path_small)}}">
         <div class="footer">
             <div class="connections">
                 <div class="connection facebook"><div class="icon"></div></div>
@@ -7,7 +7,7 @@
             </div>
             <svg id="curve">
                 <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
-                <rect id="dummyRect" x="0" y="0" height="450" width="400"
+                <rect id="dummyRect" x="0" y="0" height="300" width="100%"
             fill="transparent" />
                 <!-- slide up-->
                 <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
@@ -32,16 +32,9 @@
 
 <style>
     .rea-card {
-    border-radius: 8px;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 0 80px -10px black;
     overflow: hidden;
 }
 

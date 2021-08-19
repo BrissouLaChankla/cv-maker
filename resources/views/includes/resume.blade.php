@@ -4,10 +4,10 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6 d-flex flex-column">
         <h3 class="my-3">Parcours Pro.</h3>
             @foreach ($jobs as $job)
-                <div class="item-cv {{($loop->first) ? "pulsed" : ""}}">
+                <div class="item-cv {{($loop->last) ? "flex-grow-1" : ""}} {{($loop->first) ? "pulsed" : ""}}">
                     <h4><strong>{{$job->name}}</strong> | {{$job->company}}</h4>
                     <div class="date text-muted">{{$job->start_date_month}} <i class="fas fa-long-arrow-alt-right mx-1"></i> @if(null !== $job->end_date) {{$job->end_date_month}} @else Aujourd'hui @endif </div> <small><i class="far fa-clock mx-1"></i> {{$job->time_passed}}</small>
                     <p>{!! nl2br(e($job->description)) !!}</p>

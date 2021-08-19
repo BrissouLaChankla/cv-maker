@@ -2,7 +2,8 @@
     <div>
         <div class="profile text-center mb-2">
             <a href="/">
-                <img src="{{asset('storage/uploads/abouts/'.$about->nav_picture_path)}}" class="avatar img-fluid rounded-circle" alt="Avatar">
+                <img src="{{asset('img/profile.jpg')}}" class="avatar img-fluid rounded-circle" alt="Avatar">
+                {{-- <img src="{{asset('storage/uploads/abouts/'.$about->nav_picture_path)}}" class="avatar img-fluid rounded-circle" alt="Avatar"> --}}
             </a>
             <h2 class="text-white my-2">{{$about->firstname}} {{$about->lastname}}</h2>
             <div class="d-flex justify-content-center">
