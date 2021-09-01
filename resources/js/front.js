@@ -57,6 +57,47 @@ document.addEventListener( 'DOMContentLoaded', function () {
                     }
                 }
             },300));
+
+            const Toast = swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', swal.stopTimer)
+                  toast.addEventListener('mouseleave', swal.resumeTimer)
+                }
+              })
+
+
+    $("#contact-form").submit(function(e) {
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        Toast.fire({
+            icon: 'info',
+            title: 'Envoie du mail...'
+        });
+        var form = $(this);
+        var url = form.attr('action');
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                form.find("input[type=text], input[type=email], textarea").val("");
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Super, j\'ai bien reçu votre mail ! 🤗'
+                });
+            }
+        });
+    });
+
+
         }
 
         if (document.querySelector('#realisation')) {

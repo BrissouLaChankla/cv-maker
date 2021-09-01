@@ -2,84 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Mail\Contact;
 use Illuminate\Http\Request;
+use Validator;
+use Mail; 
 
-class ContactController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+class ContactController extends Controller { 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function store(Request $request) { 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+      // $request->validate([
+      //     'name' => 'required',
+      //     'mail' => 'required|mail',
+      //     'subject' => 'required',
+      //     'message' => 'required'
+      // ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
+      Mail::send('emails.contact', [
+        'name' => $request->name,
+        'mail' => $request->mail,
+        'subject' => $request->subject,
+        'msg' => $request->message
+      ], function($mail) use($request){
+        $mail->from(env('MAIL_FROM_ADDRESS'), $request->name);
+        $mail->to('brice.eliasse.pro@gmail.com')->subject($request->name .' a un.e '. $request->subject. ' pour vous !');
+      });
+      return "Message sent!!!";
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contact $contact)
-    {
-        //
-    }
+  }
 }
+

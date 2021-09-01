@@ -12,7 +12,7 @@
                 </span>
                 <div>
                     <h5>Emplacement</h5>
-                    <p>Régulièrement entre les Alpes-Martimes(06) et le Var(83)</p>
+                    <p>Alpes-Martimes(06) et plus particulièrement Nice</p>
                 </div>
             </div>
             <div class="d-flex align-items-start my-4">
@@ -36,11 +36,12 @@
         </div>
     </div>
     <div class="col-md-7">
-        {!! Form::open(['url' => '', 'class' => 'bg-white shadow-sm p-4']) !!}
+        {!! Form::open([ 'method'=> 'post', 'action' => 'ContactController@store', 'class' => 'bg-white shadow-sm p-4', 'id' => 'contact-form']) !!}
+        @csrf
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    {!! Form::label('name', 'Nom')!!}<sup class="text-danger">*</sup>
+                    {!! Form::label('name', 'Nom / Société')!!}<sup class="text-danger">*</sup>
                     {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
                   </div>
             </div>

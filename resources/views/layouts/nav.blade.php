@@ -23,5 +23,5 @@
             @endforeach
         </nav>
     </div>
-    <a href="#" class="btn btn-light rounded-big w-100">Télécharger mon CV</a>
+    <a target="_blank" data-no-swup href="{{asset('CV_Brice_Eliasse.pdf')}}" class="btn btn-light rounded-big w-100">Télécharger mon CV</a>
 </header>

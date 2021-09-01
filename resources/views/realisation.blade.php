@@ -6,7 +6,7 @@
     <a class="text-white return-home" href="/#portfolio">
         <i class="fas fa-arrow-left"></i>
     </a>
-    <h1 class="pl-5 text-white">{{$realisation->name}}</h1>
+    <h1 class="pl-5 ml-md-5 text-white">{{$realisation->name}}</h1>
 </div>
 <div class="infos p-5">
     <div class="container-fluid">

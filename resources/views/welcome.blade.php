@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <div id="hero" class="vh-100">
+    <div id="hero" class="vh-100">
         
-    </div> --}}
+    </div>
     <div id="about" class="p-5 bg-light-grey">
         @include('includes.about')
     </div>

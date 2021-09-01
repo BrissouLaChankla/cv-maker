@@ -17279,25 +17279,46 @@ header .avatar {
   border-bottom-left-radius: 2rem;
 }
 
+.logo-project {
+  height: 150px;
+  transition: all 0.3s ease;
+}
+
+.shortdesc-rea {
+  opacity: 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: -60px;
+}
+
 .bg-rea {
   height: 15rem;
   background-size: cover !important;
   background-position: center !important;
 }
+.bg-rea:hover .logo-project {
+  transform: scale(0.5) translateY(-80%);
+}
 .bg-rea:hover .shortdesc-rea {
-  transform: translateY(0);
+  opacity: 1;
+  bottom: 15px;
 }
 
 .return-home {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  left: 20px;
   font-size: 3rem;
 }
 
 .sort-active {
   background-color: #149ddd;
   color: white;
+}
+
+.profile-cv {
+  transform: scale(116%);
+  bottom: -1.5rem;
+  position: absolute;
 }
 
 @-webkit-keyframes pulse {

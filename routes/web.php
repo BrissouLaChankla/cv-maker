@@ -13,6 +13,7 @@ use App\Http\Controllers\StudyController;
 use App\Http\Controllers\TechnologyController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,19 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Route::get('/home', [HomeController::class, 'index']);
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('send-mail', function () {
+   
+  $details = [
+      'nom' => 'caca',
+      'subject' => 'Mail from ItSolutionStuff.com',
+      'mail' => 'caca@mail.com',
+      'message' => 'This is for testing email using smtp'
+  ];
+ 
+ 
+});
 
 // Admin
 

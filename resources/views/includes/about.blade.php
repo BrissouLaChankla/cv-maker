@@ -1,5 +1,5 @@
 <div class="section-title mb-4">
-    <h2>A propos</h2>
+    <h2>À propos</h2>
     <p>{!! nl2br(e($about->description)) !!}</p>
 </div>
 
@@ -12,15 +12,15 @@
             <h3>{{$lastJob->name}}</h3>
             <p>{!! nl2br(e($about->details))!!}</p>
             <div class="col-lg-6">
-                <p class="arrowed">
-                    <strong>Date de naissance :</strong>
-                    <span class="birthday">
-                        {{ $about->birthday->format('d-m-Y') }}
+                <p class="arrowed d-flex align-items-center">
+                    <strong>Date de naissance : </strong>
+                    <span class="birthday"> 
+                        {{ $about->birthday->format('d/m/Y') }}
                     </span>
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
+                <p class="arrowed d-flex align-items-center">
                     <strong>Age :</strong>
                     <span class="age">
                         {{ $about->birthday->age }} ans
@@ -28,37 +28,39 @@
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
-                    <strong>Téléphone :</strong>
-                    <a href="tel:+{{$about->phone}}">{{$about->phone}}</a>
+                <p class="arrowed d-flex align-items-center">
+                    <span>
+                        <strong>Téléphone : </strong>
+                        <a href="tel:+{{$about->phone}}">{{$about->phone}}</a>
+                    </span>
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
-                    <strong>E-mail :</strong>
+                <p class="arrowed d-flex align-items-center">
+                    <strong>E-mail : </strong>
                     <a href="mailto:{{$about->email}}">{{$about->email}}</a>
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
-                    <strong>Département :</strong>
+                <p class="arrowed d-flex align-items-center">
+                    <strong>Lieu : </strong>
                     {{$about->location}}
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
+                <p class="arrowed d-flex align-items-center">
                     <strong>Diplôme :</strong>
                     {{ $about->diploma }}
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
+                <p class="arrowed d-flex align-items-center">
                     <strong>Hobbies :</strong>
                     {{ $about->hobbies }}
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="arrowed">
+                <p class="arrowed d-flex align-items-center">
                     <strong>Statut :</strong>
                     {{$about->status}} 
                 </p>
