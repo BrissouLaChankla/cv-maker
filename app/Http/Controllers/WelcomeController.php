@@ -18,7 +18,7 @@ class WelcomeController extends Controller
     public function welcome()
     {
         $resume = Resume::first();
-        $jobs = Job::all();
+        $jobs = Job::orderBy('start_date', 'desc')->get();
         $studies = Study::all();
         $technologies = Technology::all();
         $realisations = Realisation::all();

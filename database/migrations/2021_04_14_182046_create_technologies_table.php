@@ -16,7 +16,7 @@ class CreateTechnologiesTable extends Migration
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo_path')->nullable();
+            $table->string('logo_icon')->nullable();
             $table->text('description')->nullable();
             $table->float('mastery')->nullable();
 

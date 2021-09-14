@@ -10,18 +10,23 @@
 </div>
 <div class="infos p-5">
     <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
+        <div class="row">
+            <div class="col-lg-5">
                 <h2>{{$realisation->name}}, qu'est-ce que c'est ?</h2>
                 {!! nl2br(e($realisation->description)) !!}
-                <h3 class="mt-5">Technologies utilisées :</h2>
-                <ul>
+                <h3 class="mt-5 lil-h3">Technologies utilisées :</h2>
+                <div class="d-flex justify-content-center">
                     @foreach ($realisation->technologies as $technology)
-                        <li>{{$technology->name}}</li>
+                        <div style="background-color:{{$technology->color}}" class="logo-techno rounded text-white d-flex align-items-center justify-content-center mr-3">
+                            {!! $technology->logo_icon !!}
+                        </div>
                     @endforeach
-                </ul>
+                </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-7">
+                <div>
+                    <img src="{{asset('img/realisations/'.$realisation->background_path)}}" class="img-fluid rounded shadow" alt="">
+                </div>
                 <div class="row">
                     @foreach ($pictures as $picture)
                         <div class="col-6">

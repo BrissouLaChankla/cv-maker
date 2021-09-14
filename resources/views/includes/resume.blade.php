@@ -9,7 +9,7 @@
             @foreach ($jobs as $job)
                 <div class="item-cv {{($loop->last) ? "flex-grow-1" : ""}} {{($loop->first) ? "pulsed" : ""}}">
                     <h4><strong>{{$job->name}}</strong> | {{$job->company}}</h4>
-                    <div class="date text-muted">{{$job->start_date_month}} <i class="fas fa-long-arrow-alt-right mx-1"></i> @if(null !== $job->end_date) {{$job->end_date_month}} @else Aujourd'hui @endif </div> <small><i class="far fa-clock mx-1"></i> {{$job->time_passed}}</small>
+                    <div class="date text-muted">{{$job->start_date_month}} <i class="fas fa-long-arrow-alt-right mx-1"></i> @if(null !== $job->end_date) {{$job->end_date_month}} @else Aujourd'hui @endif </div> <small><i class="far fa-clock mx-1"></i> @if($job->start_date->format('m Y') == now()->format('m Y')) 1 mois @else {{$job->time_passed}} @endif</small>
                     <p>{!! nl2br(e($job->description)) !!}</p>
                 </div>
             @endforeach

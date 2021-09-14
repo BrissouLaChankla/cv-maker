@@ -17304,9 +17304,21 @@ header .avatar {
   bottom: 15px;
 }
 
+.lil-h3 {
+  font-size: 1.2rem;
+}
+
+.logo-techno {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+}
+
 .return-home {
   position: absolute;
-  left: 20px;
+  top: 10px;
+  left: 10px;
   font-size: 3rem;
 }
 

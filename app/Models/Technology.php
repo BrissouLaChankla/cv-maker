@@ -10,7 +10,7 @@ class Technology extends Model
 
     protected $fillable = [
         'name',
-        'logo_path',
+        'logo_icon',
         'description',
         'color',
         'type',
