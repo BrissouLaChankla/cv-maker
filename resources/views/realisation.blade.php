@@ -11,16 +11,21 @@
 <div class="infos p-5">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-5">
-                <h2>{{$realisation->name}}, qu'est-ce que c'est ?</h2>
-                {!! nl2br(e($realisation->description)) !!}
-                <h3 class="mt-5 lil-h3">Technologies utilisées :</h2>
-                <div class="d-flex justify-content-center">
-                    @foreach ($realisation->technologies as $technology)
-                        <div style="background-color:{{$technology->color}}" class="logo-techno rounded text-white d-flex align-items-center justify-content-center mr-3">
-                            {!! $technology->logo_icon !!}
+            <div class="col-lg-5 d-flex flex-column justify-content-between">
+                <div>
+                    <h2>{{$realisation->name}}, qu'est-ce que c'est ?</h2>
+                    {!! nl2br(e($realisation->description)) !!}
+                    <h3 class="mt-5 lil-h3">Technologies utilisées :</h2>
+                        <div class="d-flex justify-content-center mt-3">
+                            @foreach ($realisation->technologies as $technology)
+                            <div style="background-color:{{$technology->color}}" class="hvr-grow logo-techno rounded text-white d-flex align-items-center justify-content-center mr-3">
+                                {!! $technology->logo_icon !!}
+                            </div>
+                            @endforeach
                         </div>
-                    @endforeach
+                    </div>
+                <div>
+                    <a href="{{$realisation->link}}" target="_blank" class="btn btn-primary w-100">Visiter le site</a>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -30,7 +35,7 @@
                 <div class="row">
                     @foreach ($pictures as $picture)
                         <div class="col-6">
-                            <img src="{{asset('storage/uploads/realisations/pictures/'.$picture->picture_path)}}" alt="Photo {{$picture->id}} du projet {{$realisation->name}}">                            
+                            <img src="{{asset('storage/uploads/realisations/pictures/'.$picture->picture_path)}}" class="img-fluid rounded shadow-sm mt-3 " alt="Photo {{$picture->id}} de {{$realisation->name}}">                            
                         </div>
                     @endforeach
                 </div>
