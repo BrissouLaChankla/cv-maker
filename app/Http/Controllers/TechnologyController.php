@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
 {
+
+    public function getInfosTechnology($id) {
+        $technology = Technology::find($id);
+        return $technology;
+    }
     /**
      * Display a listing of the resource.
      *

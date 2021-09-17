@@ -251,6 +251,28 @@ header {
     font-size:1.2rem;
 }
 
+.loader {
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+}
+.modal-body {
+    .loader {
+        font-size: 2rem;
+    }
+}
+
+.techno-color {
+    font-size:2rem;
+    padding-left:.99rem;
+}
 // TECHNOLOGIES
 
 .logo-techno {

@@ -58,6 +58,23 @@ document.addEventListener( 'DOMContentLoaded', function () {
                 }
             },300));
 
+            $('.modal-competences').on('click', function() {
+                $('.modal-title').html('<i class="fas fa-circle-notch fa-spin"></i>');
+                $('.modal-body').html('<i class="fas fa-circle-notch fa-spin"></i>');
+                $.ajax({
+                    url : '/infos/competences',
+                    type : 'GET',
+                    success : function(data){
+                        $('.modal-title').text('Des barres sur un CV, ça vous énerve ? 😇')
+                        $('.modal-body').html(data);
+                    },
+                    error : function(){
+                        console.log('err ajax')
+                    }
+    
+                });
+            });  
+
             const Toast = swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -101,7 +118,28 @@ document.addEventListener( 'DOMContentLoaded', function () {
         }
 
         if (document.querySelector('#realisation')) {
-        
+                $('[data-toggle="tooltip"]').tooltip();  
+                
+                $('.logo-techno').on('click', function() {
+                    $('#technoModal').modal('show');
+                    $('.loader').removeClass('d-none');
+                    
+                    let id = $(this).data('id');
+                    $.ajax({
+                        url : '/infos/technology/'+id,
+                        type : 'GET',
+                        success : function(data){
+                            $('.loader').addClass('d-none');
+                            $('.techno-name').text(data.name);
+                            $('.techno-desc').html(data.description);
+                            $('.techno-color').css('background-color', data.color);
+                            $('.techno-color').html(data.logo_icon);
+                        },
+                        error : function(){
+                            console.log('err ajax')
+                        }
+                    });
+                }); 
         }
 
     }

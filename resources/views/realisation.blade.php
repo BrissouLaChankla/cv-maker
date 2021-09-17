@@ -18,10 +18,11 @@
                     <h3 class="mt-5 lil-h3">Technologies utilisées :</h2>
                         <div class="d-flex justify-content-center mt-3">
                             @foreach ($realisation->technologies as $technology)
-                            <div style="background-color:{{$technology->color}}" class="hvr-grow logo-techno rounded text-white d-flex align-items-center justify-content-center mr-3">
-                                {!! $technology->logo_icon !!}
-                            </div>
+                                <a data-placement="bottom" href="#" data-id="{{$technology->id}}" data-toggle="tooltip" title="{{$technology->name}}" style="background-color:{{$technology->color}}" class="hvr-grow logo-techno rounded text-white d-flex align-items-center justify-content-center mr-3 text-decoration-none">
+                                    {!! $technology->logo_icon !!}
+                                </a>
                             @endforeach
+                            @include('includes.modal-techno')
                         </div>
                     </div>
                 <div>

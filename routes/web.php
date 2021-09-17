@@ -36,6 +36,7 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('front');
   // dd($response);
 
 Route::get('/infos/competences', [ResumeController::class, 'getInfosCompetences']);
+Route::get('/infos/technology/{id}', [TechnologyController::class, 'getInfosTechnology']);
 
 Route::get('/projets', [RealisationController::class, 'showAll'])->name('allProjects');
 Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->name('project');
