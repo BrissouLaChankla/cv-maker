@@ -219,6 +219,10 @@ header {
     transition: all .3s ease;
 }
 
+.small-logo-project {
+    height: 75px;
+}
+
 .shortdesc-rea {
     opacity: 0;
     transition: all .3s ease;
@@ -300,6 +304,27 @@ header {
     position: absolute;
 }
 
+.techno-icon {
+    &:not(.avoid-glitch-top){
+        animation: falling 5s infinite linear;
+    }
+    &.avoid-glitch-top {
+        animation: fallingAvoid 5s infinite linear;
+        position: absolute;
+        top: -12.5%;
+    }
+}
+
+.avoid-glitch-color {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.imgtechno-rea {
+    height: 160px;
+}
 
 
 @keyframes pulse {
@@ -318,6 +343,27 @@ header {
 		box-shadow: 0 0 0 0 rgba(20, 157, 221, 0);
 	}
 }
+
+@keyframes falling {
+	0% {
+        transform:translateY(0%);
+    }
+
+	100% {
+        transform:translateY(100%);
+    }
+}
+
+@keyframes fallingAvoid {
+	0% {
+        transform:translateY(0%);
+    }
+
+	100% {
+        transform:translateY(100%);
+    }
+}
+
 
 
 .hvr-grow {

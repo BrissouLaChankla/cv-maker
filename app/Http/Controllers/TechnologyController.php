@@ -10,6 +10,7 @@ class TechnologyController extends Controller
 
     public function getInfosTechnology($id) {
         $technology = Technology::find($id);
+        $realisations = $technology->realisations;
         return $technology;
     }
     /**
