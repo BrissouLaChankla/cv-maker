@@ -17279,6 +17279,26 @@ header .avatar {
   border-bottom-left-radius: 2rem;
 }
 
+#technoreas .imgtechno-rea i {
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  left: 50%;
+  top: -60px;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+}
+#technoreas .imgtechno-rea .proj {
+  transition: all 0.4s ease;
+}
+#technoreas .imgtechno-rea:hover .proj {
+  transform: translateY(150%);
+}
+#technoreas .imgtechno-rea:hover i {
+  top: 50%;
+}
+
 .logo-project {
   height: 150px;
   transition: all 0.3s ease;
@@ -17341,9 +17361,19 @@ header .avatar {
   height: 50px;
 }
 
+.techno-type {
+  font-size: 1rem;
+  position: absolute;
+  top: 12px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
 .return-home {
   position: absolute;
-  top: 10px;
+  z-index: 50;
   left: 10px;
   font-size: 3rem;
 }
@@ -17351,6 +17381,12 @@ header .avatar {
 .sort-active {
   background-color: #149ddd;
   color: white;
+}
+
+.rea-name .badge {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
 }
 
 .profile-cv {
@@ -17367,7 +17403,7 @@ header .avatar {
   -webkit-animation: fallingAvoid 5s infinite linear;
           animation: fallingAvoid 5s infinite linear;
   position: absolute;
-  top: -12.5%;
+  top: -51px;
 }
 
 .avoid-glitch-color {

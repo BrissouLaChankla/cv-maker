@@ -214,6 +214,31 @@ header {
     }
 }
 
+#technoreas {
+    .imgtechno-rea {
+        i {
+            transition: all .3s ease;
+            color:white;
+            font-size:3rem;
+            position: absolute;
+            left: 50%;
+            top:-60px;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+        }
+        .proj {
+            transition: all .4s ease;
+        }
+        &:hover {
+            .proj {
+                transform: translateY(150%);
+            }
+            i {
+                top:50%;
+            }
+        }
+    }
+}
 .logo-project {
     height: 150px;
     transition: all .3s ease;
@@ -286,9 +311,19 @@ header {
     height: 50px;
 }
 
+.techno-type {
+    font-size:1rem;
+    position: absolute;
+    top:12px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
 .return-home {
     position: absolute;
-    top: 10px;
+    z-index: 50;
     left: 10px;
     font-size:3rem;
 }
@@ -298,6 +333,13 @@ header {
     color:white;
 }
 
+.rea-name {
+    .badge {
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+    }
+}
 .profile-cv {
     transform: scale(116%);
     bottom: -1.5rem;
@@ -311,7 +353,8 @@ header {
     &.avoid-glitch-top {
         animation: fallingAvoid 5s infinite linear;
         position: absolute;
-        top: -12.5%;
+        // top: -12.5%;
+        top:-51px;
     }
 }
 

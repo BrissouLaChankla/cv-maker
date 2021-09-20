@@ -13,7 +13,7 @@
                             <div class="shortdesc-rea px-3">
                                 <p>{!! nl2br(e($realisation->description)) !!}</p>
                                 <a href="{{route('project', $realisation->slug)}}" class="btn btn-dark mx-2">En savoir +</a>
-                                <a target="_blank" href="{{$realisation->link}}" class="btn btn-dark mx-2">Visiter</a> 
+                                <a target="_blank" href="{{$realisation->link}}" class="btn btn-primary mx-2">Visiter</a> 
                             </div>
                         </div>
                 <h5 class="text-center font-weight-bold text-uppercase my-3">{{$realisation->name}}</h5>

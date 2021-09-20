@@ -6,7 +6,10 @@
     <a class="text-white return-home" href="/#portfolio">
         <i class="fas fa-arrow-left"></i>
     </a>
-    <h1 class="pl-5 ml-md-5 text-white">{{$realisation->name}}</h1>
+    <div class="position-relative rea-name">
+        <h1 class="pl-5 ml-md-5 text-white">{{$realisation->name}}</h1>
+        <span data-placement="bottom" data-toggle="tooltip" title="📅 Date de réalisation" class="badge badge-secondary">{{$realisation->date->format('m/Y')}}</span>
+    </div>
 </div>
 <div class="infos p-5">
     <div class="container-fluid">
