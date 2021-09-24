@@ -25,7 +25,7 @@ class ContactController extends Controller {
         'msg' => $request->message
       ], function($mail) use($request){
         $mail->from(env('MAIL_FROM_ADDRESS'), $request->name);
-        $mail->to('brice.eliasse.pro@gmail.com')->subject($request->name .' a un.e '. $request->subject. ' pour vous !');
+        $mail->to(env('MAIL_USERNAME'))->subject($request->name .' a un.e '. $request->subject. ' pour vous !');
       });
       return "Message sent!!!";
 
