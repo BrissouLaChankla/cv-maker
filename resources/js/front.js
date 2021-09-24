@@ -110,12 +110,17 @@ document.addEventListener( 'DOMContentLoaded', function () {
                     icon: 'success',
                     title: 'Super, j\'ai bien reçu votre mail ! 🤗'
                 });
+            },
+            error : function(data){
+                console.log(data);
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Oups, le mail s\'est pas envoyé 😱'
+                });
             }
         });
     });
-
-
-        }
+}
 
         if (document.querySelector('#realisation')) {
             // fix swup bug qui laissait modal ouverte
