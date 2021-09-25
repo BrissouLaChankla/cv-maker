@@ -128,7 +128,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
                 $('.logo-techno').on('click', function() {
                     $('#technoModal').modal('show');
                     $('.loader').show();
-                    // $('.loader').fadeIn();
 
                     
                     let id = $(this).data('id');
@@ -137,7 +136,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
                         type : 'GET',
                         success : function(data){
                         
-                            // $('.loader').addClass('d-none');
                             $('.loader').fadeOut();
                             $('.techno-name').text(data.name);
                             $('.techno-desc').html(data.description);

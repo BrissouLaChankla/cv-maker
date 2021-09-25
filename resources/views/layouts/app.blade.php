@@ -6,6 +6,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        
 
         <title>CV - Brice Eliasse, développeur Full-Stack </title>
 
@@ -23,6 +24,7 @@
         <link href="{{ asset('css/front.css') }}" rel="stylesheet">
 
         <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}" />
+        {!! htmlScriptTagJsApi() !!}
     </head>
     <body>
         <div id="app" >
