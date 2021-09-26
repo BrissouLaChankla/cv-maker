@@ -18,7 +18,7 @@
                 <div>
                     <h2>{{$realisation->name}}, qu'est-ce que c'est ?</h2>
                     {!! nl2br(e($realisation->description)) !!}
-                    <h3 class="mt-5 lil-h3">Technologies utilisées :</h2>
+                    <h3 class="mt-5 lil-h3 text-center">Technologies utilisées :</h2>
                         <div class="d-flex justify-content-center my-3">
                             @foreach ($realisation->technologies as $technology)
                                 <a data-placement="bottom" href="#" data-id="{{$technology->id}}" data-toggle="tooltip" title="{{$technology->name}}" style="background-color:{{$technology->color}}" class="hvr-grow logo-techno rounded text-white d-flex align-items-center justify-content-center mr-3 text-decoration-none">

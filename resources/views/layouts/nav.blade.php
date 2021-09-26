@@ -1,4 +1,4 @@
-<header class="vh-100 bg-grey px-5 py-3 d-none d-xl-flex flex-column justify-content-between" style="z-index:100000">
+<header class="vh-100 bg-grey px-3 px-xl-5 py-3 d-none d-lg-flex flex-column justify-content-between" style="z-index:100000">
     <div>
         <div class="profile text-center mb-2">
             <a href="/">
@@ -16,12 +16,12 @@
         </div>
         <nav class="d-flex flex-column">
             @foreach ($navigations as $navigation)
-                <a data-no-swup href="/#{{$navigation->anchor}}" class="text-grey text-decoration-none py-3 med-size @if($loop->first) onit @endif">
+                <a data-no-swup href="/#{{$navigation->anchor}}" class="text-grey text-decoration-none py-3 med-size text-center text-xl-left @if($loop->first) onit @endif">
                     {!! $navigation->icon !!}
                     <span class="ml-2">{{$navigation->name}}</span>
                 </a>
             @endforeach
         </nav>
     </div>
-    <a target="_blank" data-no-swup href="{{asset('CV_Brice_Eliasse.pdf')}}" class="btn btn-light rounded-big w-100">Télécharger mon CV</a>
+    <a target="_blank" data-no-swup href="{{asset('CV_Brice_Eliasse.pdf')}}" class="btn btn-light cv-side rounded-big w-100">Télécharger mon CV</a>
 </header>

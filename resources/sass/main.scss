@@ -3,6 +3,26 @@ html {
     scroll-behavior: smooth;
 }
 
+.size-12{
+    font-size:1.2rem;
+}
+
+.size-11{
+    font-size:1.1rem;
+}
+
+.size-10{
+    font-size:1rem;
+}
+
+.size-14{
+    font-size:1.4rem;
+}
+
+.size-20{
+    font-size:2rem;
+}
+
 .admin-btn {
     position: fixed;
     z-index: 100;
@@ -39,11 +59,19 @@ html {
     cursor: default!important;
 }
 
-@media screen and (min-width: 1200px) {
+
+  @media screen and (min-width: 992px) {
     #app {
-        margin-left:300px
+        margin-left:200px;
     }
   }
+
+  @media screen and (min-width: 1200px) {
+    #app {
+        margin-left:300px;
+    }
+  }
+
 
 .med-size {
     font-size:$font-size-medium;
@@ -130,7 +158,7 @@ nav {
 }
 
 header {
-    width:300px;
+    width:200px;
     position: fixed;
     left: 0;
     top: 0;
@@ -144,9 +172,12 @@ header {
     }
 }
 
-#hero {
-    background-image: url('/img/background.jpg');
-}
+@media screen and (min-width: 1200px) {
+    header {
+        width:300px;
+    }
+  }
+
 
 
 // CV 
@@ -340,11 +371,16 @@ header {
         bottom: 5px;
     }
 }
-.profile-cv {
-    transform: scale(116%);
-    bottom: -1.5rem;
-    position: absolute;
-}
+
+@media screen and (min-width: 1180px) {
+    .profile-cv {
+        transform: scale(116%);
+        bottom: -1.5rem;
+        position: absolute;
+    }
+  }
+
+
 
 .techno-icon {
     &:not(.avoid-glitch-top){
@@ -424,3 +460,31 @@ header {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+
+
+  .ml6 {
+    position: relative;
+    font-weight: 900;
+    font-size: 3.9em;
+  }
+  
+  @media screen and (min-width: 576px) {
+    .ml6 {
+        font-size: 5em;
+      }
+  }
+
+  .ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+  }
+  
+  .ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+  

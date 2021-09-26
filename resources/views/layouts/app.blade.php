@@ -24,7 +24,6 @@
         <link href="{{ asset('css/front.css') }}" rel="stylesheet">
 
         <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}" />
-        {!! htmlScriptTagJsApi() !!}
     </head>
     <body>
         <div id="app" >

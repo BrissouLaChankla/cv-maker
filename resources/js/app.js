@@ -10,5 +10,7 @@ window.slick = require('slick-carousel');
 
 const WOW = require('wowjs'); window.wow = new WOW.WOW({ live: false });
 
+window.anime = require('animejs').default;
+
 require('./main');
  

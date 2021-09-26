@@ -18,6 +18,7 @@ class CreateRealisationsTable extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
+            $table->text('short_description')->nullable();
             $table->string('logo_path')->nullable();
             $table->string('background_path')->nullable();
             $table->string('background_path_small')->nullable();

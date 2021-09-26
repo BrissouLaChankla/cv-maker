@@ -28,6 +28,7 @@
         "@swup/scroll-plugin": "^1.1.0",
         "@swup/slide-theme": "^1.0.5",
         "animate.css": "^3.5.2",
+        "animejs": "^3.2.1",
         "flatpickr": "^4.6.9",
         "isotope-layout": "^3.0.6",
         "moment": "^2.29.1",

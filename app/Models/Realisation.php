@@ -14,6 +14,7 @@ class Realisation extends Model
         'name',
         'slug',
         'description',
+        'short_description',
         'logo_path',
         'background_path',
         'background_path_small',

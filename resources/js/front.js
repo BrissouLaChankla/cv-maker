@@ -1,7 +1,6 @@
 const { throttle } = require("lodash");
 
 
-
 document.addEventListener( 'DOMContentLoaded', function () {
 	const swup = new Swup({
             plugins: [new SwupOverlayTheme({
@@ -13,9 +12,22 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
     
     function init() {
-        window.wow.init();
 
         if (document.querySelector('#welcome')) {
+            window.wow.init();
+
+                  // Wrap every letter in a span
+        var textWrapper = document.querySelector('.ml6 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: false})
+        .add({
+            targets: '.ml6 .letter',
+            translateY: ["1.1em", 0],
+            translateZ: 0,
+            duration: 1400,
+            delay: (el, i) => 50 * i
+        });
         
         let about = $('#about').offset().top;
         let resume = $('#resume').offset().top;
@@ -23,7 +35,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
         let contact = $('#contact').offset().top;
         
         // Detect partie active menu gauche
-            $(window).on('scroll', _.throttle(function () {
+            $(window).on('scroll load', _.throttle(function () {
                 var scroll = $(window).scrollTop();
                 if(scroll >= contact) {
                     if($('nav a:last-child').hasClass('onit')) {
@@ -44,12 +56,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
                         $('nav a:nth-last-child(3)').addClass('onit');
                     }
                 } else if (scroll >= about) {
+                    $('.cv-side').fadeIn();
                     if($('nav a:nth-last-child(4)').hasClass('onit')) {
                     } else {
                         $('nav a').removeClass('onit');
                         $('nav a:nth-last-child(4)').addClass('onit');
                     }
                 } else {
+                    $('.cv-side').fadeOut();
                     if($('nav a:first-child').hasClass('onit')) {
                     } else {
                         $('nav a').removeClass('onit');
@@ -123,6 +137,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
 }
 
         if (document.querySelector('#realisation')) {
+
+            
             // fix swup bug qui laissait modal ouverte
             $('#technoModal').modal('hide');
             $('body').removeClass('modal-open');

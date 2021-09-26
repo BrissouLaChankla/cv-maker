@@ -4,64 +4,66 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <img src="{{asset('img/brice_eliasse.png')}}" class="img-fluid profile-cv " alt="Brice Eliasse">
+    <div class="col-lg-4">
+        <div class="h-100 d-flex align-items-center d-md-block">
+            <img src="{{asset('img/brice_eliasse.png')}}" class="img-fluid profile-cv " alt="Brice Eliasse">
+        </div>
     </div>
-    <div class="col-md-8 mt-md-0 mt-3 p-5">
+    <div class="col-lg-8 mt-lg-0 mt-3 p-5">
         <div class="row">
             <h3>{{$lastJob->name}}</h3>
             <p>{!! nl2br(e($about->details))!!}</p>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>Date de naissance : </strong>
+                    <strong class="text-nowrap">Date de naissance : </strong>
                     <span class="birthday"> 
                         {{ $about->birthday->format('d/m/Y') }}
                     </span>
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>Age :</strong>
+                    <strong class="text-nowrap">Age :</strong>
                     <span class="age">
                         {{ $about->birthday->age }} ans
                     </span>
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
                     <span>
-                        <strong>Téléphone : </strong>
+                        <strong class="text-nowrap">Téléphone : </strong>
                         <a href="tel:+{{$about->phone}}">{{$about->phone}}</a>
                     </span>
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>E-mail : </strong>
+                    <strong class="text-nowrap">E-mail : </strong>
                     <a href="mailto:{{$about->email}}">{{$about->email}}</a>
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>Lieu : </strong>
+                    <strong class="text-nowrap">Lieu : </strong>
                     {{$about->location}}
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>Diplôme :</strong>
+                    <strong class="text-nowrap">Diplôme :</strong>
                     {{ $about->diploma }}
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>Hobbies :</strong>
+                    <strong class="text-nowrap">Hobbies :</strong>
                     {{ $about->hobbies }}
                 </p>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
-                    <strong>Statut :</strong>
+                    <strong class="text-nowrap">Statut :</strong>
                     {{$about->status}} 
                 </p>
             </div>
