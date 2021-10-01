@@ -26,7 +26,7 @@
         <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}" />
     </head>
     <body>
-        <div id="app" >
+        <div id="app">
             @auth
                 <a href="{{route('admin')}}" class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-user-ninja"></i></a>
             @endauth

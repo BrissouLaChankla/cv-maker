@@ -13,10 +13,3 @@
     <a data-no-swup href="#about" class="btn btn-outline-light px-3 rounded-big size-11 ml-3 wow fadeInUp" data-wow-delay="1.4s">Découvrir <i class="fas fa-sort-down"></i></a>
   </div>
 </div>
-
-  @section('scripts')
-
-  <script>
-
-  </script>
-  @endsection

@@ -30,10 +30,7 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('front');
-// $response = Http::withHeaders([
-  //     'api_key' => 'RGAPI-ca20d3a2-8e7a-44b0-b1c1-f152a91fd3db',
-  // ])->get('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Pr%C3%A9puce%20Endolori');
-  // dd($response);
+
 
 Route::get('/infos/competences', [ResumeController::class, 'getInfosCompetences']);
 Route::get('/infos/technology/{id}', [TechnologyController::class, 'getInfosTechnology']);
@@ -46,17 +43,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('send-mail', function () {
-   
-  $details = [
-      'nom' => 'caca',
-      'subject' => 'Mail from ItSolutionStuff.com',
-      'mail' => 'caca@mail.com',
-      'message' => 'This is for testing email using smtp'
-  ];
- 
- 
-});
+
 
 // Admin
 
