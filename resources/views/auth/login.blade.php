@@ -1,12 +1,17 @@
 @extends('layouts.app')
+<div class="login-to-home">
+    <a data-no-swup class="text-decoration-none text-dark" href="{{route('front')}}">
+        <i class="fas fa-arrow-alt-circle-left"></i>
+        Revenir au site
+    </a>
+</div>
 <div class="h-100 bg-light d-flex align-items-center justify-content-center">
     <div class="container h-75 ">
         <div class="row rounded shadow overflow-hidden -content-cjustifyenter h-100">
             <div class="col-md-7" style="background-image:url('/img/background.jpg');background-size: cover;
             background-position: center;">
-
             </div>
-            <div class="col-md-5 p-5 d-flex flex-column justify-content-center">
+            <div class="col-md-5 p-5 bg-light d-flex flex-column justify-content-center">
                     <h3 class="text-center">{{ __('Pannel administrateur') }}</h3>
 
                     <div>

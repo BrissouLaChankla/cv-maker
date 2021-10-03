@@ -17164,6 +17164,13 @@ html {
   font-size: 1.1rem;
 }
 
+.login-to-home {
+  font-size: 1.4rem;
+  position: fixed;
+  left: 14px;
+  top: 10px;
+}
+
 .progress, .progress-bar {
   height: 8px;
 }
