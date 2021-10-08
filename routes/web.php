@@ -56,6 +56,8 @@ Route::get('/admin/{slug}', [AdminController::class, 'showSection'])->name('show
 
 // Edit 
 Route::post('/edit/about', [AboutController::class, 'editAbout'])->name('edit-about');
+
+Route::post('/edit/about/picture', [AboutController::class, 'editAboutPicture'])->name('edit-about-picture');
 Route::post('/edit/contact', [ContactController::class, 'editContact'])->name('edit-contact');
 Route::post('/edit/resume', [ResumeController::class, 'editResume'])->name('edit-resume');
 Route::post('/edit/job', [JobController::class, 'editJob'])->name('edit-job');

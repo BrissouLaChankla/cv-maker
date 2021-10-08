@@ -18,7 +18,15 @@ class AboutController extends Controller
         $this->middleware('auth');
     }
 
+
     public function editAbout(Request $request) {
+
+        $about = About::first();
+        $about->update($request->all());
+        return 'Modification effectuée !';
+    }
+
+    public function editAboutPicture(Request $request) {
         
             // Select l'activite en question
             $about = About::first();

@@ -10,13 +10,13 @@
             {!! Form::close() !!}
             <h2 class="text-white my-2">{{$about->firstname}} {{$about->lastname}}</h2>
         </div>
-        {{-- <nav class="d-flex flex-column">
+        <nav class="d-flex flex-column">
             @foreach ($navigations as $navigation)
-                <a data-no-swup href="/#{{$navigation->anchor}}" class="text-grey text-decoration-none py-3 med-size text-center text-xl-left @if($loop->first) onit @endif">
+                <a data-no-swup href="{{route('admin')}}/{{$navigation->anchor}}" class="text-grey text-decoration-none py-3 med-size text-center text-xl-left @if($navigation->anchor == last(request()->segments())) onit @endif">
                     {!! $navigation->icon !!}
                     <span class="ml-2">{{$navigation->name}}</span>
                 </a>
             @endforeach
-        </nav> --}}
+        </nav>
     </div>
 </header>

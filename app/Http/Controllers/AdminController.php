@@ -28,6 +28,7 @@ class AdminController extends Controller
     
     public function index() {
         $user = Auth::user();
+        $about = About::first();
         $resume = Resume::first();
         $jobs = Job::all();
         $studies = Study::all();
@@ -39,6 +40,7 @@ class AdminController extends Controller
 
         return view('admin.welcome')->with([
             'user' => $user,
+            'about' => $about,
             'resume' => $resume,
             'jobs' => $jobs,
             'studies' => $studies,
@@ -53,6 +55,7 @@ class AdminController extends Controller
     
     public function showSection($slug) {
 
+        dd($slug);
         return view('admin.section')->with([
            'section' => $slug
         ]);
