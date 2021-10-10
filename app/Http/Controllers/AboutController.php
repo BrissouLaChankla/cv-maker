@@ -18,6 +18,14 @@ class AboutController extends Controller
         $this->middleware('auth');
     }
 
+    public function showAbout() {
+        $about = About::first();
+        return view('admin.includes.about')->with([
+            'about' => $about
+         ]);
+    }
+
+
 
     public function editAbout(Request $request) {
 

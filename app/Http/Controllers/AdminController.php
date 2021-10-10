@@ -52,12 +52,9 @@ class AdminController extends Controller
         ]);
     }
     
-    
-    public function showSection($slug) {
-
-        dd($slug);
-        return view('admin.section')->with([
-           'section' => $slug
+    public function showHero() {
+        return view('admin.includes.hero')->with([
+           'section' => "section"
         ]);
     }
 }

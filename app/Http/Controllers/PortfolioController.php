@@ -17,6 +17,13 @@ class PortfolioController extends Controller
         //
     }
 
+    public function showPortfolio() {
+        $portfolio = Portfolio::first();
+        return view('admin.includes.portfolio')->with([
+            'portfolio' => $portfolio
+         ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

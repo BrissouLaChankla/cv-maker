@@ -9,15 +9,16 @@ use Mail;
 
 class ContactController extends Controller { 
 
+  
+  public function showContact() {
+    $contact = Contact::first();
+    return view('admin.includes.contact')->with([
+        'contact' => $contact
+     ]);
+}
+
+
     public function store(Request $request) { 
-
-      // $request->validate([
-      //     'name' => 'required',
-      //     'mail' => 'required|mail',
-      //     'subject' => 'required',
-      //     'message' => 'required'
-      // ]);
-
       Mail::send('emails.contact', [
         'name' => $request->name,
         'mail' => $request->mail,

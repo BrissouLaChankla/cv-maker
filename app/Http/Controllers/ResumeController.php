@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resume;
+use App\Models\Study;
+use App\Models\Job;
+
 use Illuminate\Http\Request;
 
 class ResumeController extends Controller
@@ -18,6 +21,18 @@ class ResumeController extends Controller
     }
     public function getInfosCompetences () {
         return view('includes.infos-competences');
+    }
+
+    public function showResume() {
+        $resume = Resume::first();
+        $studies = Study::orderBy('start_date', 'DESC')->get();
+        $jobs = Job::orderBy('start_date', 'DESC')->get();
+
+        return view('admin.includes.resume')->with([
+            'resume' => $resume,
+            'studies' => $studies,
+            'jobs' => $jobs
+         ]);
     }
     /**
      * Show the form for creating a new resource.

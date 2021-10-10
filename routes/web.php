@@ -37,9 +37,8 @@ Route::get('/infos/technology/{id}', [TechnologyController::class, 'getInfosTech
 
 Route::get('/projets', [RealisationController::class, 'showAll'])->name('allProjects');
 Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->name('project');
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-// Route::get('/home', [HomeController::class, 'index']);
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
@@ -51,7 +50,11 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 //
-Route::get('/admin/{slug}', [AdminController::class, 'showSection'])->name('show-section');
+Route::get('/admin/hero', [AdminController::class, 'showHero'])->name('show-hero');
+Route::get('/admin/about', [AboutController::class, 'showAbout'])->name('show-about');
+Route::get('/admin/resume', [ResumeController::class, 'showResume'])->name('show-resume');
+Route::get('/admin/portfolio', [PortfolioController::class, 'showPortfolio'])->name('show-portfolio');
+Route::get('/admin/contact', [ContactController::class, 'showContact'])->name('show-contact');
 
 
 // Edit 
