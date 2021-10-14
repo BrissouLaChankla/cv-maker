@@ -30,8 +30,8 @@ class AdminController extends Controller
         $user = Auth::user();
         $about = About::first();
         $resume = Resume::first();
-        $jobs = Job::all();
-        $studies = Study::all();
+        $jobs =Job::orderBy('start_date', 'DESC')->get();
+        $studies =  Study::orderBy('start_date', 'DESC')->get();
         $technologies = Technology::all();
         $realisations = Realisation::all();
         $portfolio = Portfolio::first();

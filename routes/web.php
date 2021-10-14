@@ -49,7 +49,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 //Index
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
-//
+// show
 Route::get('/admin/hero', [AdminController::class, 'showHero'])->name('show-hero');
 Route::get('/admin/about', [AboutController::class, 'showAbout'])->name('show-about');
 Route::get('/admin/resume', [ResumeController::class, 'showResume'])->name('show-resume');
@@ -59,7 +59,6 @@ Route::get('/admin/contact', [ContactController::class, 'showContact'])->name('s
 
 // Edit 
 Route::post('/edit/about', [AboutController::class, 'editAbout'])->name('edit-about');
-
 Route::post('/edit/about/picture', [AboutController::class, 'editAboutPicture'])->name('edit-about-picture');
 Route::post('/edit/contact', [ContactController::class, 'editContact'])->name('edit-contact');
 Route::post('/edit/resume', [ResumeController::class, 'editResume'])->name('edit-resume');
@@ -71,3 +70,9 @@ Route::post('/edit/social', [SocialController::class, 'editSocial'])->name('edit
 Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-study');
 Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])->name('edit-technology');
 
+// Delete
+Route::post('/delete/study/{id}', [StudyController::class, 'deleteStudy'])->name('delete-study');
+
+
+// Create
+Route::post('/create/study', [StudyController::class, 'addStudy'])->name('add-study');

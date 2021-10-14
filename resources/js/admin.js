@@ -1,4 +1,10 @@
 $(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     // Mettre l'input en D-none juste à côté, dans un form
     $('.change-pic, .icon-hover').on('click', function() {
 
@@ -55,7 +61,7 @@ $(function() {
         })
 
         // this is the id of the form
-            $("form").submit(function(e) {
+            $("form.ajax").submit(function(e) {
                 Toast.fire({
                     icon: 'info',
                     title: 'Modification...'
@@ -85,6 +91,38 @@ $(function() {
             });
             
         });
+
+        $('.btn-danger').on('click', function() {
+            let id = $(this).data('id');
+            swal.fire({
+                title: 'Êtes-vous sûr ?',
+                text: "Vous allez définitivement le supprimer!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Oui, supprimer!',
+                cancelButtonText: 'Annuler'
+
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                            type: "POST",
+                            url: "/delete/study/"+id,
+                            success: function()
+                            {
+                                window.location.reload();
+                            },
+                            error: function() {
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: 'Aïe 😓 ça n\'a pas marché...'
+                                });
+                            } 
+                    });
+                }
+              })
+        }),
         $('[data-toggle="tooltip"]').tooltip();  
 
    

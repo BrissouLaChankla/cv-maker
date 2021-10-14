@@ -16,10 +16,10 @@
     </div>
     <div class="col-lg-6">
         <h3 class="my-3">Études et diplômes</h3>
-        @foreach ($resume->studies as $study)
+        @foreach ($studies as $study)
             <div class="item-cv {{($loop->first) ? "pulsed" : ""}}">
                 <h4><strong>{{$study->name}}</strong> | {{$study->school}}</h4>
-                <div class="date text-muted"> {{$study->start_date->format('Y')}} <i class="fas fa-long-arrow-alt-right mx-1"></i> {{$study->end_date->format('Y')}} </div> @if (null !== $study->job) <small><i class="fas fa-briefcase mx-1"></i> En alternance chez {{$study->job->company}}</small> @endif
+                <div class="date text-muted"> {{$study->start_date->format('Y')}} <i class="fas fa-long-arrow-alt-right mx-1"></i>  @if(null !== $study->end_date) {{$study->end_date->format('Y')}} @else En cours @endif </div> @if (null !== $study->job) <small><i class="fas fa-briefcase mx-1"></i> En alternance chez {{$study->job->company}}</small> @endif
                 <p>{!! nl2br(e($study->description)) !!}</p>
             </div>
         @endforeach

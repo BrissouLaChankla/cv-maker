@@ -19,7 +19,7 @@ class WelcomeController extends Controller
     {
         $resume = Resume::first();
         $jobs = Job::orderBy('start_date', 'desc')->get();
-        $studies = Study::all();
+        $studies = Study::orderBy('start_date', 'DESC')->get();
         $technologies = Technology::all();
         $realisations = Realisation::all();
         $portfolio = Portfolio::first();

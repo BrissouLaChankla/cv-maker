@@ -3,7 +3,7 @@
 <div class="p-5">
     <h2>Vos informations personnelles</h2>
         <div class="alert alert-dark shadow-sm" role="alert">
-            {!! Form::open(['url' => '/edit/about']) !!}
+            {!! Form::open(['url' => '/edit/about', 'class' => 'ajax']) !!}
                 <div class="row">
                     <div class="col-md-6 mt-2">
                         {{ Form::label('firstname', 'Prénom') }}
