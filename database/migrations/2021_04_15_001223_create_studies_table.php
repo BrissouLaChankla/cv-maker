@@ -25,7 +25,7 @@ class CreateStudiesTable extends Migration
             $table->bigInteger('job_id')->unsigned()->nullable();
             $table->foreign('job_id')->references('id')->on('jobs');
 
-            $table->bigInteger('resume_id')->unsigned();
+            $table->bigInteger('resume_id')->unsigned()->default(1);
             $table->foreign('resume_id')->references('id')->on('resumes');
 
             $table->timestamps();

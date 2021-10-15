@@ -11,7 +11,7 @@ class Job extends Model
     protected $fillable = [
         'name',
         'company',
-        'descritpion',
+        'description',
         'start_date',
         'end_date',
         'resume_id'

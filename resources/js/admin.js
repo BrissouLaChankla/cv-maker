@@ -94,6 +94,7 @@ $(function() {
 
         $('.btn-danger').on('click', function() {
             let id = $(this).data('id');
+            let slug = $(this).data('slug');
             swal.fire({
                 title: 'Êtes-vous sûr ?',
                 text: "Vous allez définitivement le supprimer!",
@@ -108,7 +109,7 @@ $(function() {
                 if (result.isConfirmed) {
                     $.ajax({
                             type: "POST",
-                            url: "/delete/study/"+id,
+                            url: `/delete/${slug}/${id}`,
                             success: function()
                             {
                                 window.location.reload();

@@ -83,7 +83,7 @@
                             {{ Form::date('end_date', $study->end_date, ['class' => 'form-control']) }}
                         </div>
                         <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
-                            <div class="btn btn-danger" data-id={{$study->id}}><i class="fas fa-trash"></i></div>
+                            <div class="btn btn-danger" data-slug="study" data-id={{$study->id}}><i class="fas fa-trash"></i></div>
                             {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
                         </div>
                     </div>
@@ -94,7 +94,6 @@
         </div>
         @endforeach
     </div>
-
         <h3 class="mt-5">Ajoutez vos emplois</h3>
 
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseAddJob" role="button" aria-expanded="false" aria-controls="collapseAddJob">
@@ -102,7 +101,37 @@
           </a>
         <div class="collapse" id="collapseAddJob">
           <div class="card card-body">
-
+            {!! Form::open(['url' => '/create/job']) !!}
+            <div class="row">
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('name', 'Intitulé du poste') }}
+                    {{ Form::text('name', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('company', 'Entreprise') }}
+                    {{ Form::text('company', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('start_date', 'Début du contrat') }}
+                    {{ Form::date('start_date', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('end_date', 'Fin du contrat') }}
+                    <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                    title="Laisser vide si vous y travaillez actuellement"></i>
+                    {{ Form::date('end_date', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-12 mt-2">
+                    {{ Form::label('description', 'Description de ton poste') }}
+                    <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                        title="Petite description de ton rôle au sein de l'entreprise"></i>
+                    {{ Form::textarea('description', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="w-100 text-right px-3 pt-3 pb-0">
+                    {{ Form::submit('Créer', ['class' => 'btn btn-primary btn-lg']) }}
+                </div>
+            </div>
+            {!! Form::close() !!}
           </div>
         </div>
         <div class="row">
@@ -110,7 +139,12 @@
             <div class="col-md-6">
                 <a class="btn btn-secondary w-100 p-4 mt-3" data-toggle="collapse" href="#collapseJob{{ $job->id }}"
                     role="button" aria-expanded="false" aria-controls="collapseJob{{ $job->id }}">
-                    {{ $job->start_date->format('Y') }} -@if(null !== $job->end_date) {{$job->end_date->format('Y')}} @else Aujourd'hui @endif ({{$job->name}})
+                    {{$job->name}}
+                    <small>
+                        (
+                            {{ $job->start_date->format('Y') }} -@if(null !== $job->end_date) {{$job->end_date->format('Y')}} @else Aujourd'hui @endif ({{$job->name}})
+                        )
+                    </small>
                 </a>
                 <div class="collapse" id="collapseJob{{ $job->id }}">
                     <div class="alert alert-dark shadow-sm" role="alert">
@@ -140,16 +174,100 @@
                                     title="Petite description de ton rôle au sein de l'entreprise"></i>
                                 {{ Form::textarea('description', $job->description, ['class' => 'form-control']) }}
                             </div>
-                            <div class="w-100 text-right px-3 pt-3 pb-0">
+                            <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
+                                <div class="btn btn-danger" data-slug="job" data-id={{$job->id}}><i class="fas fa-trash"></i></div>
                                 {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
                             </div>
                         </div>
+                        {{ Form::hidden('id', $job->id) }}
                         {!! Form::close() !!}
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
+        <h3 class="mt-5">Ajoutez vos compétences</h3>
+
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseAddJob" role="button" aria-expanded="false" aria-controls="collapseAddJob">
+            Ajouter une compétence
+          </a>
+        <div class="collapse" id="collapseAddJob">
+          <div class="card card-body">
+            {!! Form::open(['url' => '/create/technology']) !!}
+            <div class="row">
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('name', 'Intitulé du poste') }}
+                    {{ Form::text('name', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('company', 'Entreprise') }}
+                    {{ Form::text('company', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('start_date', 'Début du contrat') }}
+                    {{ Form::date('start_date', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-6 mt-2">
+                    {{ Form::label('end_date', 'Fin du contrat') }}
+                    <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                    title="Laisser vide si vous y travaillez actuellement"></i>
+                    {{ Form::date('end_date', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-12 mt-2">
+                    {{ Form::label('description', 'Description de ton poste') }}
+                    <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                        title="Petite description de ton rôle au sein de l'entreprise"></i>
+                    {{ Form::textarea('description', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="w-100 text-right px-3 pt-3 pb-0">
+                    {{ Form::submit('Créer', ['class' => 'btn btn-primary btn-lg']) }}
+                </div>
+            </div>
+            {!! Form::close() !!}
+          </div>
+        </div>
+            @foreach ($technologies as $technology)
+            <div>
+                <div class="collapse" id="collapseJob{{ $job->id }}">
+                    <div class="alert alert-dark shadow-sm" role="alert">
+                        {!! Form::open(['url' => '/edit/technology', 'class'=>'ajax']) !!}
+                        <div class="row">
+                            <div class="col-md-6 mt-2">
+                                {{ Form::label('name', 'Intitulé du poste') }}
+                                {{ Form::text('name', $job->name, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                {{ Form::label('company', 'Entreprise') }}
+                                {{ Form::text('company', $job->company, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                {{ Form::label('start_date', 'Début du contrat') }}
+                                {{ Form::date('start_date', $job->start_date, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                {{ Form::label('end_date', 'Fin du contrat') }}
+                                <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                                title="Laisser vide si vous y travaillez actuellement"></i>
+                                {{ Form::date('end_date', $job->end_date, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-12 mt-2">
+                                {{ Form::label('description', 'Description de ton poste') }}
+                                <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                                    title="Petite description de ton rôle au sein de l'entreprise"></i>
+                                {{ Form::textarea('description', $job->description, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
+                                <div class="btn btn-danger" data-slug="job" data-id={{$job->id}}><i class="fas fa-trash"></i></div>
+                                {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
+                            </div>
+                        </div>
+                        {{ Form::hidden('id', $job->id) }}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+            @endforeach
+{{-- Form::selectRange('number', 10, 20); --}}
     @endsection
 @section('scripts')
     <script>

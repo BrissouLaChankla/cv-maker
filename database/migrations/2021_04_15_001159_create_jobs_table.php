@@ -22,7 +22,7 @@ class CreateJobsTable extends Migration
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
 
-            $table->bigInteger('resume_id')->unsigned();
+            $table->bigInteger('resume_id')->unsigned()->default(1);
             $table->foreign('resume_id')->references('id')->on('resumes');
 
             $table->timestamps();

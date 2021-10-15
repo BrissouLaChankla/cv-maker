@@ -71,8 +71,10 @@ Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-st
 Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])->name('edit-technology');
 
 // Delete
-Route::post('/delete/study/{id}', [StudyController::class, 'deleteStudy'])->name('delete-study');
+Route::delete('/delete/study/{id}', [StudyController::class, 'deleteStudy'])->name('delete-study');
+Route::delete('/delete/job/{id}', [JobController::class, 'deleteJob'])->name('delete-job');
 
 
 // Create
 Route::post('/create/study', [StudyController::class, 'addStudy'])->name('add-study');
+Route::post('/create/job', [JobController::class, 'addJob'])->name('add-job');
