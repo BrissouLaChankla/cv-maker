@@ -227,45 +227,45 @@
           </div>
         </div>
             @foreach ($technologies as $technology)
-            <div>
-                <div class="collapse" id="collapseJob{{ $job->id }}">
-                    <div class="alert alert-dark shadow-sm" role="alert">
-                        {!! Form::open(['url' => '/edit/technology', 'class'=>'ajax']) !!}
-                        <div class="row">
-                            <div class="col-md-6 mt-2">
-                                {{ Form::label('name', 'Intitulé du poste') }}
-                                {{ Form::text('name', $job->name, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="col-md-6 mt-2">
-                                {{ Form::label('company', 'Entreprise') }}
-                                {{ Form::text('company', $job->company, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="col-md-6 mt-2">
-                                {{ Form::label('start_date', 'Début du contrat') }}
-                                {{ Form::date('start_date', $job->start_date, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="col-md-6 mt-2">
-                                {{ Form::label('end_date', 'Fin du contrat') }}
-                                <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
-                                title="Laisser vide si vous y travaillez actuellement"></i>
-                                {{ Form::date('end_date', $job->end_date, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="col-12 mt-2">
-                                {{ Form::label('description', 'Description de ton poste') }}
-                                <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
-                                    title="Petite description de ton rôle au sein de l'entreprise"></i>
-                                {{ Form::textarea('description', $job->description, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
-                                <div class="btn btn-danger" data-slug="job" data-id={{$job->id}}><i class="fas fa-trash"></i></div>
-                                {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
-                            </div>
-                        </div>
-                        {{ Form::hidden('id', $job->id) }}
-                        {!! Form::close() !!}
+            {!! Form::open(['url' => '/create/technology']) !!}
+            <div class="form-row">
+                <div class="col-md-3 mt-2">
+                    {{ Form::label('name', 'Nom de la techno') }}
+                    {{ Form::text('name', $technology->name, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-3 mt-2">
+                    {{ Form::label('logo_icon', 'Balise de l\'icon') }}
+                    {{ Form::text('logo_icon', $technology->logo_icon, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-3 mt-2">
+                    {{ Form::label('description', 'Description de la techno') }}
+                    {{ Form::textarea('description', $technology->description, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-2 mt-2">
+                    {{ Form::label('color', 'Couleur du logo') }}
+                    {{ Form::text('color', $technology->color, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-2 mt-2">
+                    {{ Form::label('type', 'Type de techno') }}
+                    {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], $technology->type,  ['class' => 'form-control']) }}
+                </div>
+                <div class="col-md-2 mt-2">
+                    {{ Form::label('mastery', 'Maîtrise') }}
+                    <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="{{$technology->mastery}}" step="10">
+                    
+                </div>
+                <div class="col-md-2 mt-2">
+                    {{ Form::label('resume_id', 'Montrer sur le CV ?') }}
+                    {{ Form::radio('resume_id', $technology->resume_id, ['class' => 'form-control']) }}
+                </div>
+                <div class="col-1 mt-2">
+                    <div class="w-100 text-right px-3 pt-3 pb-0">
+                        {{ Form::submit('Valider', ['class' => 'btn btn-primary btn-lg']) }}
                     </div>
                 </div>
+               
             </div>
+            {!! Form::close() !!}
             @endforeach
 {{-- Form::selectRange('number', 10, 20); --}}
     @endsection
