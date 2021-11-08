@@ -125,7 +125,11 @@ $(function() {
               })
         }),
         $('[data-toggle="tooltip"]').tooltip();  
+        $('.colorpicker').colorpicker();
 
+        $('.colorpicker').on('colorpickerChange', function(event) {
+            $(this).closest('.tec').find('.banner').css('background-color', event.color.toString());
+          });
    
 
     })

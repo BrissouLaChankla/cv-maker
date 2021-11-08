@@ -190,7 +190,7 @@
 
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseAddJob" role="button" aria-expanded="false" aria-controls="collapseAddJob">
             Ajouter une compétence
-          </a>
+        </a>
         <div class="collapse" id="collapseAddJob">
           <div class="card card-body">
             {!! Form::open(['url' => '/create/technology']) !!}
@@ -226,47 +226,51 @@
             {!! Form::close() !!}
           </div>
         </div>
+        <div class="row">
             @foreach ($technologies as $technology)
-            {!! Form::open(['url' => '/create/technology']) !!}
-            <div class="form-row">
-                <div class="col-md-3 mt-2">
-                    {{ Form::label('name', 'Nom de la techno') }}
-                    {{ Form::text('name', $technology->name, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-3 mt-2">
-                    {{ Form::label('logo_icon', 'Balise de l\'icon') }}
-                    {{ Form::text('logo_icon', $technology->logo_icon, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-3 mt-2">
-                    {{ Form::label('description', 'Description de la techno') }}
-                    {{ Form::textarea('description', $technology->description, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-2 mt-2">
-                    {{ Form::label('color', 'Couleur du logo') }}
-                    {{ Form::text('color', $technology->color, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-2 mt-2">
-                    {{ Form::label('type', 'Type de techno') }}
-                    {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], $technology->type,  ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-2 mt-2">
-                    {{ Form::label('mastery', 'Maîtrise') }}
-                    <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="{{$technology->mastery}}" step="10">
-                    
-                </div>
-                <div class="col-md-2 mt-2">
-                    {{ Form::label('resume_id', 'Montrer sur le CV ?') }}
-                    {{ Form::radio('resume_id', $technology->resume_id, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-1 mt-2">
-                    <div class="w-100 text-right px-3 pt-3 pb-0">
-                        {{ Form::submit('Valider', ['class' => 'btn btn-primary btn-lg']) }}
+            <div class="col-md-6 tec">
+                <a class="banner btn w-100 p-4 mt-3 text-white" data-toggle="collapse" style="background-color:{{$technology->color}}" href="#collapseTechno{{ $technology->id }}"
+                    role="button" aria-expanded="false" aria-controls="collapseTechno{{ $technology->id }}">
+                    {{ $technology->name }}
+                </a>
+                <div class="collapse" id="collapseTechno{{$technology->id}}">
+                    <div class="alert alert-dark shadow-sm" role="alert">
+                        {!! Form::open(['url' => '/edit/technology', 'class'=>'ajax']) !!}
+                        <div class="form-row">
+                            <div class="col-md-6 mt-2">
+                                {{ Form::label('name', 'Nom de la techno') }}
+                                {{ Form::text('name', $technology->name, ['class' => 'form-control']) }}
+                                {{ Form::label('description', 'Description de la techno', ['class' =>'mt-2']) }}
+                                {{ Form::textarea('description', $technology->description, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-6 mt-2 pl-2">
+                                {{ Form::label('logo_icon', 'Balise de l\'icon') }}
+                                {{ Form::text('logo_icon', $technology->logo_icon, ['class' => 'form-control']) }}
+                                {{ Form::label('color', 'Couleur du logo', ['class' =>'mt-2']) }}
+                                {{ Form::text('color', $technology->color, ['class' => 'form-control colorpicker']) }}
+                                {{ Form::label('type', 'Type de techno', ['class' =>'mt-2']) }}
+                                {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], $technology->type,  ['class' => 'form-control']) }}
+                                {{ Form::label('mastery', 'Maîtrise', ['class' =>'mt-2']) }}
+                                <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="{{$technology->mastery}}" step="10">
+                                <div class="w-100 d-flex justify-content-between pt-3 pb-0">
+                                    <div>
+                                        {{ Form::label('resume_id', 'Montrer sur le CV ?', ['class' =>'mt-2']) }}
+                                        <div>
+                                            {{ Form::checkbox('resume_id', 1, $technology->resume_id, ['class' => 'form-control', 'data-toggle' => 'toggle', 'data-on' => 'Oui', 'data-off' => 'Non']) }}
+                                        </div>
+                                    </div>
+                                    {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ Form::hidden('id', $technology->id) }}
+                        {!! Form::close() !!}
                     </div>
                 </div>
-               
             </div>
-            {!! Form::close() !!}
             @endforeach
+        </div>
+
 {{-- Form::selectRange('number', 10, 20); --}}
     @endsection
 @section('scripts')

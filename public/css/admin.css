@@ -24,3 +24,7 @@
 label {
   font-weight: bold;
 }
+
+.colorpicker {
+  box-sizing: inherit !important;
+}

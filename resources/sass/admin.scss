@@ -28,3 +28,8 @@
 label {
     font-weight: bold;
 }
+
+// fix colorpicker prob
+.colorpicker {
+    box-sizing: inherit!important;
+}

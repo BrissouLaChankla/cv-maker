@@ -7,85 +7,33 @@ use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
 {
-
     public function getInfosTechnology($id) {
         $technology = Technology::find($id);
         $realisations = $technology->realisations;
         return $technology;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    
+    public function addTechnology(Request $request) {
+        $technology = new Technology($request->all());
+        $technology->save();
+        Session::flash('swal','Nouvelle technologie crée !');
+        return back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function editTechnology(Request $request) {
+        if ($request->resume_id == 1) {
+            $request->merge(['resume_id' => 1]);
+        } else {
+            $request->merge(['resume_id' => 0]);
+        }
+        $technology = Technology::find($request->id);
+        $technology->update($request->all());
+        return "Modification effectuée !";
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Technology $technology)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Technology $technology)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Technology $technology)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Technology $technology)
-    {
-        //
+    public function deleteTechnology($id) {
+        $technology = Technology::find($id);
+        $technology->delete();
+        Session::flash('swal','Technologie supprimée !');
     }
 }
