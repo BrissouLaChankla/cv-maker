@@ -94,7 +94,7 @@ class PortfolioController extends Controller
         })->encode('webp',75)->save($destinationPathsmall);
         
 
-        $image->fit(1200, 600, function ($constraint) {
+        $image->fit(1400, 700, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPath);
 
