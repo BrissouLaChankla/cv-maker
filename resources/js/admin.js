@@ -6,11 +6,12 @@ $(function() {
     });
 
     // Mettre l'input en D-none juste à côté, dans un form
-    $('.change-pic, .icon-hover').on('click', function() {
+    $('.change-pic').on('click', function() {
 
         let myForm = $(this).closest('form')[0];
-        let imgselected = $(this);
-        let inputfile = imgselected.siblings('input[type="file"]');
+        let imgselected = $(this).find('img');
+        let inputfile = $(this).siblings('input[type="file"]');
+        let url = $(this).data('url');
         inputfile.trigger('click');
         
         // Fait direct le rendu 
@@ -28,18 +29,21 @@ $(function() {
 
                 $.ajax({
                     type: "POST",
-                    url: '/edit/about',
+                    url: url,
                     data: new FormData(myForm),
                     processData: false,
                     contentType: false,
                     success: function(data) {
+                        console.log(data)
+
                         Toast.fire({
                             icon: 'success',
                             title: 'Modification effectuée'
                         })
                     },
-                    error: function() {
-                        console.log('erreur ajax');
+                    error: function(data) {
+                        console.log('erreur ajax :');
+                        console.log(data)
                     }
                 });
             })

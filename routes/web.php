@@ -59,16 +59,21 @@ Route::get('/admin/contact', [ContactController::class, 'showContact'])->name('s
 
 // Edit 
 Route::post('/edit/about', [AboutController::class, 'editAbout'])->name('edit-about');
-Route::post('/edit/about/picture', [AboutController::class, 'editAboutPicture'])->name('edit-about-picture');
 Route::post('/edit/contact', [ContactController::class, 'editContact'])->name('edit-contact');
 Route::post('/edit/resume', [ResumeController::class, 'editResume'])->name('edit-resume');
 Route::post('/edit/job', [JobController::class, 'editJob'])->name('edit-job');
 Route::post('/edit/navigation', [NavigationController::class, 'editNavigation'])->name('edit-navigation');
 Route::post('/edit/portfolio', [PortfolioController::class, 'editPortfolio'])->name('edit-portfolio');
-Route::post('/edit/realisation', [RealisationController::class, 'editRealisation'])->name('edit-realisation');
+Route::post('/edit/rea', [PortfolioController::class, 'editRealisation'])->name('edit-realisation');
 Route::post('/edit/social', [SocialController::class, 'editSocial'])->name('edit-social');
-Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-study');
-Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])->name('edit-technology');
+Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-study'); 
+Route::post('/edit/technology', [TechnologyController::class, ' '])->name('edit-technology');
+
+//Images
+    Route::post('/edit/about/picture', [AboutController::class, 'editAboutPicture'])->name('edit-about-picture');
+    Route::post('/edit/logo/rea', [PortfolioController::class, 'editLogoRea'])->name('edit-logo-rea');
+    Route::post('/edit/background/rea', [PortfolioController::class, 'editBackgroundRea'])->name('edit-background-rea');
+
 
 // Delete
 Route::delete('/delete/study/{id}', [StudyController::class, 'deleteStudy'])->name('delete-study');
@@ -78,3 +83,4 @@ Route::delete('/delete/job/{id}', [JobController::class, 'deleteJob'])->name('de
 // Create
 Route::post('/create/study', [StudyController::class, 'addStudy'])->name('add-study');
 Route::post('/create/job', [JobController::class, 'addJob'])->name('add-job');
+Route::post('/create/rea', [PortfolioController::class, 'addRea'])->name('add-rea');

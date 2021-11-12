@@ -3,7 +3,7 @@
         <div class="profile text-center mb-2">
              {!! Form::open(['method' => 'post', 'route' => 'edit-about', 'files' => 'true', 'class' =>'edit-picture']) !!}
                 {!! Form::file('image', ['class'=>'d-none', 'id' => 'change-nav-pic']) !!}    
-                <img src="{{asset('storage/uploads/abouts/'.$about->nav_picture_path)}}" class="avatar img-fluid rounded-circle pointer change-pic" alt="Avatar">
+                <img src="{{asset('storage/uploads/abouts/'.$about->nav_picture_path)}}" class="avatar img-fluid rounded-circle pointer change-pic" data-url="/edit/avatar/nav" alt="Avatar">
                 <span class="text-white icon-hover">
                     <i class="fas fa-camera-retro"></i>
                 </span>

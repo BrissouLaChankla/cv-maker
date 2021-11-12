@@ -9,7 +9,12 @@
         & .icon-hover {
             opacity: 1;
             transform: translate(-50%, -50%) ;
+            
         }
+    }
+
+    .position-relative {
+        width:fit-content;
     }
 }
 
@@ -33,3 +38,13 @@ label {
 .colorpicker {
     box-sizing: inherit!important;
 }
+
+
+// edit image
+
+.change-pic.change-logo-style img {
+    width:120px;
+    height: 120px;
+    object-fit: cover;
+}
+

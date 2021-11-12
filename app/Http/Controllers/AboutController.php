@@ -26,7 +26,6 @@ class AboutController extends Controller
     }
 
     public function editAbout(Request $request) {
-
         $about = About::first();
         $about->update($request->all());
         return 'Modification effectuée !';

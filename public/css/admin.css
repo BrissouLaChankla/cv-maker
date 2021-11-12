@@ -8,6 +8,11 @@
   opacity: 1;
   transform: translate(-50%, -50%);
 }
+.edit-picture .position-relative {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 
 .icon-hover {
   cursor: pointer;
@@ -27,4 +32,11 @@ label {
 
 .colorpicker {
   box-sizing: inherit !important;
+}
+
+.change-pic.change-logo-style img {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
