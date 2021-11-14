@@ -6,7 +6,7 @@ use App\Models\Portfolio;
 use App\Models\Realisation;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
-
+use Session;
 
 class PortfolioController extends Controller
 {
@@ -29,9 +29,15 @@ class PortfolioController extends Controller
          ]);
     }
 
-    public function editLogoRea(Request $request) {
+    public function editPortfolio(Request $request) {
+        $portfolio = Portfolio::first();
+        $portfolio->update($request->all());
+        return "Modification effectuée !";
+    }
+
+    public function editLogoRea($realisation, $file) {
+        
         // Select l'activite en question
-        $realisation = Realisation::find($request->id);
     
         $namefile = "logo-".$realisation->slug.".webp";
 
@@ -42,8 +48,6 @@ class PortfolioController extends Controller
         @unlink($currentimg);
 
         $realisation->update(["logo_path" => $namefile]);
-        //Récupère l'image reçue 
-        $file = $request->file('logo_path');
         
         // = storage/app/uploads/images ;
         $destinationPath = storage_path('app/public/uploads/realisations/logo/'.$namefile);
@@ -52,18 +56,15 @@ class PortfolioController extends Controller
         $image = Image::make($file->getRealPath());
         
         // Croppe et Enregistre l'image
-        $image->fit(120, 120, function ($constraint) {
+        $image->resize(null, 120, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',75)->save($destinationPath);
+        })->encode('webp',100)->save($destinationPath);
         
-        return($namefile);
     }
 
 
-    public function editBackgroundRea(Request $request) {
-        // Select l'activite en question
-        $realisation = Realisation::find($request->id);
-    
+    public function editBackgroundRea($realisation, $file) {
+
         $namefile = "background-".$realisation->slug.".webp";
         $namefilesmall = "small/background-".$realisation->slug.".webp";
 
@@ -75,11 +76,8 @@ class PortfolioController extends Controller
         @unlink($currentimg);
         @unlink($currentimgsmall);
 
-        $realisation->update(["background_path" => $namefile]);
-        $realisation->update(["background_path_small" => $namefilesmall]);
+        $realisation->update(["background_path" => $namefile, "background_path_small" => $namefilesmall]);
 
-        //Récupère l'image reçue 
-        $file = $request->file('background_path');
         
         // = storage/app/uploads/images ;
         $destinationPath = storage_path('app/public/uploads/realisations/background/'.$namefile);
@@ -98,21 +96,60 @@ class PortfolioController extends Controller
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPath);
 
-        return($namefilesmall);
     }
 
 
 
     public function addRea(Request $request) {
         $realisation = new Realisation($request->all());
+        $request->merge(['slug' => str_slug($request->name, "-")]);
+
+        $namelogo = "logo-".$request->slug.".webp";
+        $namebackground = "background-".$request->slug.".webp";
+        $namebackgroundsmall = "small/background-".$request->slug.".webp";
+
+        $destinationPathBackground = storage_path('app/public/uploads/realisations/background/'.$namebackground);
+        $destinationPathBackgroundSmall = storage_path('app/public/uploads/realisations/background/'.$namebackgroundsmall);
+        $destinationPathLogo = storage_path('app/public/uploads/realisations/logo/'.$namelogo);
+        
+        $fileLogo = $request->file('logo_path');
+        $fileBackground = $request->file('background_path');
+        
+        $imageLogo = Image::make($fileLogo->getRealPath());
+        $imageBackground = Image::make($fileBackground->getRealPath());
+
+        $imageBackground->fit(400, 200, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp',100)->save($destinationPathBackgroundSmall);
+        
+        $imageBackground->fit(1400, 700, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp',100)->save($destinationPathBackground);
+
+        $imageLogo->resize(null, 120, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp',100)->save($destinationPathLogo);
+
         $realisation->save();
+
+        $realisation->update(["logo_path" => $namelogo, "background_path" => $namebackground, "background_path_small" => $namebackgroundsmall]);
+
         Session::flash('swal','Nouvelle réalisation crée !');
         return back();
     }
 
     public function editRea(Request $request) {
         $realisation = Realisation::find($request->id);
-        $realisation->update($request->all());
+
+        if($request->hasFile('logo_path')) {
+            $this->editLogoRea($realisation, $request->file('logo_path'));
+        }
+        if($request->hasFile('background_path')) {
+            $this->editBackgroundRea($realisation, $request->file('background_path'));
+        }
+
+        $request->merge(['slug' => str_slug($request->name, "-")]);
+        $realisation->update($request->except(["logo_path", "background_path"]));
         return "Modification effectuée !";
     }
 

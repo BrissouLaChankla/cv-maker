@@ -1,6 +1,6 @@
 
 // PERMET HOVER EDIT IMAGE
-.edit-picture{
+.change-pic{
     position: relative;
     &:hover{
         & img {
@@ -12,10 +12,7 @@
             
         }
     }
-
-    .position-relative {
-        width:fit-content;
-    }
+    width:fit-content;
 }
 
 .icon-hover {
@@ -45,6 +42,6 @@ label {
 .change-pic.change-logo-style img {
     width:120px;
     height: 120px;
-    object-fit: cover;
+    object-fit: contain;
 }
 

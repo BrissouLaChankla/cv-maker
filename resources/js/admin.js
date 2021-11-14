@@ -5,20 +5,48 @@ $(function() {
         }
     });
 
+
+    // this is the id of the form
+    $("form.ajax-and-picture").submit(function(e) {
+        Toast.fire({
+            icon: 'info',
+            title: 'Modification...'
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var myForm = $(this)[0];
+        var url = $(this).attr('action');
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: new FormData(myForm),
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Modification effectuée'
+                })
+            },
+            error: function(data) {
+                console.log('erreur ajax :');
+                console.log(data)
+            }
+        });
+});
+
+
     // Mettre l'input en D-none juste à côté, dans un form
     $('.change-pic').on('click', function() {
-
-        let myForm = $(this).closest('form')[0];
         let imgselected = $(this).find('img');
         let inputfile = $(this).siblings('input[type="file"]');
-        let url = $(this).data('url');
         inputfile.trigger('click');
-        
         // Fait direct le rendu 
         inputfile.on('change', function(evt) {
             var tgt = evt.target || window.event.srcElement,
                 files = tgt.files;
-            
                 if (FileReader && files && files.length) {
                     var fr = new FileReader();
                     fr.onload = function () {
@@ -26,31 +54,9 @@ $(function() {
                     }
                     fr.readAsDataURL(files[0]);
                 }
-
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: new FormData(myForm),
-                    processData: false,
-                    contentType: false,
-                    success: function(data) {
-                        console.log(data)
-
-                        Toast.fire({
-                            icon: 'success',
-                            title: 'Modification effectuée'
-                        })
-                    },
-                    error: function(data) {
-                        console.log('erreur ajax :');
-                        console.log(data)
-                    }
-                });
+             
             })
         })
-
-
-
 
 
         const Toast = swal.mixin({
@@ -112,7 +118,7 @@ $(function() {
               }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                            type: "POST",
+                            type: "DELETE",
                             url: `/delete/${slug}/${id}`,
                             success: function()
                             {

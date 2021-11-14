@@ -1,17 +1,15 @@
-.edit-picture {
+.change-pic {
   position: relative;
-}
-.edit-picture:hover img {
-  filter: brightness(30%);
-}
-.edit-picture:hover .icon-hover {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
-.edit-picture .position-relative {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+.change-pic:hover img {
+  filter: brightness(30%);
+}
+.change-pic:hover .icon-hover {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 .icon-hover {
@@ -37,6 +35,6 @@ label {
 .change-pic.change-logo-style img {
   width: 120px;
   height: 120px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
