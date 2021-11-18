@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use App\Models\Realisation;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Session;
@@ -23,9 +24,12 @@ class PortfolioController extends Controller
     public function showPortfolio() {
         $portfolio = Portfolio::first();
         $realisations = Realisation::all();
+        $technologies = Technology::all();
+        
         return view('admin.includes.portfolio')->with([
             'portfolio' => $portfolio,
-            'realisations' => $realisations
+            'realisations' => $realisations,
+            'technologies' => $technologies
          ]);
     }
 

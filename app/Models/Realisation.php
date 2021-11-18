@@ -28,10 +28,15 @@ class Realisation extends Model
     ];
 
     public function technologies() {
-        return $this->belongsToMany(Technology::class);
+        return $this->belongsToMany(Technology::class)->withPivot('realisation_id', 'technology_id');
     }
     public function pictures() {
         return $this->hasMany(Picture::class);
+    }
+
+    //Check si la techo en question est utilisée pour le projet 
+    public function technologiesUsed($technology_id) {
+        return $this->technologies()->where('technology_id','=', $technology_id);  
     }
 
     public function sluggable(): array

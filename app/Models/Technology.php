@@ -24,6 +24,16 @@ class Technology extends Model
     }
 
     public function realisations() {
-        return $this->belongsToMany(Realisation::class);
+        return $this->belongsToMany(Realisation::class)->withPivot('technology_id', 'realisation_id');
     }
+
+    //Check si la techo en question est utilisée pour le projet 
+    // public function isUsed($realisationid) {
+    //     if() {
+
+    //     } else {
+
+    //     }
+        
+    // }
 }

@@ -143,7 +143,17 @@
                                     </div>
                             </div> 
                         </div>
-                        
+                        <div class="col-12">
+                            <div class="alert-primary rounded p-3 mt-4">
+                                <h5 class="text-primary">Lier des compétences à ce projet</h5>
+                                <p>Parmis ces compétences, lesquelles as-tu utilisé au cours de ce projet ?</p>
+                                @foreach ($technologies as $technology)
+                                {{dd($technology->realisations[0]->pivot)}}
+                                {{$technology->name}}
+                                    {{$technology->isUsed($realisation->id)}}
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
                             <div class="btn btn-danger" data-slug="rea" data-id={{$realisation->id}}><i class="fas fa-trash"></i></div>
                             {{ Form::submit('Mettre à jour', ['class' => 'btn btn-primary btn-lg']) }}
