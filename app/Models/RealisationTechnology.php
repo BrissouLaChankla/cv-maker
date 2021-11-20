@@ -11,7 +11,8 @@ class RealisationTechnology extends Model
         'realisation_id',
         'technology_id',
     ];
-    
+
+    protected $table = 'realisation_technology';
     
     public function realisation() {
         return $this->belongsTo(Realisation::class);

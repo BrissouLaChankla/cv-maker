@@ -188,41 +188,42 @@
         </div>
         <h3 class="mt-5">Ajoutez vos compétences</h3>
 
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseAddJob" role="button" aria-expanded="false" aria-controls="collapseAddJob">
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseAddTechnology" role="button" aria-expanded="false" aria-controls="collapseAddTechnology">
             Ajouter une compétence
         </a>
-        <div class="collapse" id="collapseAddJob">
+        <div class="collapse" id="collapseAddTechnology">
           <div class="card card-body">
             {!! Form::open(['url' => '/create/technology']) !!}
-            <div class="row">
+            <div class="form-row">
                 <div class="col-md-6 mt-2">
-                    {{ Form::label('name', 'Intitulé du poste') }}
+                    {{ Form::label('name', 'Nom de la techno') }}
                     {{ Form::text('name', null, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-6 mt-2">
-                    {{ Form::label('company', 'Entreprise') }}
-                    {{ Form::text('company', null, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-6 mt-2">
-                    {{ Form::label('start_date', 'Début du contrat') }}
-                    {{ Form::date('start_date', null, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-6 mt-2">
-                    {{ Form::label('end_date', 'Fin du contrat') }}
-                    <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
-                    title="Laisser vide si vous y travaillez actuellement"></i>
-                    {{ Form::date('end_date', null, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-12 mt-2">
-                    {{ Form::label('description', 'Description de ton poste') }}
-                    <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
-                        title="Petite description de ton rôle au sein de l'entreprise"></i>
+                    {{ Form::label('description', 'Description de la techno', ['class' =>'mt-2']) }}
                     {{ Form::textarea('description', null, ['class' => 'form-control']) }}
                 </div>
-                <div class="w-100 text-right px-3 pt-3 pb-0">
-                    {{ Form::submit('Créer', ['class' => 'btn btn-primary btn-lg']) }}
+                <div class="col-md-6 mt-2 pl-2">
+                    {{ Form::label('logo_icon', 'Balise de l\'icon') }}
+                    {{ Form::text('logo_icon', null, ['class' => 'form-control']) }}
+                    {{ Form::label('color', 'Couleur du logo', ['class' =>'mt-2']) }}
+                    {{ Form::text('color', null, ['class' => 'form-control colorpicker']) }}
+                    {{ Form::label('type', 'Type de techno', ['class' =>'mt-2']) }}
+                    {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], null,  ['class' => 'form-control']) }}
+                    {{ Form::label('mastery', 'Maîtrise', ['class' =>'mt-2']) }}
+                    <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="1" step="10">
+                    <div class="w-100 d-flex justify-content-between pt-3 pb-0">
+                        <div>
+                            {{ Form::label('resume_id', 'Montrer sur le CV ?', ['class' =>'mt-2']) }}
+                            <div>
+                                {{ Form::checkbox('resume_id', 1, 0, ['class' => 'form-control', 'data-toggle' => 'toggle', 'data-on' => 'Oui', 'data-off' => 'Non']) }}
+                            </div>
+                        </div>
+                        <div class="w-100 text-right px-3 pt-3 pb-0">
+                            {{ Form::submit('Créer', ['class' => 'btn btn-primary btn-lg']) }}
+                        </div>
+                    </div>
                 </div>
             </div>
+             
             {!! Form::close() !!}
           </div>
         </div>
@@ -252,15 +253,14 @@
                                 {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], $technology->type,  ['class' => 'form-control']) }}
                                 {{ Form::label('mastery', 'Maîtrise', ['class' =>'mt-2']) }}
                                 <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="{{$technology->mastery}}" step="10">
-                                <div class="w-100 d-flex justify-content-between pt-3 pb-0">
-                                    <div>
-                                        {{ Form::label('resume_id', 'Montrer sur le CV ?', ['class' =>'mt-2']) }}
-                                        <div>
-                                            {{ Form::checkbox('resume_id', 1, $technology->resume_id, ['class' => 'form-control', 'data-toggle' => 'toggle', 'data-on' => 'Oui', 'data-off' => 'Non']) }}
-                                        </div>
-                                    </div>
-                                    {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
+                                <div class="pt-3 pb-0">
+                                        {{ Form::label('resume_id', 'Montrer sur le CV ?', ['class' =>'mt-2 mr-2']) }}
+                                            {{ Form::checkbox('resume_id', 1, $technology->resume_id, ['class' => ' form-control', 'data-toggle' => 'toggle', 'data-on' => 'Oui', 'data-off' => 'Non']) }}
                                 </div>
+                            </div>
+                            <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
+                                <div class="btn btn-danger" data-slug="technology" data-id={{$technology->id}}><i class="fas fa-trash"></i></div>
+                                {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg']) }}
                             </div>
                         </div>
                         {{ Form::hidden('id', $technology->id) }}

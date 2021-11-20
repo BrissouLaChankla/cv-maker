@@ -18,6 +18,8 @@ class CreateRealisationTechnologyTable extends Migration
             $table->increments('id');
             $table->integer('realisation_id');
             $table->integer('technology_id');
+            $table->timestamps();
+
         });
     }
 

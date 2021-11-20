@@ -143,17 +143,7 @@
                                     </div>
                             </div> 
                         </div>
-                        <div class="col-12">
-                            <div class="alert-primary rounded p-3 mt-4">
-                                <h5 class="text-primary">Lier des compétences à ce projet</h5>
-                                <p>Parmis ces compétences, lesquelles as-tu utilisé au cours de ce projet ?</p>
-                                @foreach ($technologies as $technology)
-                                {{dd($technology->realisations[0]->pivot)}}
-                                {{$technology->name}}
-                                    {{$technology->isUsed($realisation->id)}}
-                                @endforeach
-                            </div>
-                        </div>
+                    
                         <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
                             <div class="btn btn-danger" data-slug="rea" data-id={{$realisation->id}}><i class="fas fa-trash"></i></div>
                             {{ Form::submit('Mettre à jour', ['class' => 'btn btn-primary btn-lg']) }}
@@ -162,6 +152,34 @@
                     </div>
                     {{ Form::hidden('id', $realisation->id) }}
                     {!! Form::close() !!}
+                        <div class="alert-primary rounded p-3 mt-4">
+                            <h5 class="text-primary">Lier des compétences à ce projet</h5>
+                            <p>Parmis ces compétences, lesquelles as-tu utilisé au cours de ce projet ?</p>
+                            {{$realisation->name}} :
+                                {!! Form::open(['url' => '/edit/reatechnology', 'class' => 'ajax row']) !!}
+                                @foreach ($technologies as $technology)
+                                    <div class="col-md-6 col-xl-4 mt-3">
+                                        @if($technology->isUsed($realisation->id))
+                                            {{ Form::checkbox($technology->id, 1, 1, ['class' => 'form-control', 'data-toggle' => 'toggle', 'data-on' => 'Utilise', 'data-off' => 'N\'utilise pas', 'data-width' => 120]) }}
+                                        <span style="background-color:{{$technology->color}}" class="text-white text-center py-1 px-2 mx-2 rounded">
+                                            {!! $technology->logo_icon !!}
+                                        </span>
+                                            {{$technology->name}} 
+                                        @else
+                                            {{ Form::checkbox($technology->id, 1, 0, ['class' => 'form-control', 'data-toggle' => 'toggle', 'data-on' => 'Utilise', 'data-off' => 'N\'utilise pas', 'data-width' => 120]) }}
+                                            <span style="background-color:{{$technology->color}}" class="text-white text-center py-1 px-2 mx-2 rounded">
+                                                {!! $technology->logo_icon !!}
+                                            </span>
+                                            {{$technology->name}}
+                                        @endif
+                                    </div>
+                                @endforeach
+                                <div class="text-right w-100 px-3">
+                                    {{ Form::hidden('realisation_id', $realisation->id)}} 
+                                    {{ Form::submit('Mettre à jour', ['class' => 'btn btn-primary']) }}
+                                </div>
+                                {!! Form::close() !!}
+                        </div>
                 </div>
             </div>
         @endforeach

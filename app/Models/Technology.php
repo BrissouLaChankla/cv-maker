@@ -27,13 +27,14 @@ class Technology extends Model
         return $this->belongsToMany(Realisation::class)->withPivot('technology_id', 'realisation_id');
     }
 
-    //Check si la techo en question est utilisée pour le projet 
-    // public function isUsed($realisationid) {
-    //     if() {
-
-    //     } else {
-
-    //     }
+    // Check si la techo en question est utilisée pour le projet 
+    // à améliorer
+    public function isUsed($realisationid) {
+        if(RealisationTechnology::where(["realisation_id" => $realisationid, "technology_id" => $this->id])->exists()) {
+            return true;
+        } else {
+            return false;
+        }
         
-    // }
+    }
 }

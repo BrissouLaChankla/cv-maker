@@ -68,6 +68,7 @@ Route::post('/edit/rea', [PortfolioController::class, 'editRea'])->name('edit-re
 Route::post('/edit/social', [SocialController::class, 'editSocial'])->name('edit-social');
 Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-study'); 
 Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])->name('edit-technology');
+Route::post('/edit/reatechnology', [RealisationController::class, 'editReaTechnology'])->name('edit-rea-technology');
 
 //Images
     Route::post('/edit/about/picture', [AboutController::class, 'editAboutPicture'])->name('edit-about-picture');
@@ -77,10 +78,11 @@ Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])
 Route::delete('/delete/study/{id}', [StudyController::class, 'deleteStudy'])->name('delete-study');
 Route::delete('/delete/job/{id}', [JobController::class, 'deleteJob'])->name('delete-job');
 Route::delete('/delete/rea/{id}', [PortfolioController::class, 'deleteRea'])->name('delete-rea');
+Route::delete('/delete/technology/{id}', [TechnologyController::class, 'deleteTechnology'])->name('delete-technology');
 
 
 // Create
 Route::post('/create/study', [StudyController::class, 'addStudy'])->name('add-study');
 Route::post('/create/job', [JobController::class, 'addJob'])->name('add-job');
 Route::post('/create/rea', [PortfolioController::class, 'addRea'])->name('add-rea');
-
+Route::post('/create/technology', [TechnologyController::class, 'addTechnology'])->name('add-technology');

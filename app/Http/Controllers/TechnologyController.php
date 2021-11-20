@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Technology;
 use Illuminate\Http\Request;
+use Session;
 
 class TechnologyController extends Controller
 {
