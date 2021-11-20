@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="p-3 p-md-5">
+    <div class="px-3 py-4 p-md-5">
         <h2>Votre portfolio</h2>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt facere porro voluptatum, saepe blanditiis
             veritatis odit sint ab vel natus maxime exercitationem, omnis magnam dignissimos numquam ad pariatur aperiam
