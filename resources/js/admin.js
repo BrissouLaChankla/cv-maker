@@ -58,7 +58,7 @@ $(function() {
             })
         })
 
-        $('.change-avatar').on('change', function () {
+        $('.change-image-dynamic').on('change', function () {
             let imgselected = $(this).find('img');
             let inputfile = $(this).siblings('input[type="file"]');
             inputfile.trigger('click');

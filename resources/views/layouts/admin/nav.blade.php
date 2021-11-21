@@ -1,7 +1,7 @@
 <header class="vh-100 bg-grey px-3 px-xl-5 py-3 d-none d-lg-flex flex-column justify-content-between" style="z-index:100000">
     <div>
         <div class="profile text-center mb-2">
-             {!! Form::open(['method' => 'post', 'route' => 'edit-avatar', 'class' => 'change-avatar', 'files' => 'true']) !!}
+             {!! Form::open(['method' => 'post', 'route' => 'edit-avatar', 'class' => 'change-image-dynamic', 'files' => 'true']) !!}
                 {!! Form::file('image', ['class'=>'d-none']) !!}    
                 <div class="position-relative m-auto avatar rounded-circle pointer change-pic">
                     <img src="{{ asset('img/avatar.webp') }}"

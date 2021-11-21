@@ -8,7 +8,7 @@
 <div class="h-100 bg-light d-flex align-items-center justify-content-center">
     <div class="container h-75 ">
         <div class="row rounded shadow overflow-hidden -content-cjustifyenter h-100">
-            <div class="col-md-7" style="background-image:url('/img/background.jpg');background-size: cover;
+            <div class="col-md-7" style="background-image:url('/img/background.webp');background-size: cover;
             background-position: center;">
             </div>
             <div class="col-md-5 p-5 bg-light d-flex flex-column justify-content-center">

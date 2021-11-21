@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="h-100 d-flex align-items-center d-md-block">
-            <img src="{{asset('img/brice_eliasse.png')}}" class="img-fluid profile-cv " alt="Brice Eliasse">
+            <img src="{{asset('img/profile.webp')}}" class="img-fluid profile-cv" alt="Brice Eliasse">
         </div>
     </div>
     <div class="col-lg-8 mt-lg-0 mt-3 p-5">
