@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-<div class="p-5">
+<div class="p-4 p-md-5">
     <h2>Vos informations personnelles</h2>
         <div class="alert alert-dark shadow-sm" role="alert">
             {!! Form::open(['url' => '/edit/about', 'class' => 'ajax']) !!}
@@ -28,8 +28,8 @@
                         {{ Form::date('birthday', $about->birthday, ['class' =>'form-control'])}}
                     </div>
                     <div class="col-md-6 mt-2">
-                        {{ Form::label('diploma', 'Diplomes') }}
-                        {{ Form::text('diploma', $about->diploma, ['class' =>'form-control'])}}
+                        {{ Form::label('diploma', 'Niveau d\'étude') }}
+                        {{ Form::text('diploma', $about->diploma, ['class' =>'form-control', 'placeholder' => 'Master 2'])}}
                     </div>
                     <div class="col-md-6 mt-2">
                         {{ Form::label('phone', 'N° de téléphone') }}
@@ -37,15 +37,17 @@
                     </div>
                     <div class="col-md-6 mt-2">
                         {{ Form::label('email', 'Email') }}
+                        <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                        title="C'est sur ce mail que les mails du formulaire de contact seront envoyés !"></i>
                         {{ Form::email ('email', $about->email, ['class' =>'form-control'])}}
                     </div>
                     <div class="col-md-6 mt-2">
-                        {{ Form::label('location', 'Ville') }}
-                        {{ Form::text('location', $about->location, ['class' =>'form-control'])}}
+                        {{ Form::label('location', 'Localisation') }}
+                        {{ Form::text('location', $about->location, ['class' =>'form-control', 'placeholder' => 'Régulièrement entre les Alpes-Martimes (06) et le Var (83)'])}}
                     </div>
                     <div class="col-md-6 mt-2">
                         {{ Form::label('status', 'Status') }}
-                        {{ Form::text('status', $about->status, ['class' =>'form-control'])}}
+                        {{ Form::text('status', $about->status, ['class' =>'form-control', 'placeholder' => 'Alternant / Freelance'])}}
                     </div>
                     <div class="col-md-6 mt-2">
                         {{ Form::label('hobbies', 'Hobbies') }}
@@ -56,6 +58,52 @@
                     </div>
                 </div>
             {!! Form::close() !!}
+          </div>
+
+        <h2 class="mt-5">Informations supplémentaires</h2>
+          <div class="alert alert-dark shadow-sm " role="alert">
+              <div class="row">
+                  <div class="col-md-6 mt-2">
+                      
+                        {!! Form::open(['url' => '/add/cv', 'class' => '', 'files' => true]) !!}
+                            {{ Form::label('cv', 'CV') }}
+                            <small>(.pdf)</small>
+                            {!! Form::file('cv') !!}
+                        {!! Form::close() !!}
+
+                        {{ Form::label('profile', 'Photo de toi') }}
+                        {!! Form::file('profile', ['class' => 'd-none']) !!}
+                        <div class="position-relative change-pic change-background-style pointer">
+                            <img src="{{ asset('img/profile.webp') }}"
+                                class="img-fluid rounded">
+                            <span class="text-white icon-hover">
+                                <i class="fas fa-camera-retro"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mt-2">
+                        {!! Form::open(['url' => '/edit/images', 'class' => 'ajax-and-picture']) !!}
+                        {{ Form::label('fond', 'Image de fond') }}
+                        <small>(min. 1920x1080)</small>
+                        <i class="fas fa-info-circle" data-placement="auto" data-toggle="tooltip"
+                        title="Cette image apparait tout en haut de votre site et prends toute la largeur et hauteur, choisissez là bien ! Il faut que du texte blanc puisse se lire dessus (nous l'assombrissons)"></i>
+                        {!! Form::file('fond', ['class' => 'd-none']) !!}
+                        <div class="position-relative change-pic change-background-style pointer">
+                            <img src="{{ asset('img/background.webp') }}"
+                                class="img-fluid rounded">
+                            <span class="text-white icon-hover">
+                                <i class="fas fa-camera-retro"></i>
+                            </span>
+                        </div>
+                        <div class="w-100 d-flex justify-content-between align-items-center px-3 pt-3 pb-0">
+                            {{ Form::submit('Mettre à jour', ['class' => 'btn btn-primary btn-lg']) }}
+                        </div>
+
+                    </div>
+                    {!! Form::close() !!}
+                    </div>
+                </div>
           </div>
 </div>
 

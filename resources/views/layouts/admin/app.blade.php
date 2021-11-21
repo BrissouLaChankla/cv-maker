@@ -25,7 +25,7 @@
     </head>
     <body>
         <div id="app" >
-            <a href="{{route('front')}}" class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-home"></i></a>
+            <a href="{{route('front')}}" data-no-swup class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-home"></i></a>
             @include('layouts.admin.nav')
                 <main id="{{$view_name}}">
                     @yield('content')

@@ -8,33 +8,33 @@ $(function() {
 
     // this is the id of the form
     $("form.ajax-and-picture").submit(function(e) {
-        Toast.fire({
-            icon: 'info',
-            title: 'Modification...'
-        });
+            Toast.fire({
+                icon: 'info',
+                title: 'Modification...'
+            });
 
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+            e.preventDefault(); // avoid to execute the actual submit of the form.
 
-        var myForm = $(this)[0];
-        var url = $(this).attr('action');
-        
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: new FormData(myForm),
-            processData: false,
-            contentType: false,
-            success: function(data) {
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Modification effectuée'
-                })
-            },
-            error: function(data) {
-                console.log('erreur ajax :');
-                console.log(data)
-            }
-        });
+            var myForm = $(this)[0];
+            var url = $(this).attr('action');
+            
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: new FormData(myForm),
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Modification effectuée'
+                    })
+                },
+                error: function(data) {
+                    console.log('erreur ajax :');
+                    console.log(data)
+                }
+            });
 });
 
 
@@ -58,6 +58,50 @@ $(function() {
             })
         })
 
+        $('.change-avatar').on('change', function () {
+            let imgselected = $(this).find('img');
+            let inputfile = $(this).siblings('input[type="file"]');
+            inputfile.trigger('click');
+            // Fait direct le rendu 
+            inputfile.on('change', function(evt) {
+                var tgt = evt.target || window.event.srcElement,
+                    files = tgt.files;
+                    if (FileReader && files && files.length) {
+                        var fr = new FileReader();
+                        fr.onload = function () {
+                            imgselected.get(0).src = fr.result;
+                        }
+                        fr.readAsDataURL(files[0]);
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'info',
+                    title: 'Modification...'
+                });
+        
+        
+                var myForm = $(this)[0];
+                var url = $(this).attr('action');
+                
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: new FormData(myForm),
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Modification effectuée'
+                        })
+                    },
+                    error: function(data) {
+                        console.log('erreur ajax :');
+                        console.log(data)
+                    }
+                });
+        });
 
         const Toast = swal.mixin({
             toast: true,

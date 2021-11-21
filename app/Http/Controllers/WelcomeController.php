@@ -36,4 +36,9 @@ class WelcomeController extends Controller
             'portfolio' => $portfolio
         ]);
     }
+
+
+    public function editAvatar() {
+        return "gg";
+    }
 }

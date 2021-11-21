@@ -54,7 +54,6 @@ Route::get('/admin/hero', [AdminController::class, 'showHero'])->name('show-hero
 Route::get('/admin/about', [AboutController::class, 'showAbout'])->name('show-about');
 Route::get('/admin/resume', [ResumeController::class, 'showResume'])->name('show-resume');
 Route::get('/admin/portfolio', [PortfolioController::class, 'showPortfolio'])->name('show-portfolio');
-Route::get('/admin/contact', [ContactController::class, 'showContact'])->name('show-contact');
 
 
 // Edit 
@@ -69,6 +68,11 @@ Route::post('/edit/social', [SocialController::class, 'editSocial'])->name('edit
 Route::post('/edit/study', [StudyController::class, 'editStudy'])->name('edit-study'); 
 Route::post('/edit/technology', [TechnologyController::class, 'editTechnology'])->name('edit-technology');
 Route::post('/edit/reatechnology', [RealisationController::class, 'editReaTechnology'])->name('edit-rea-technology');
+// Images de fond + photo de soi 
+Route::post('/edit/images', [RealisationController::class, 'editReaTechnology'])->name('edit-rea-technology');
+
+Route::post('/edit/avatar', [WelcomeController::class, 'editAvatar'])->name('edit-avatar');
+
 
 //Images
     Route::post('/edit/about/picture', [AboutController::class, 'editAboutPicture'])->name('edit-about-picture');

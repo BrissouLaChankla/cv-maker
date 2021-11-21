@@ -28,7 +28,7 @@
     <body>
         <div id="app">
             @auth
-                <a href="{{route('admin')}}" class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-user-ninja"></i></a>
+                <a href="{{route('admin')}}" data-no-swup class="btn btn-primary shadow rounded-circle admin-btn"><i class="fas fa-user-ninja"></i></a>
             @endauth
             @if (Route::currentRouteName() !== "login")
                 @include('layouts.nav')

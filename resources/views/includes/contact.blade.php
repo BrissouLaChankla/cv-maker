@@ -12,16 +12,16 @@
                 </span>
                 <div>
                     <h5>Emplacement</h5>
-                    <p>Alpes-Martimes(06) et plus particulièrement Nice</p>
+                    <p>{{$about->location}}</p>
                 </div>
             </div>
             <div class="d-flex align-items-start my-4">
-                <a href="mailto:contact@brice-eliasse.com" class="rounded-circle btn btn-primary mr-3">
+                <a href="mailto:{{$about->email}}" class="rounded-circle btn btn-primary mr-3">
                     <i class="far fa-paper-plane"></i>
                 </a>
                 <div>
                     <h5>Email</h5>
-                    <a href="mailto:contact@brice-eliasse.com">contact@brice-eliasse.com</a>
+                    <a href="mailto:{{$about->email}}">{{$about->email}}</a>
                 </div>
             </div>
             <div class="d-flex align-items-start my-4">
@@ -30,7 +30,7 @@
                 </a>
                 <div>
                     <h5>Téléphone</h5>
-                    <a href="tel:+0619630877">0619630877</a>
+                    <a href="tel:{{$about->phone}}">{{$about->phone}}</a>
                 </div>
             </div>
         </div>
