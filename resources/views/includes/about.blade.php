@@ -10,9 +10,9 @@
         </div>
     </div>
     <div class="col-lg-8 mt-lg-0 mt-3 p-5">
+        <h3>{{$lastJob->name}}</h3>
+        <p>{!! nl2br(e($about->details))!!}</p>
         <div class="row">
-            <h3>{{$lastJob->name}}</h3>
-            <p>{!! nl2br(e($about->details))!!}</p>
             <div class="col-md-6 p-0">
                 <p class="arrowed d-flex align-items-center">
                     <strong class="text-nowrap">Date de naissance : </strong>

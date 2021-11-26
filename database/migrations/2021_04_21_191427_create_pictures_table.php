@@ -19,7 +19,6 @@ class CreatePicturesTable extends Migration
             $table->text('legend')->nullable();
             
             $table->bigInteger('realisation_id')->unsigned()->nullable();
-            $table->foreign('realisation_id')->references('id')->on('realisations');
 
             $table->timestamps();
         });
