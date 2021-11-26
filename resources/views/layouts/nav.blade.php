@@ -2,7 +2,7 @@
     <div>
         <div class="profile text-center mb-2">
             <a href="/">
-                <img src="{{asset('img/profile.jpg')}}" class="avatar img-fluid rounded-circle" alt="Avatar">
+                <img src="{{asset('img/avatar.webp')}}" class="avatar img-fluid fit-cover rounded-circle" alt="Avatar">
                 {{-- <img src="{{asset('storage/uploads/abouts/'.$about->nav_picture_path)}}" class="avatar img-fluid rounded-circle" alt="Avatar"> --}}
             </a>
             <h2 class="text-white my-2">{{$about->firstname}} {{$about->lastname}}</h2>
@@ -23,5 +23,5 @@
             @endforeach
         </nav>
     </div>
-    <a target="_blank" data-no-swup href="{{asset('CV_Brice_Eliasse.pdf')}}" class="btn btn-light cv-side rounded-big w-100">Télécharger mon CV</a>
+    <a target="_blank" data-no-swup href="{{asset('CV.pdf')}}" class="btn btn-light cv-side rounded-big w-100">Télécharger mon CV</a>
 </header>

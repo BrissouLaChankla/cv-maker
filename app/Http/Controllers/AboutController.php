@@ -31,31 +31,30 @@ class AboutController extends Controller
         return 'Modification effectuée !';
     }
 
-    public function editAboutPicture(Request $request) {
-        
-            // Select l'activite en question
-            $about = About::first();
-            
-            // récupère l'image actuelle
-            $currentimg = storage_path('app/public/uploads/abouts'.$about->photo);
-            
-            //La supprime
-            @unlink($currentimg);
 
-            //Récupère l'image reçue 
-            $file = $request->file('image');
-            
-            // = storage/app/uploads/images ;
-            $destinationPath = storage_path('app/public/uploads/abouts/avatar-left.jpg');
-            
-            // = Crée l'objet Image ;
-            $image = Image::make($file->getRealPath());
-            
-            // Croppe et Enregistre l'image
-            $image->fit(120, 120, function ($constraint) {
-                $constraint->aspectRatio();
-            })->encode('jpg',100)->save($destinationPath);
-            
-            return('avatar-left.jpg');
+    public function editProfile(Request $request) {
+        
+        // Select l'activite en question
+        $file = $request->file('profile');
+    
+        $namefile = "profile.webp";
+
+        // récupère l'image actuelle
+        $currentimg = public_path('img/profile.webp');
+        
+        //La supprime
+        @unlink($currentimg);
+
+        // = storage/app/uploads/images ;
+        $destinationPath = public_path('img/profile.webp' );
+        
+        // = Crée l'objet Image ;
+        $image = Image::make($file->getRealPath());
+        
+        // Croppe et Enregistre l'image
+        $image->resize(700, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp', 100)->save($destinationPath);
+
     }
 }

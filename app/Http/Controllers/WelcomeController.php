@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Job;
@@ -38,7 +39,64 @@ class WelcomeController extends Controller
     }
 
 
-    public function editAvatar() {
-        return "gg";
+    public function editAvatar(Request $request) {
+          
+        // Select l'activite en question
+        $file = $request->file('image');
+    
+        $namefile = "avatar.webp";
+
+        // récupère l'image actuelle
+        $currentimg = public_path('img/avatar.webp');
+        
+        //La supprime
+        @unlink($currentimg);
+
+        // = storage/app/uploads/images ;
+        $destinationPath = public_path('img/avatar.webp' );
+        
+        // = Crée l'objet Image ;
+        $image = Image::make($file->getRealPath());
+        
+        // Croppe et Enregistre l'image
+        $image->resize(null, 120, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp', 100)->save($destinationPath);
     }
+
+    public function editBackground(Request $request) {
+        
+        // Select l'activite en question
+        $file = $request->file('background');
+    
+        $namefile = "background.webp";
+
+        // récupère l'image actuelle
+        $currentimg = public_path('img/background.webp');
+        
+        //La supprime
+        @unlink($currentimg);
+
+        // = storage/app/uploads/images ;
+        $destinationPath = public_path('img/background.webp' );
+        
+        // = Crée l'objet Image ;
+        $image = Image::make($file->getRealPath());
+        
+        // Croppe et Enregistre l'image
+        $image->resize(1920, 1080, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp', 100)->save($destinationPath);
+    }
+
+    public function editCv(Request $request) {
+        $file = $request->file('cv');
+        $filename = "CV.pdf";
+        $filePath = public_path();
+        $file->move($filePath, $filename);
+
+
+        return back()->with('success', 'File uploaded successfully.');
+    }
+
 }

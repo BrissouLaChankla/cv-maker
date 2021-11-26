@@ -72,6 +72,10 @@ Route::post('/edit/reatechnology', [RealisationController::class, 'editReaTechno
 Route::post('/edit/images', [RealisationController::class, 'editReaTechnology'])->name('edit-rea-technology');
 
 Route::post('/edit/avatar', [WelcomeController::class, 'editAvatar'])->name('edit-avatar');
+Route::post('/edit/profile', [AboutController::class, 'editProfile'])->name('edit-profile');
+Route::post('/edit/background', [WelcomeController::class, 'editBackground'])->name('edit-background');
+
+Route::post('/edit/cv', [WelcomeController::class, 'editCv'])->name('edit-cv');
 
 
 //Images
