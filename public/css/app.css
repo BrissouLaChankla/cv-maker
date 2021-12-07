@@ -17444,13 +17444,6 @@ header .avatar {
   bottom: 5px;
 }
 
-@media screen and (min-width: 1180px) {
-  .profile-cv {
-    transform: scale(116%);
-    bottom: -1.5rem;
-    position: absolute;
-  }
-}
 .techno-icon:not(.avoid-glitch-top) {
   -webkit-animation: falling 5s infinite linear;
           animation: falling 5s infinite linear;

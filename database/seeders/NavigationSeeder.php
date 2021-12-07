@@ -26,7 +26,7 @@ class NavigationSeeder extends Seeder
                 'anchor' => 'about'
             ),
             2 => array (
-                'name' => 'CV',
+                'name' => 'Parcours',
                 'icon' => '<i class="fas fa-id-card"></i>',
                 'anchor' => 'resume'
             ),

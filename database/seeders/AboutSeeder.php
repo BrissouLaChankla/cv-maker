@@ -14,28 +14,16 @@ class AboutSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('socials')->insert(array (
-            0 => array (
-                'name' => 'Facebook',
-                'icon' => '<i class="fab fa-facebook-f"></i>'
-            ),
-            1 => array (
-                'name' => 'Instagram',
-                'icon' => '<i class="fab fa-instagram"></i>'
-            ),
-            2 => array (
-                'name' => 'Twitter',
-            'icon' => '<i class="fab fa-twitter"></i>'
-            ),
-            3 => array (
-                'name' => 'LinkedIn',
-                'icon' => '<i class="fab fa-linkedin-in"></i>'
-            ),
-            4 => array (
-                'name' => 'Github',
-                'icon' => '<i class="fab fa-github"></i>'
-            ),
-        )
-    );
+        DB::table('abouts')->insert([
+            'firstname' => 'Prénom',
+            'lastname' => 'Nom',
+            'nav_picture_path' => 'avatar-left.webp',
+            'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci inventore culpa quae ex iure tempora totam, excepturi consequuntur quidem officia, accusamus architecto quisquam eum cumque veritatis! Exercitationem fuga officia in.',
+            'details' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni veniam, a iste ut quia corporis quae inventore dolore eaque illo, recusandae deserunt alias maiores, eius ratione expedita doloremque molestias sit?',
+            'birthday' => '2000-01-01',
+            'diploma' => 'Master 2',
+            'phone' => '06 12 34 56 78',
+            'email' => 'john.doe@mail.fr'
+        ]);
     }
 }

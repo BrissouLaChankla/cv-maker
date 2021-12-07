@@ -52,7 +52,7 @@ class AboutController extends Controller
         $image = Image::make($file->getRealPath());
         
         // Croppe et Enregistre l'image
-        $image->resize(700, null, function ($constraint) {
+        $image->resize(500, null, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp', 100)->save($destinationPath);
 
