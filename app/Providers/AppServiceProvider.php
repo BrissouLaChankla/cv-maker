@@ -32,14 +32,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $socials = Social::whereRaw('link <> ""')->get();
-        $navigations = Navigation::all();
-        $about = About::first();
-        
-        View::share([
-            'socials' => $socials,
-            'navigations' => $navigations,
-            'about' => $about
-        ]);
+        if(Navigation::all()) {
+            $socials = Social::whereRaw('link <> ""')->get();
+            $navigations = Navigation::all();
+            $about = About::first();
+            
+            View::share([
+                'socials' => $socials,
+                'navigations' => $navigations,
+                'about' => $about
+            ]);
+        } else {
+            dd("Installation incomplète, BDD non remplie.");
+        }
     }
 }
