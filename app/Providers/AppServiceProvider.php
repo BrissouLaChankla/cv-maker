@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
                 'about' => $about
             ]);
         } else {
-            dd("Installation incomplète, BDD non remplie.");
+            echo("Installation incomplète, BDD non remplie.");
         }
     }
 }
