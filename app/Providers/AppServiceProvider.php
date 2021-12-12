@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use View;
+use Schema;
 use Carbon\Carbon;
 use App\Models\Social;
 use App\Models\About;
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(Navigation::all()) {
+        if(Schema::hasTable('navigations')) {
             $socials = Social::whereRaw('link <> ""')->get();
             $navigations = Navigation::all();
             $about = About::first();
