@@ -112,8 +112,15 @@ class PortfolioController extends Controller
         $namebackground = "background-".$request->slug.".webp";
         $namebackgroundsmall = "small/background-".$request->slug.".webp";
 
+        if (!file_exists(storage_path('app/public/uploads/realisations/background/'))) {
+            mkdir(storage_path('app/public/uploads/realisations/background/'), 0777, true);
+        }
         $destinationPathBackground = storage_path('app/public/uploads/realisations/background/'.$namebackground);
         $destinationPathBackgroundSmall = storage_path('app/public/uploads/realisations/background/'.$namebackgroundsmall);
+
+        if (!file_exists(storage_path('app/public/uploads/realisations/logo'))) {
+            mkdir(storage_path('app/public/uploads/realisations/background/'), 0777, true);
+        }
         $destinationPathLogo = storage_path('app/public/uploads/realisations/logo/'.$namelogo);
         
         $fileLogo = $request->file('logo_path');
