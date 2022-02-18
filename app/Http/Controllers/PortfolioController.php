@@ -46,7 +46,7 @@ class PortfolioController extends Controller
         $namefile = "logo-".$realisation->slug.".webp";
 
         // récupère l'image actuelle
-        $currentimg = storage_path('app/public/uploads/realisations/logo/'.$realisation->logo_path);
+        $currentimg = storage_path('uploads/realisations/logo/'.$realisation->logo_path);
         
         //La supprime
         @unlink($currentimg);
@@ -54,7 +54,7 @@ class PortfolioController extends Controller
         $realisation->update(["logo_path" => $namefile]);
         
         // = storage/app/uploads/images ;
-        $destinationPath = storage_path('app/public/uploads/realisations/logo/'.$namefile);
+        $destinationPath = storage_path('uploads/realisations/logo/'.$namefile);
         
         // = Crée l'objet Image ;
         $image = Image::make($file->getRealPath());
@@ -73,8 +73,8 @@ class PortfolioController extends Controller
         $namefilesmall = "small/background-".$realisation->slug.".webp";
 
         // récupère l'image actuelle
-        $currentimg = storage_path('app/public/uploads/realisations/background/'.$realisation->background_path);
-        $currentimgsmall = storage_path('app/public/uploads/realisations/background/'.$realisation->background_path_small);
+        $currentimg = storage_path('uploads/realisations/background/'.$realisation->background_path);
+        $currentimgsmall = storage_path('uploads/realisations/background/'.$realisation->background_path_small);
         
         //La supprime
         @unlink($currentimg);
@@ -84,8 +84,8 @@ class PortfolioController extends Controller
 
         
         // = storage/app/uploads/images ;
-        $destinationPath = storage_path('app/public/uploads/realisations/background/'.$namefile);
-        $destinationPathsmall = storage_path('app/public/uploads/realisations/background/'.$namefilesmall);
+        $destinationPath = storage_path('uploads/realisations/background/'.$namefile);
+        $destinationPathsmall = storage_path('uploads/realisations/background/'.$namefilesmall);
         
         // = Crée l'objet Image ;
         $image = Image::make($file->getRealPath());
@@ -112,21 +112,21 @@ class PortfolioController extends Controller
         $namebackground = "background-".$request->slug.".webp";
         $namebackgroundsmall = "small/background-".$request->slug.".webp";
 
-        if (!file_exists(storage_path('app/public/uploads/realisations/background/'))) {
-            mkdir(storage_path('app/public/uploads/realisations/background/'), 0777, true);
+        if (!file_exists(storage_path('uploads/realisations/background/'))) {
+            mkdir(storage_path('uploads/realisations/background/'), 0777, true);
         }
-        $destinationPathBackground = storage_path('app/public/uploads/realisations/background/'.$namebackground);
+        $destinationPathBackground = storage_path('uploads/realisations/background/'.$namebackground);
 
         
-        if (!file_exists(storage_path('app/public/uploads/realisations/background/small'))) {
-            mkdir(storage_path('app/public/uploads/realisations/background/small'), 0777, true);
+        if (!file_exists(storage_path('uploads/realisations/background/small'))) {
+            mkdir(storage_path('uploads/realisations/background/small'), 0777, true);
         }
-        $destinationPathBackgroundSmall = storage_path('app/public/uploads/realisations/background/'.$namebackgroundsmall);
+        $destinationPathBackgroundSmall = storage_path('uploads/realisations/background/'.$namebackgroundsmall);
 
-        if (!file_exists(storage_path('app/public/uploads/realisations/logo'))) {
-            mkdir(storage_path('app/public/uploads/realisations/logo'), 0777, true);
+        if (!file_exists(storage_path('uploads/realisations/logo'))) {
+            mkdir(storage_path('uploads/realisations/logo'), 0777, true);
         }
-        $destinationPathLogo = storage_path('app/public/uploads/realisations/logo/'.$namelogo);
+        $destinationPathLogo = storage_path('uploads/realisations/logo/'.$namelogo);
         
         $fileLogo = $request->file('logo_path');
         $fileBackground = $request->file('background_path');
