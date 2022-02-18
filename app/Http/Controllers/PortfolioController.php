@@ -119,7 +119,7 @@ class PortfolioController extends Controller
         $destinationPathBackgroundSmall = storage_path('app/public/uploads/realisations/background/'.$namebackgroundsmall);
 
         if (!file_exists(storage_path('app/public/uploads/realisations/logo'))) {
-            mkdir(storage_path('app/public/uploads/realisations/background/'), 0777, true);
+            mkdir(storage_path('app/public/uploads/realisations/logo'), 0777, true);
         }
         $destinationPathLogo = storage_path('app/public/uploads/realisations/logo/'.$namelogo);
         
