@@ -116,6 +116,11 @@ class PortfolioController extends Controller
             mkdir(storage_path('app/public/uploads/realisations/background/'), 0777, true);
         }
         $destinationPathBackground = storage_path('app/public/uploads/realisations/background/'.$namebackground);
+
+        
+        if (!file_exists(storage_path('app/public/uploads/realisations/background/small'))) {
+            mkdir(storage_path('app/public/uploads/realisations/background/small'), 0777, true);
+        }
         $destinationPathBackgroundSmall = storage_path('app/public/uploads/realisations/background/'.$namebackgroundsmall);
 
         if (!file_exists(storage_path('app/public/uploads/realisations/logo'))) {
