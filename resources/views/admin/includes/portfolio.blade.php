@@ -50,7 +50,7 @@
                                 {{ Form::label('logo_path', 'Logo du projet') }}
                                 {!! Form::file('logo_path', ['class' => 'd-none']) !!}
                                 <div class="position-relative change-pic change-logo-style pointer">
-                                    <img src="{{ asset('storage/app/public/uploads/realisations/logo/exemple.png') }}"
+                                    <img src="{{ asset('storage/uploads/realisations/logo/exemple.png') }}"
                                         class="img-fluid ">
                                     <span class="text-white icon-hover">
                                         <i class="fas fa-camera-retro"></i>
@@ -61,7 +61,7 @@
                                     {{ Form::label('background_path', 'Background du projet') }}
                                     {!! Form::file('background_path', ['class' => 'd-none']) !!}
                                     <div class="position-relative change-pic change-background-style pointer">
-                                        <img src="{{ asset('storage/app/public/uploads/realisations/background/exemple.jpg') }}"
+                                        <img src="{{ asset('storage/uploads/realisations/background/exemple.jpg') }}"
                                             class="img-fluid rounded">
                                         <span class="text-white icon-hover">
                                             <i class="fas fa-camera-retro"></i>
@@ -116,7 +116,7 @@
                                     {{ Form::label('logo_path', 'Logo du projet') }}
                                     {!! Form::file('logo_path', ['class' => 'd-none']) !!}
                                     <div class="position-relative change-pic change-logo-style pointer">
-                                        <img src="{{ asset('storage/app/public/uploads/realisations/logo/' . $realisation->logo_path) }}"
+                                        <img src="{{ asset('storage/uploads/realisations/logo/' . $realisation->logo_path) }}"
                                             class="img-fluid ">
                                         <span class="text-white icon-hover">
                                             <i class="fas fa-camera-retro"></i>
@@ -127,7 +127,7 @@
                                         {{ Form::label('background_path', 'Background du projet') }}
                                         {!! Form::file('background_path', ['class' => 'd-none']) !!}
                                         <div class="position-relative change-pic change-background-style pointer">
-                                            <img src="{{ asset('storage/app/public/uploads/realisations/background/' . $realisation->background_path_small) }}"
+                                            <img src="{{ asset('storage/uploads/realisations/background/' . $realisation->background_path_small) }}"
                                                 class="img-fluid rounded">
                                             <span class="text-white icon-hover">
                                                 <i class="fas fa-camera-retro"></i>
