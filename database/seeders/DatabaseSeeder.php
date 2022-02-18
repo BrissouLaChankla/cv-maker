@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            ResumeSeeder::class,
             AboutSeeder::class,
             ContactSeeder::class,
             JobSeeder::class,
             NavigationSeeder::class,
             PortfolioSeeder::class,
             RealisationSeeder::class,
-            ResumeSeeder::class,
             SocialSeeder::class,
             StudySeeder::class,
             TechnologySeeder::class,
