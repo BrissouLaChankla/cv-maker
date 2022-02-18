@@ -39,7 +39,7 @@
                 <div class="row">
                     @foreach ($pictures as $picture)
                         <div class="col-6">
-                            <img src="{{url('storage/uploads/realisations/pictures/'.$picture->picture_path)}}" class="img-fluid rounded shadow-sm mt-3 " alt="Photo {{$picture->id}} de {{$realisation->name}}">                            
+                            <img src="{{url('uploads/realisations/pictures/'.$picture->picture_path)}}" class="img-fluid rounded shadow-sm mt-3 " alt="Photo {{$picture->id}} de {{$realisation->name}}">                            
                         </div>
                     @endforeach
                 </div>
