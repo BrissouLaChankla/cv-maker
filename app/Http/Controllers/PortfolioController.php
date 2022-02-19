@@ -98,7 +98,7 @@ class PortfolioController extends Controller
 
         $image->fit(1920, 1080, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPath);
+        })->encode('webp',100)->save($destinationPath, 100);
 
     }
 
@@ -128,7 +128,7 @@ class PortfolioController extends Controller
         
         $imageBackground->fit(1920, 1080, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPathBackground);
+        })->encode('webp',100)->save($destinationPathBackground, 100);
 
         $imageLogo->resize(null, 120, function ($constraint) {
             $constraint->aspectRatio();
