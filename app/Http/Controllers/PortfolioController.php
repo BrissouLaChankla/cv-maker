@@ -60,7 +60,7 @@ class PortfolioController extends Controller
         $image = Image::make($file->getRealPath());
         
         // Croppe et Enregistre l'image
-        $image->resize(null, 120, function ($constraint) {
+        $image->resize(null, 240, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPath);
         
@@ -124,7 +124,7 @@ class PortfolioController extends Controller
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPathBackground)->fit(400, 200)->save($destinationPathBackgroundSmall);
       
-        $imageLogo->resize(null, 120, function ($constraint) {
+        $imageLogo->resize(null, 240, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPathLogo);
 
