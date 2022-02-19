@@ -93,12 +93,10 @@ class PortfolioController extends Controller
         // Croppe et Enregistre l'image
         $image->fit(400, 200, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',75)->save($destinationPathsmall);
+        })->encode('webp',90)->save($destinationPathsmall);
         
 
-        $image->fit(1920, 1080, function ($constraint) {
-            $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPath, 100);
+        $image->encode('webp',100)->save($destinationPath);
 
     }
 
@@ -126,9 +124,7 @@ class PortfolioController extends Controller
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPathBackgroundSmall);
         
-        $imageBackground->fit(1920, 1080, function ($constraint) {
-            $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPathBackground, 100);
+        $imageBackground->encode('webp',100)->save($destinationPathBackground);
 
         $imageLogo->resize(null, 120, function ($constraint) {
             $constraint->aspectRatio();
