@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="bandeau d-flex align-items-center position-relative" style="background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{url('storage/uploads/realisations/background/'.$realisation->background_path)}}')">
+<div class="bandeau d-flex align-items-center position-relative" style="background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset('storage/uploads/realisations/background/'.$realisation->background_path)}}')">
     <a class="text-white return-home" href="/#portfolio">
         <i class="fas fa-arrow-left"></i>
     </a>
@@ -34,12 +34,12 @@
             </div>
             <div class="col-lg-7">
                 <div>
-                    <img src="{{url('storage/uploads/realisations/background/'.$realisation->background_path)}}" class="img-fluid rounded shadow" alt="">
+                    <img src="{{asset('storage/uploads/realisations/background/'.$realisation->background_path)}}" class="img-fluid rounded shadow" alt="">
                 </div>
                 <div class="row">
                     @foreach ($pictures as $picture)
                         <div class="col-6">
-                            <img src="{{url('uploads/realisations/pictures/'.$picture->picture_path)}}" class="img-fluid rounded shadow-sm mt-3 " alt="Photo {{$picture->id}} de {{$realisation->name}}">                            
+                            <img src="{{asset('storage/uploads/realisations/pictures/'.$picture->picture_path)}}" class="img-fluid rounded shadow-sm mt-3 " alt="Photo {{$picture->id}} de {{$realisation->name}}">                            
                         </div>
                     @endforeach
                 </div>
