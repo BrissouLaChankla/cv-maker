@@ -8,3 +8,10 @@
 .bandeau h1 {
   font-size: 5rem;
 }
+
+.rea-date-home {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  transition: all 0.3s ease;
+}
