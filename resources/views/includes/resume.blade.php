@@ -29,12 +29,15 @@
         <div class="d-flex flex-wrap">
                 @foreach ($resume->technologies as $competence)
                     <div class="skill w-50 @if($loop->even) pl-3 @else pr-3 @endif py-2">
-                        <h6 class="text-uppercase">{{$competence->name}}</h6>
+                        <a href="#" class="open-modal-techno" data-id="{{$competence->id}}">
+                            <h6 class="text-uppercase">{{$competence->name}}</h6>
+                        </a>
                         <div class="progress">
                             <div class="progress-bar wow fadeInLeft" role="progressbar" style="width: {{$competence->mastery}}%" aria-valuenow="{{$competence->mastery}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 @endforeach
+                @include('includes.modal-techno')
             </div>
     </div>
 </div>

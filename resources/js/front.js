@@ -136,7 +136,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
     });
 }
 
-        if (document.querySelector('#realisation')) {
+        if (document.querySelector('#technoModal')) {
 
             
             // fix swup bug qui laissait modal ouverte
@@ -146,7 +146,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
            
                 $('[data-toggle="tooltip"]').tooltip();  
                 
-                $('.logo-techno').on('click', function() {
+                $('.open-modal-techno').on('click', function() {
                     $('#technoModal').modal('show');
                     $('.loader').show();
 
