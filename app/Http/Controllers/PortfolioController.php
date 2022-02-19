@@ -96,7 +96,7 @@ class PortfolioController extends Controller
         })->encode('webp',75)->save($destinationPathsmall);
         
 
-        $image->resizeDown(1920, null, function ($constraint) {
+        $image->resize(1920, null, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPath);
 
@@ -126,7 +126,7 @@ class PortfolioController extends Controller
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPathBackgroundSmall);
         
-        $imageBackground->resizeDown(1920, null, function ($constraint) {
+        $imageBackground->resize(1920, null, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp',100)->save($destinationPathBackground);
 
