@@ -173,7 +173,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
                                 $('#technoreas').append(`
                                     <div> 
                                    
-                                        <a href="/projet/${element.slug}" style="background:linear-gradient(rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0.6)), url('/storage/uploads/realisations/${element.background_path_small}'); background-size: cover; background-position: center;" class="d-block imgtechno-rea mx-2 img-fluid shadow-sm rounded position-relative">
+                                        <a href="/projet/${element.slug}" style="background:linear-gradient(rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0.6)), url('/storage/uploads/realisations/background/${element.background_path_small}'); background-size: cover; background-position: center;" class="d-block imgtechno-rea mx-2 img-fluid shadow-sm rounded position-relative">
                                             <i class="fas fa-search"></i>
                                             <div class="d-flex flex-column align-items-center justify-content-center h-100 overflow-hidden proj">
                                                 <img src="/storage/uploads/realisations/logo/${element.logo_path}" class="small-logo-project" />
