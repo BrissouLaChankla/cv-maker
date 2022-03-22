@@ -37,8 +37,8 @@ Route::get('/infos/technology/{id}', [TechnologyController::class, 'getInfosTech
 
 Route::get('/projets', [RealisationController::class, 'showAll'])->name('allProjects');
 Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->name('project');
+Route::get('/loadprojects/{nb}', [RealisationController::class, 'loadProject'])->name('load-project');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 

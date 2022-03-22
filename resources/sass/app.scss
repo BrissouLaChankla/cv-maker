@@ -1,3 +1,5 @@
+//Tout ce qui est ici est commun à l'admin et au visiteur
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -12,15 +14,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import "~animate.css/animate.min.css";
+
+
+//css perso pour all 
 @import 'main';
 
-@import '~quill/dist/quill.snow.css';
 
-@import '~slick-carousel/slick/slick-theme.scss';
-@import '~slick-carousel/slick/slick.scss';
-
-@import "~animate.css/animate.min.css";
-@import "~bootstrap4-toggle/css/bootstrap4-toggle.min.css";
-@import "~bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css";
-
-@import "custom";

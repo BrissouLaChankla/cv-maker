@@ -32,6 +32,13 @@ class RealisationController extends Controller
         ]);
     }
 
+    public function loadProject($nb) {
+        $allRealisations = Realisation::orderBy('date', 'desc')->get();
+        $chunks = $allRealisations->chunk(6);
+        $chunks->toArray();
+        return($chunks[0]);
+    }
+    
     public function editReaTechnology(Request $request) {
         
         

@@ -1,4 +1,13 @@
 
+@import '~quill/dist/quill.snow.css';
+
+@import '~slick-carousel/slick/slick-theme.scss';
+@import '~slick-carousel/slick/slick.scss';
+
+@import "~bootstrap4-toggle/css/bootstrap4-toggle.min.css";
+@import "~bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css";
+
+
 // PERMET HOVER EDIT IMAGE
 .change-pic{
     position: relative;

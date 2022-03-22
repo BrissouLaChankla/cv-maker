@@ -22,7 +22,7 @@ class WelcomeController extends Controller
         $jobs = Job::orderBy('start_date', 'desc')->get();
         $studies = Study::orderBy('start_date', 'DESC')->get();
         $technologies = Technology::all();
-        $realisations = Realisation::orderBy('date', 'DESC')->get();
+        $realisations = Realisation::orderBy('date', 'DESC')->take(6)->get();
         $portfolio = Portfolio::first();
         $contact = Contact::first();
         $lastJob = Job::orderBy('start_date', 'DESC')->first();

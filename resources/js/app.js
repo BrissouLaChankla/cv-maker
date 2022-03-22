@@ -10,9 +10,11 @@ window.SwupOverlayTheme = require('@swup/overlay-theme');
 
 window.slick = require('slick-carousel');
 
+window.anime = require('animejs').default;
+
+
 const WOW = require('wowjs'); window.wow = new WOW.WOW({ live: false });
 
-window.anime = require('animejs').default;
 
 require('./main');
  

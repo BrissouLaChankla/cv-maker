@@ -15,7 +15,7 @@
             @endforeach
     </div>
     <div class="col-lg-6">
-        <h3 class="my-3">Études et diplômes</h3>
+        <h3 class="my-3 caca">Études et diplômes</h3>
         @foreach ($studies as $study)
             <div class="item-cv {{($loop->first) ? "pulsed" : ""}}">
                 <h4><strong>{{$study->name}}</strong> | {{$study->school}}</h4>
