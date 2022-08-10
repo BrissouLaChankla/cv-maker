@@ -77,7 +77,8 @@
                         {{ Form::label('profile', 'Photo de toi') }}
                         {!! Form::file('profile', ['class' => 'd-none']) !!}
                         <div class="position-relative change-pic change-background-style pointer">
-                            <img src="{{ asset('img/profile.webp') }}"
+                            <img src="{{ url('storage/common/profile.webp') }}"
+                            
                                 class="img-fluid rounded">
                             <span class="text-white icon-hover">
                                 <i class="fas fa-camera-retro"></i>
@@ -95,7 +96,7 @@
                         title="Cette image apparait tout en haut de votre site et prends toute la largeur et hauteur, choisissez là bien ! Il faut que du texte blanc puisse se lire dessus (nous l'assombrissons)"></i>
                         {!! Form::file('background', ['class' => 'd-none']) !!}
                         <div class="position-relative change-pic change-background-style pointer">
-                            <img src="{{ asset('img/background.webp') }}"
+                            <img src="{{ url('storage/common/background.webp') }}"
                                 class="img-fluid rounded">
                             <span class="text-white icon-hover">
                                 <i class="fas fa-camera-retro"></i>

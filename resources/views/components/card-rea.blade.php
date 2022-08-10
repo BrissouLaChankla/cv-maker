@@ -1,4 +1,4 @@
-    <div id="curve" class="rea-card position-relative" style="background:url('{{asset('img/realisations/small/'.$realisation->background_path_small)}}">
+    <div id="curve" class="rea-card position-relative" style="background:url('{{ url('storage/realisations/'.$realisation->slug.'/background_small.webp') }}">
         <div class="footer">
             <div class="connections">
                 <div class="connection facebook"><div class="icon"></div></div>

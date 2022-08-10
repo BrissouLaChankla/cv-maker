@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="bandeau d-flex align-items-center position-relative" style="background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset('storage/uploads/realisations/background/'.$realisation->background_path)}}')">
+<div class="bandeau d-flex align-items-center position-relative" style="background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{ url('storage/realisations/'.$realisation->slug.'/background.webp') }}')">
     <a class="text-white return-home" href="/#portfolio">
         <i class="fas fa-arrow-left"></i>
     </a>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-7">
                 <div>
-                    <img src="{{asset('storage/uploads/realisations/background/'.$realisation->background_path)}}" class="img-fluid rounded shadow" alt="">
+                    <img src="{{ url('storage/realisations/'.$realisation->slug.'/background.webp') }}" class="img-fluid rounded shadow" alt="">
                 </div>
                 <div class="row">
                     @foreach ($pictures as $picture)

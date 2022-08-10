@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -34,27 +35,21 @@ class AboutController extends Controller
 
     public function editProfile(Request $request) {
         
-        // Select l'activite en question
         $file = $request->file('profile');
-    
-        $namefile = "profile.webp";
 
-        // récupère l'image actuelle
-        $currentimg = public_path('img/profile.webp');
-        
-        //La supprime
-        @unlink($currentimg);
-
-        // = storage/app/uploads/images ;
-        $destinationPath = public_path('img/profile.webp' );
-        
         // = Crée l'objet Image ;
-        $image = Image::make($file->getRealPath());
+        $image = Image::make($file);
         
         // Croppe et Enregistre l'image
         $image->resize(500, null, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp', 100)->save($destinationPath);
+        })->encode('webp', 100);
+
+
+        Storage::disk('local')->put(
+            'public/common/profile.webp',
+            (string) $image->encode()
+        );
 
     }
 }

@@ -4,7 +4,7 @@
              {!! Form::open(['method' => 'post', 'route' => 'edit-avatar', 'class' => 'change-image-dynamic', 'files' => 'true']) !!}
                 {!! Form::file('image', ['class'=>'d-none']) !!}    
                 <div class="position-relative m-auto avatar rounded-circle pointer change-pic">
-                    <img src="{{ asset('img/avatar.webp') }}"
+                    <img src="{{ url('storage/common/avatar.webp') }}"
                       class="fit-cover img-fluid rounded-circle">
                     <span class="text-white icon-hover">
                         <i class="fas fa-camera-retro"></i>
@@ -31,7 +31,7 @@
     {!! Form::open(['method' => 'post', 'route' => 'edit-avatar', 'files' => 'true']) !!}
                 {!! Form::file('image', ['class'=>'d-none', 'id' => 'change-nav-pic']) !!}
                 <div class="position-relative m-auto avatar rounded-circle pointer change-pic">
-                    <img src="{{ asset('img/avatar.webp') }}"
+                    <img src="{{ url('storage/common/avatar.webp') }}"
                         class="img-fluid fit-cover rounded-circle">
                     <span class="text-white icon-hover">
                         <i class="fas fa-camera-retro"></i>

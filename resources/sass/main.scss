@@ -137,9 +137,7 @@ nav {
 
 .arrowed {
     &:before {
-        font-family: "Font Awesome 5 Free"; 
-        font-weight: 900; 
-        content: "\f105";
+        content: '\25BA';
         font-size:1.5em;
         margin-right: 10px;
     }

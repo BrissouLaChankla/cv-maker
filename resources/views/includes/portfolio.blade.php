@@ -8,11 +8,11 @@
     <div class="row">
         @foreach ($realisations as $realisation)
             <div class="col-sm-4 p-3">
-                     <div class="content position-relative overflow-hidden text-center text-white rounded shadow bg-rea d-flex flex-column justify-content-center align-items-center px-3" style="background: linear-gradient(rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0.6)), url('{{asset('storage/uploads/realisations/background/'.$realisation->background_path_small)}} ')">
+                     <div class="content position-relative overflow-hidden text-center text-white rounded shadow bg-rea d-flex flex-column justify-content-center align-items-center px-3" style="background: linear-gradient(rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0.6)), url('{{ url('storage/realisations/'.$realisation->slug.'/background_small.webp') }} ')">
                         @if($realisation->date)        
                             <span data-placement="bottom" data-toggle="tooltip" title="📅 Date de réalisation" class="badge badge-secondary rea-date-home">{{$realisation->date->format('m/Y')}}</span>
                         @endif
-                        <img src="{{asset('storage/uploads/realisations/logo/'.$realisation->logo_path)}}" class="logo-project" alt="Logo {{$realisation->name}}">
+                        <img src="{{ url('storage/realisations/'.$realisation->slug.'/logo.webp') }}" class="logo-project" alt="Logo {{$realisation->name}}">
                             <div class="shortdesc-rea px-3">
                                 <p>
                                     @if (is_null($realisation->short_description) || $realisation->short_description == "")

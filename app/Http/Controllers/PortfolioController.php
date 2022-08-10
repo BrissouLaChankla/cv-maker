@@ -8,6 +8,8 @@ use App\Models\Technology;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Session;
+use Illuminate\Support\Facades\Storage;
+
 
 class PortfolioController extends Controller
 {
@@ -41,61 +43,50 @@ class PortfolioController extends Controller
 
     public function editLogoRea($realisation, $file) {
         
-        // Select l'activite en question
-    
-        $namefile = "logo-".$realisation->slug.".webp";
-
-        // récupère l'image actuelle
-        $currentimg = storage_path('app/public/uploads/realisations/logo/'.$realisation->logo_path);
-        
-        //La supprime
-        @unlink($currentimg);
-
-        $realisation->update(["logo_path" => $namefile]);
-        
-        // = storage/app/uploads/images ;
-        $destinationPath = storage_path('app/public/uploads/realisations/logo/'.$namefile);
-        
         // = Crée l'objet Image ;
-        $image = Image::make($file->getRealPath());
+        $image = Image::make($file);
         
         // Croppe et Enregistre l'image
         $image->resize(null, 240, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPath);
+        })->encode('webp',100);
+
+
+        Storage::disk('local')->put(
+            'public/realisations/'.$realisation->slug.'/logo.webp',
+            (string) $image->encode()
+        );
         
     }
 
 
     public function editBackgroundRea($realisation, $file) {
 
-        $namefile = "background-".$realisation->slug.".webp";
-        $namefilesmall = "small/background-".$realisation->slug.".webp";
 
-        // récupère l'image actuelle
-        $currentimg = storage_path('app/public/uploads/realisations/background/'.$realisation->background_path);
-        $currentimgsmall = storage_path('app/public/uploads/realisations/background/'.$realisation->background_path_small);
-        
-        //La supprime
-        @unlink($currentimg);
-        @unlink($currentimgsmall);
-
-        $realisation->update(["background_path" => $namefile, "background_path_small" => $namefilesmall]);
-
-        
-        // = storage/app/uploads/images ;
-        $destinationPath = storage_path('app/public/uploads/realisations/background/'.$namefile);
-        $destinationPathsmall = storage_path('app/public/uploads/realisations/background/'.$namefilesmall);
-        
         // = Crée l'objet Image ;
-        $image = Image::make($file->getRealPath());
-        
+        $image = Image::make($file);
+        $imageSmall = Image::make($file);
 
         
         $image->fit(1920, 1080, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPath)->fit(400, 200)->save($destinationPathsmall);
+        })->encode('webp',100);
         
+        $imageSmall->fit(600, 400, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp',100);
+        
+        
+        Storage::disk('local')->put(
+            'public/realisations/'.$realisation->slug.'/background.webp',
+            (string) $image->encode()
+        );
+
+        Storage::disk('local')->put(
+            'public/realisations/'.$realisation->slug.'/background_small.webp',
+            (string) $imageSmall->encode()
+        );
+
 
 
     }
@@ -106,31 +97,45 @@ class PortfolioController extends Controller
         $realisation = new Realisation($request->all());
         $request->merge(['slug' => str_slug($request->name, "-")]);
 
-        $namelogo = "logo-".$request->slug.".webp";
-        $namebackground = "background-".$request->slug.".webp";
-        $namebackgroundsmall = "small/background-".$request->slug.".webp";
-
-        $destinationPathBackground = storage_path('app/public/uploads/realisations/background/'.$namebackground);
-        $destinationPathBackgroundSmall = storage_path('app/public/uploads/realisations/background/'.$namebackgroundsmall);
-        $destinationPathLogo = storage_path('app/public/uploads/realisations/logo/'.$namelogo);
-        
         $fileLogo = $request->file('logo_path');
         $fileBackground = $request->file('background_path');
-        
-        $imageLogo = Image::make($fileLogo->getRealPath());
-        $imageBackground = Image::make($fileBackground->getRealPath());
+
+        $imageLogo = Image::make($fileLogo);
+        $imageBackground = Image::make($fileBackground);
+        $imageBackgroundSmall = Image::make($fileBackground);
+
 
         $imageBackground->fit(1920, 1080, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPathBackground)->fit(400, 200)->save($destinationPathBackgroundSmall);
-      
+        })->encode('webp',100);
+
+        $imageBackgroundSmall->fit(600, 400, function ($constraint) {
+            $constraint->aspectRatio();
+        })->encode('webp',100);
+
         $imageLogo->resize(null, 240, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp',100)->save($destinationPathLogo);
+        })->encode('webp',100);
 
+
+
+        Storage::disk('local')->put(
+            'public/realisations/'.$request->slug.'/background.webp',
+            (string) $imageBackground->encode()
+        );
+
+        Storage::disk('local')->put(
+            'public/realisations/'.$request->slug.'/background_small.webp',
+            (string) $imageBackgroundSmall->encode()
+        );
+
+        Storage::disk('local')->put(
+            'public/realisations/'.$request->slug.'/logo.webp',
+            (string) $imageLogo->encode()
+        );
+
+        
         $realisation->save();
-
-        $realisation->update(["logo_path" => $namelogo, "background_path" => $namebackground, "background_path_small" => $namebackgroundsmall]);
 
         Session::flash('swal','Nouvelle réalisation crée !');
         return back();
@@ -154,6 +159,7 @@ class PortfolioController extends Controller
     public function deleteRea($id) {
         $realisation = Realisation::find($id);
         $realisation->delete();
+        Storage::deleteDirectory('public/'.$realisation->slug);
         Session::flash('swal','Réalisation supprimée !');
     }
 

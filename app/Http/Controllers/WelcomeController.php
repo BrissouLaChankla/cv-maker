@@ -12,6 +12,7 @@ use App\Models\Resume;
 use App\Models\Study;
 use App\Models\Technology;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Storage;
 
 
 class WelcomeController extends Controller
@@ -40,53 +41,41 @@ class WelcomeController extends Controller
 
 
     public function editAvatar(Request $request) {
-          
-        // Select l'activite en question
+
         $file = $request->file('image');
-    
-        $namefile = "avatar.webp";
 
-        // récupère l'image actuelle
-        $currentimg = public_path('img/avatar.webp');
-        
-        //La supprime
-        @unlink($currentimg);
-
-        // = storage/app/uploads/images ;
-        $destinationPath = public_path('img/avatar.webp' );
-        
         // = Crée l'objet Image ;
-        $image = Image::make($file->getRealPath());
+        $image = Image::make($file);
         
         // Croppe et Enregistre l'image
         $image->resize(null, 120, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp', 100)->save($destinationPath);
+        })->encode('webp', 100);
+
+
+        Storage::disk('local')->put(
+            'public/common/avatar.webp',
+            (string) $image->encode()
+        );
     }
 
     public function editBackground(Request $request) {
-        
-        // Select l'activite en question
+
         $file = $request->file('background');
-    
-        $namefile = "background.webp";
 
-        // récupère l'image actuelle
-        $currentimg = public_path('img/background.webp');
-        
-        //La supprime
-        @unlink($currentimg);
-
-        // = storage/app/uploads/images ;
-        $destinationPath = public_path('img/background.webp' );
-        
         // = Crée l'objet Image ;
-        $image = Image::make($file->getRealPath());
+        $image = Image::make($file);
         
         // Croppe et Enregistre l'image
-        $image->resize(1920, 1080, function ($constraint) {
+       $image->resize(1920, 1080, function ($constraint) {
             $constraint->aspectRatio();
-        })->encode('webp', 100)->save($destinationPath);
+        })->encode('webp', 100);
+
+
+        Storage::disk('local')->put(
+            'public/common/background.webp',
+            (string) $image->encode()
+        );
     }
 
     public function editCv(Request $request) {
