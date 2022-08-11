@@ -20,6 +20,7 @@
                     </div>
                 </div>
             {!! Form::close() !!}
+        @if(count($realisations) < 6)
         <h3 class="mt-5">Ajoutez vos réalisations</h3>
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseAddRea" role="button" aria-expanded="false"
             aria-controls="collapseAddRea">
@@ -85,6 +86,7 @@
                 {!! Form::close() !!}
             </div>
         </div>
+        @endif
         @foreach ($realisations as $realisation)
             <a class="btn btn-secondary w-100 p-4 mt-3" data-toggle="collapse" href="#collapseRea{{ $realisation->id }}"
                 role="button" aria-expanded="false" aria-controls="collapseRea{{ $realisation->id }}">

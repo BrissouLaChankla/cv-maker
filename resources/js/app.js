@@ -1,4 +1,5 @@
 require('./bootstrap');
+window.swal = require('sweetalert2');
 
 
 window.Swup = require('swup').default;

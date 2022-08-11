@@ -14,7 +14,7 @@
         <p>{!! nl2br(e($about->details))!!}</p>
         <div class="row">
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
+                <p class="arrowed">
                     <strong class="text-nowrap">Date de naissance : </strong>
                     <span class="birthday"> 
                         {{ $about->birthday->format('d/m/Y') }}
@@ -22,48 +22,48 @@
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
-                    <strong class="text-nowrap">Age :</strong>
+                <p class="arrowed">
+                    <strong class="text-nowrap ">Age : </strong>
                     <span class="age">
                         {{ $about->birthday->age }} ans
                     </span>
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
+                <p class="arrowed">
                     <span>
-                        <strong class="text-nowrap">Téléphone : </strong>
+                        <strong class="text-nowrap ">Téléphone : </strong>
                         <a href="tel:+{{$about->phone}}">{{$about->phone}}</a>
                     </span>
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
-                    <strong class="text-nowrap">E-mail : </strong>
+                <p class="arrowed">
+                    <strong class="text-nowrap ">E-mail : </strong>
                     <a href="mailto:{{$about->email}}">{{$about->email}}</a>
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
-                    <strong class="text-nowrap">Lieu : </strong>
+                <p class="arrowed">
+                    <strong class="text-nowrap ">Lieu : </strong>
                     {{$about->location}}
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
-                    <strong class="text-nowrap">Diplôme :</strong>
+                <p class="arrowed">
+                    <strong class="text-nowrap ">Diplôme :</strong>
                     {{ $about->diploma }}
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
-                    <strong class="text-nowrap">Hobbies :</strong>
+                <p class="arrowed">
+                    <strong class="text-nowrap ">Hobbies :</strong>
                     {{ $about->hobbies }}
                 </p>
             </div>
             <div class="col-md-6 p-0">
-                <p class="arrowed d-flex align-items-center">
-                    <strong class="text-nowrap">Statut :</strong>
+                <p class="arrowed">
+                    <strong class="text-nowrap ">Statut :</strong>
                     {{$about->status}} 
                 </p>
             </div>

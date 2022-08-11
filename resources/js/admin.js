@@ -1,4 +1,3 @@
-window.swal = require('sweetalert2');
 window.Quill = require('quill');
 require('bootstrap4-toggle');
 require('bootstrap-colorpicker');
