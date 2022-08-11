@@ -205,7 +205,9 @@
                     {{ Form::label('logo_icon', 'Balise de l\'icon') }}
                     {{ Form::text('logo_icon', null, ['class' => 'form-control']) }}
                     {{ Form::label('color', 'Couleur du logo', ['class' =>'mt-2']) }}
-                    {{ Form::text('color', null, ['class' => 'form-control colorpicker']) }}
+                    <div>
+                        <input type="color" class="colorpicker"  name="color"  value="#FFFFFF">
+                    </div>
                     {{ Form::label('type', 'Type de techno', ['class' =>'mt-2']) }}
                     {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], null,  ['class' => 'form-control']) }}
                     {{ Form::label('mastery', 'Maîtrise', ['class' =>'mt-2']) }}
@@ -248,7 +250,9 @@
                                 {{ Form::label('logo_icon', 'Balise de l\'icon') }}
                                 {{ Form::text('logo_icon', $technology->logo_icon, ['class' => 'form-control']) }}
                                 {{ Form::label('color', 'Couleur du logo', ['class' =>'mt-2']) }}
-                                {{ Form::text('color', $technology->color, ['class' => 'form-control colorpicker']) }}
+                                <div>
+                                    <input type="color" class="colorpicker"  name="color"  value="{{$technology->color}}">
+                                </div>
                                 {{ Form::label('type', 'Type de techno', ['class' =>'mt-2']) }}
                                 {{ Form::select('type', ['Front-End' => 'Front-end', 'Back-end' => 'Back-End'], $technology->type,  ['class' => 'form-control']) }}
                                 {{ Form::label('mastery', 'Maîtrise', ['class' =>'mt-2']) }}

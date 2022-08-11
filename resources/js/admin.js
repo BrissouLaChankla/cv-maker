@@ -1,8 +1,8 @@
-window.Quill = require('quill');
+
 require('bootstrap4-toggle');
-require('bootstrap-colorpicker');
 
 $(function() {
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -183,11 +183,7 @@ $(function() {
               })
         }),
         $('[data-toggle="tooltip"]').tooltip();  
-        $('.colorpicker').colorpicker();
-
-        $('.colorpicker').on('colorpickerChange', function(event) {
-            $(this).closest('.tec').find('.banner').css('background-color', event.color.toString());
-          });
+       
    
 
     })

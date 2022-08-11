@@ -23,10 +23,7 @@ class RealisationSeeder extends Seeder
             
             Phasellus ultricies leo arcu, nec tempor sapien placerat fermentum. Donec ligula justo, finibus vitae lorem vitae, mollis pulvinar velit. Proin hendrerit hendrerit erat, nec ullamcorper sem venenatis eu. ",
             "short_description" => "Ceci est une description courte pour expliquer mon projet 1",
-            "logo_path" => "logo_exemple.webp",
-            "background_path" => "background_exemple.webp",
-            "background_path_small" => "small/background_exemple.webp",
-            "date" => "2021-01-01"
+            "date" => "2022-01-01"
         ]);
     }
 }
