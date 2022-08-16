@@ -20,17 +20,17 @@ class ContactController extends Controller {
 
 
     public function store(Request $request) { 
-      // dd($emailtosend);
-      Mail::send('emails.contact', [
-        'name' => $request->name,
+
+      $emailtosend = About::first()->email;
+
+      $mailData = [
+         'name' => $request->name,
         'mail' => $request->mail,
         'subject' => $request->subject,
         'msg' => $request->message
-      ], function($mail) use($request){
-        $emailtosend = About::first()->email;
-        $mail->from(env('MAIL_FROM_ADDRESS'), $request->name);
-        $mail->to($emailtosend)->subject($request->name .' a un.e '. $request->subject. ' pour vous !');
-      });
+      ]; 
+
+      Mail::to($emailtosend)->send(new \App\Mail\Contact($mailData));
 
       return "Message sent!!!";
 
