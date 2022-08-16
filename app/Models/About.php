@@ -10,8 +10,6 @@ class About extends Model
     protected $fillable = [
         'firstname',
         'lastname',
-        'nav_picture_path',
-        'picture_path',
         'description',
         'details',
         'birthday',
@@ -20,7 +18,10 @@ class About extends Model
         'email',
         'location',
         'status',
-        'hobbies' 
+        'hobbies',
+        'github',
+        'linkedin',
+        'website'
     ];
 
     protected $dates = [

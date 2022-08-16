@@ -17,8 +17,6 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('nav_picture_path')->nullable();
-            $table->string('picture_path')->nullable();
             $table->text('description')->nullable();
             $table->text('details')->nullable();
             $table->date('birthday')->nullable();
@@ -28,6 +26,9 @@ class CreateAboutsTable extends Migration
             $table->string('location')->nullable();
             $table->string('status')->nullable();
             $table->string('hobbies')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('github')->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
         });
     }

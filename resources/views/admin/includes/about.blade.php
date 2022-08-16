@@ -51,7 +51,19 @@
                     </div>
                     <div class="col-md-6 mt-2">
                         {{ Form::label('hobbies', 'Hobbies') }}
-                        {{ Form::text('hobbies', $about->hobbies, ['class' =>'form-control','placeholder' => 'Sport / Jeux-vidéos / Programmation'])}}
+                        {{ Form::text('hobbies', $about->hobbies, ['class' =>'form-control'])}}
+                    </div> 
+                    <div class="col-md-6 mt-2">
+                        {{ Form::label('linkedin', 'Linkedin') }}
+                        {{ Form::text('linkedin', $about->linkedin, ['class' =>'form-control'])}}
+                    </div> 
+                    <div class="col-md-6 mt-2">
+                        {{ Form::label('github', 'Github') }}
+                        {{ Form::text('github', $about->github, ['class' =>'form-control'])}}
+                    </div> 
+                    <div class="col-md-6 mt-2">
+                        {{ Form::label('website', 'Site web') }}
+                        {{ Form::text('website', $about->website, ['class' =>'form-control'])}}
                     </div> 
                     <div class="w-100 text-right p-3">
                         {{ Form::submit('Enregistrer', ['class' => 'btn btn-primary btn-lg'])}}

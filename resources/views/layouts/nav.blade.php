@@ -7,11 +7,28 @@
             </a>
             <h2 class="text-white my-2">{{$about->firstname}} {{$about->lastname}}</h2>
             <div class="d-flex justify-content-center">
-                @foreach ($socials as $social)
-                    <a href="{{$social->link}}" class="rounded-circle btn btn-primary m-1" target="_blank">
-                        {!! $social->icon !!}
+                @if($about->email)
+                    <a href="mailto:{{$about->email}}" class="rounded-circle btn btn-primary m-1" target="_blank">
+                        <i class="fas fa-envelope"></i>
                     </a>
-                @endforeach
+                @endif
+                @if($about->linkedin)
+                    <a href="{{$about->linkedin}}" class="rounded-circle btn btn-primary m-1" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                @endif
+                @if($about->github)
+                    <a href="{{$about->github}}" class="rounded-circle btn btn-primary m-1" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                @endif
+                @if($about->website)
+                <a href="{{$about->website}}" class="rounded-circle btn btn-primary m-1" target="_blank">
+                    <i class="fas fa-mouse-pointer"></i>
+                </a>
+            @endif
+
+               
             </div>
         </div>
         <nav class="d-flex flex-column">

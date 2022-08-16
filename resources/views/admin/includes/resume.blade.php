@@ -203,6 +203,7 @@
                 </div>
                 <div class="col-md-6 mt-2 pl-2">
                     {{ Form::label('logo_icon', 'Balise de l\'icon') }}
+                    <small>Il faut que tu copies le code que </small>
                     {{ Form::text('logo_icon', null, ['class' => 'form-control']) }}
                     {{ Form::label('color', 'Couleur du logo', ['class' =>'mt-2']) }}
                     <div>
@@ -214,7 +215,7 @@
                     <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="1" step="10">
                     <div class="w-100 d-flex justify-content-between pt-3 pb-0">
                         <div>
-                            {{ Form::label('resume_id', 'Montrer sur le CV ?', ['class' =>'mt-2']) }}
+                            {{ Form::label('resume_id', 'Mettre en avant ?', ['class' =>'mt-2']) }}
                             <div>
                                 {{ Form::checkbox('resume_id', 1, 0, ['class' => 'form-control', 'data-toggle' => 'toggle', 'data-on' => 'Oui', 'data-off' => 'Non']) }}
                             </div>
@@ -258,7 +259,7 @@
                                 {{ Form::label('mastery', 'Maîtrise', ['class' =>'mt-2']) }}
                                 <input name="mastery" type="range" class="form-control-range" min="0" max="100" value="{{$technology->mastery}}" step="10">
                                 <div class="pt-3 pb-0">
-                                        {{ Form::label('resume_id', 'Montrer sur le CV ?', ['class' =>'mt-2 mr-2']) }}
+                                        {{ Form::label('resume_id', 'Mettre en avant ?', ['class' =>'mt-2 mr-2']) }}
                                             {{ Form::checkbox('resume_id', 1, $technology->resume_id, ['class' => ' form-control', 'data-toggle' => 'toggle', 'data-on' => 'Oui', 'data-off' => 'Non']) }}
                                 </div>
                             </div>

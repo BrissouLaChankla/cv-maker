@@ -10,6 +10,7 @@ use App\Models\Realisation;
 use App\Models\Resume;
 use App\Models\Study;
 use App\Models\Technology;
+use App\Models\Herotext;
 use App\Models\Contact;
 use Auth;
 
@@ -53,8 +54,10 @@ class AdminController extends Controller
     }
     
     public function showHero() {
+        $herotexts = Herotext::first();
         return view('admin.includes.hero')->with([
-           'section' => "section"
+           'section' => "section",
+           'herotexts' => $herotexts
         ]);
     }
 }

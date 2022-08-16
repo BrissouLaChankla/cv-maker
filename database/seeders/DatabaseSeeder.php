@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             NavigationSeeder::class,
             PortfolioSeeder::class,
             RealisationSeeder::class,
-            SocialSeeder::class,
             StudySeeder::class,
+            HeroSeeder::class,
             TechnologySeeder::class,
             UserSeeder::class,
             RealisationTechnologySeeder::class

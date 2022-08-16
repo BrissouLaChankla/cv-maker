@@ -14,7 +14,7 @@
 <div class="infos p-5">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-5 d-flex flex-column justify-content-between">
+            <div class="col-lg-6 d-flex flex-column justify-content-between">
                 <div>
                     <h2>{{$realisation->name}}, qu'est-ce que c'est ?</h2>
                     {!! nl2br(e($realisation->description)) !!}
@@ -32,7 +32,7 @@
                     <a href="{{$realisation->link}}" target="_blank" class="btn btn-primary w-100">Visiter le site</a>
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div>
                     <img src="{{ url('storage/realisations/'.$realisation->slug.'/background.webp') }}" class="img-fluid rounded shadow" alt="">
                 </div>

@@ -1,4 +1,70 @@
-.btn-group-xs>.btn,.btn-xs{border-radius:.2rem;font-size:.875rem;line-height:.5;padding:.35rem .4rem .25rem}.checkbox label .toggle,.checkbox-inline .toggle{margin-left:-1.25rem;margin-right:.35rem}.toggle{overflow:hidden;position:relative}.toggle.btn.btn-light,.toggle.btn.btn-outline-light{border-color:rgba(0,0,0,.15)}.toggle input[type=checkbox]{display:none}.toggle-group{bottom:0;left:0;position:absolute;top:0;transition:left .35s;-webkit-transition:left .35s;-moz-user-select:none;-webkit-user-select:none;width:200%}.toggle-group label,.toggle-group span{cursor:pointer}.toggle.off .toggle-group{left:-100%}.toggle-on{left:0;right:50%}.toggle-off,.toggle-on{border:0;border-radius:0;bottom:0;margin:0;position:absolute;top:0}.toggle-off{box-shadow:none;left:50%;right:0}.toggle-handle{background-color:#fff;border-width:0 1px;height:100%;margin:0 auto;padding-bottom:0;padding-top:0;position:relative;width:0}.toggle.btn-outline-primary .toggle-handle{background-color:var(--primary);border-color:var(--primary)}.toggle.btn-outline-secondary .toggle-handle{background-color:var(--secondary);border-color:var(--secondary)}.toggle.btn-outline-success .toggle-handle{background-color:var(--success);border-color:var(--success)}.toggle.btn-outline-danger .toggle-handle{background-color:var(--danger);border-color:var(--danger)}.toggle.btn-outline-warning .toggle-handle{background-color:var(--warning);border-color:var(--warning)}.toggle.btn-outline-info .toggle-handle{background-color:var(--info);border-color:var(--info)}.toggle.btn-outline-light .toggle-handle{background-color:var(--light);border-color:var(--light)}.toggle.btn-outline-dark .toggle-handle{background-color:var(--dark);border-color:var(--dark)}.toggle[class*=btn-outline]:hover .toggle-handle{background-color:var(--light);opacity:.5}.toggle.btn{min-height:2.15rem;min-width:3.7rem}.toggle-on.btn{padding-right:1.5rem}.toggle-off.btn{padding-left:1.5rem}.toggle.btn-lg{min-height:2.815rem;min-width:5rem}.toggle-on.btn-lg{padding-right:2rem}.toggle-off.btn-lg{padding-left:2rem}.toggle-handle.btn-lg{width:2.5rem}.toggle.btn-sm{min-height:1.938rem;min-width:3.125rem}.toggle-on.btn-sm{padding-right:1rem}.toggle-off.btn-sm{padding-left:1rem}.toggle.btn-xs{min-height:1.375rem;min-width:2.19rem}.toggle-on.btn-xs{padding-right:.8rem}.toggle-off.btn-xs{padding-left:.8rem}
-.change-pic{position:relative;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.change-pic:hover img{filter:brightness(30%)}.change-pic:hover .icon-hover{opacity:1;transform:translate(-50%,-50%)}.icon-hover{cursor:pointer;font-size:1.8rem;left:50%;opacity:0;position:absolute;top:50%;transform:translate(-50%,20px);transition:all .3s ease;z-index:10}label{font-weight:700}.colorpicker{box-sizing:inherit!important}.change-pic.change-logo-style img{height:120px;-o-object-fit:contain;object-fit:contain;width:120px}.navname{font-size:.8rem}@media screen and (min-width:460px){.navname{font-size:1.1rem}}#app{margin-top:150px}@media screen and (min-width:992px){#app{margin-top:0}}
+/*\
+|*| ========================================================================
+|*| Bootstrap Toggle: bootstrap4-toggle.css v3.6.1
+|*| https://gitbrent.github.io/bootstrap4-toggle/
+|*| ========================================================================
+|*| Copyright 2018-2019 Brent Ely
+|*| Licensed under MIT
+|*| ========================================================================
+\*/
+.btn-group-xs>.btn,.btn-xs{padding:.35rem .4rem .25rem .4rem;font-size:.875rem;line-height:.5;border-radius:.2rem}.checkbox label .toggle,.checkbox-inline .toggle{margin-left:-1.25rem;margin-right:.35rem}.toggle{position:relative;overflow:hidden}.toggle.btn.btn-light,.toggle.btn.btn-outline-light{border-color:rgba(0,0,0,.15)}.toggle input[type=checkbox]{display:none}.toggle-group{position:absolute;width:200%;top:0;bottom:0;left:0;transition:left .35s;-webkit-transition:left .35s;-moz-user-select:none;-webkit-user-select:none}.toggle-group label,.toggle-group span{cursor:pointer}.toggle.off .toggle-group{left:-100%}.toggle-on{position:absolute;top:0;bottom:0;left:0;right:50%;margin:0;border:0;border-radius:0}.toggle-off{position:absolute;top:0;bottom:0;left:50%;right:0;margin:0;border:0;border-radius:0;box-shadow:none}.toggle-handle{position:relative;margin:0 auto;padding-top:0;padding-bottom:0;height:100%;width:0;border-width:0 1px;background-color:#fff}.toggle.btn-outline-primary .toggle-handle{background-color:var(--primary);border-color:var(--primary)}.toggle.btn-outline-secondary .toggle-handle{background-color:var(--secondary);border-color:var(--secondary)}.toggle.btn-outline-success .toggle-handle{background-color:var(--success);border-color:var(--success)}.toggle.btn-outline-danger .toggle-handle{background-color:var(--danger);border-color:var(--danger)}.toggle.btn-outline-warning .toggle-handle{background-color:var(--warning);border-color:var(--warning)}.toggle.btn-outline-info .toggle-handle{background-color:var(--info);border-color:var(--info)}.toggle.btn-outline-light .toggle-handle{background-color:var(--light);border-color:var(--light)}.toggle.btn-outline-dark .toggle-handle{background-color:var(--dark);border-color:var(--dark)}.toggle[class*=btn-outline]:hover .toggle-handle{background-color:var(--light);opacity:.5}.toggle.btn{min-width:3.7rem;min-height:2.15rem}.toggle-on.btn{padding-right:1.5rem}.toggle-off.btn{padding-left:1.5rem}.toggle.btn-lg{min-width:5rem;min-height:2.815rem}.toggle-on.btn-lg{padding-right:2rem}.toggle-off.btn-lg{padding-left:2rem}.toggle-handle.btn-lg{width:2.5rem}.toggle.btn-sm{min-width:3.125rem;min-height:1.938rem}.toggle-on.btn-sm{padding-right:1rem}.toggle-off.btn-sm{padding-left:1rem}.toggle.btn-xs{min-width:2.19rem;min-height:1.375rem}.toggle-on.btn-xs{padding-right:.8rem}.toggle-off.btn-xs{padding-left:.8rem}
 
-/*# sourceMappingURL=admin.css.map*/
+.change-pic {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.change-pic:hover img {
+  filter: brightness(30%);
+}
+.change-pic:hover .icon-hover {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.icon-hover {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  font-size: 1.8rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+.colorpicker {
+  box-sizing: inherit !important;
+}
+
+.change-pic.change-logo-style img {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.navname {
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 460px) {
+  .navname {
+    font-size: 1.1rem;
+  }
+}
+#app {
+  margin-top: 150px;
+}
+
+@media screen and (min-width: 992px) {
+  #app {
+    margin-top: 0;
+  }
+}

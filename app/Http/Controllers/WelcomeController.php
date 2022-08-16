@@ -9,6 +9,7 @@ use App\Models\Job;
 use App\Models\Portfolio;
 use App\Models\Realisation;
 use App\Models\Resume;
+use App\Models\Herotext;
 use App\Models\Study;
 use App\Models\Technology;
 use App\Models\Contact;
@@ -26,6 +27,7 @@ class WelcomeController extends Controller
         $realisations = Realisation::orderBy('date', 'DESC')->take(6)->get();
         $portfolio = Portfolio::first();
         $contact = Contact::first();
+        $herotexts = Herotext::first();
         $lastJob = Job::orderBy('start_date', 'DESC')->first();
         return view('welcome')->with([
             'resume' => $resume,
@@ -35,10 +37,16 @@ class WelcomeController extends Controller
             'realisations' => $realisations,
             'lastJob' => $lastJob,
             'contact' => $contact,
-            'portfolio' => $portfolio
+            'portfolio' => $portfolio,
+            'herotexts' => $herotexts
         ]);
     }
 
+    public function editHero(Request $request) {
+        $herotexts = Herotext::first();
+        $herotexts->update($request->all());
+        return 'Modification effectuée !';
+    }
 
     public function editAvatar(Request $request) {
 

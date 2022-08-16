@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
 
-        <title>CV - Brice Eliasse, développeur Full-Stack </title>
+        <title>{{ config('app.name', 'CV Web') }}</title>
 
         <!-- Scripts -->
    

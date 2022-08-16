@@ -14,8 +14,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
     function init() {
 
         if (document.querySelector('#welcome')) {
-            window.wow.init();
-
+            if( window.location.href.split("/").pop() == '#portfolio') {
+                document.getElementById('portfolio').scrollIntoView();
+            }
                   // Wrap every letter in a span
         var textWrapper = document.querySelector('.ml6 .letters');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -103,7 +104,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 
     $("#contact-form").submit(function(e) {
-
         e.preventDefault(); // avoid to execute the actual submit of the form.
 
         Toast.fire({
@@ -134,6 +134,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
             }
         });
     });
+    window.wow.init();
 }
 
         if (document.querySelector('#technoModal')) {
