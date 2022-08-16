@@ -15,6 +15,7 @@ use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::get('/projet/{slug}', [RealisationController::class, 'showProject'])->nam
 Route::get('/loadprojects/{nb}', [RealisationController::class, 'loadProject'])->name('load-project');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
 
 
 

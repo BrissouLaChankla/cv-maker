@@ -30,7 +30,7 @@ class Contact extends Mailable
     public function build()
     {
         
-        $email = $this->subject('CV-Web | Email de contact 📩')
+        $email = $this->subject('📩 CV-Web | Email de contact')
         ->view('emails.contact');
         return $email;
 

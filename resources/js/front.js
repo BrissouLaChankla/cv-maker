@@ -17,6 +17,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
             if( window.location.href.split("/").pop() == '#portfolio') {
                 document.getElementById('portfolio').scrollIntoView();
             }
+
+            
                   // Wrap every letter in a span
         var textWrapper = document.querySelector('.ml6 .letters');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -90,50 +92,20 @@ document.addEventListener( 'DOMContentLoaded', function () {
                 });
             });  
 
-            const Toast = swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener('mouseenter', swal.stopTimer)
-                  toast.addEventListener('mouseleave', swal.resumeTimer)
+            window.addEventListener('resize',  _.debounce(function(e) {
+                hideBigTxt()
+              
+              }, 100));
+              hideBigTxt();
+              function hideBigTxt() {
+                if($(".content").width() < 222) {
+                    $(".shortdesc-rea").find("a:first").html('<i class="fas fa-eye"></i>')
+                    $(".content p").hide();
+                } else {
+                    $(".shortdesc-rea").find("a:first").html('En savoir +')
+                    $(".content p").show();
                 }
-              })
-
-
-    $("#contact-form").submit(function(e) {
-        e.preventDefault(); // avoid to execute the actual submit of the form.
-
-        Toast.fire({
-            icon: 'info',
-            title: 'Envoie du mail...'
-        });
-        var form = $(this);
-        var url = form.attr('action');
-        
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: form.serialize(), // serializes the form's elements.
-            success: function(data)
-            {
-                form.find("input[type=text], input[type=email], textarea").val("");
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Super, j\'ai bien reçu votre mail ! 🤗'
-                });
-            },
-            error : function(data){
-                console.log(data);
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Oups, le mail s\'est pas envoyé 😱'
-                });
-            }
-        });
-    });
+              }
     window.wow.init();
 }
 

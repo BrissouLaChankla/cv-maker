@@ -4,7 +4,7 @@
 </div>
 
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         @foreach ($realisations as $realisation)
             <div class="col-sm-4 p-3">
@@ -21,7 +21,7 @@
                                         {{ $realisation->short_description}}                                    
                                     @endif
                                 </p>
-                                <a href="{{route('project', $realisation->slug)}}" class="btn btn-dark mx-2">En savoir +</a>
+                                <a href="{{route('project', $realisation->slug)}}" class="btn btn-dark mx-2 text-nowrap">En savoir +</a>
                                 <a target="_blank" href="{{$realisation->link}}" class="btn btn-primary mx-2">Visiter</a> 
                             </div>
                         </div>

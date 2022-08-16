@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "biscolab/laravel-recaptcha": "^5.0",
         "cviebrock/eloquent-sluggable": "^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -18,7 +17,8 @@
         "laravel/ui": "^3.2",
         "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.4",
-        "nesbot/carbon": "^2.46"
+        "nesbot/carbon": "^2.46",
+        "spatie/laravel-honeypot": "^4.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

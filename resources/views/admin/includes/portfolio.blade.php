@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 {{ Form::label('logo_path', 'Logo du projet') }}
-                                {!! Form::file('logo_path', ['class' => 'd-none']) !!}
+                                {!! Form::file('logo_path', ['class' => 'd-none', 'required']) !!}
                                 <div class="position-relative change-pic change-logo-style pointer">
                                     <img src="{{ asset('img/global/realisation/your-logo.webp') }}"
                                         class="img-fluid ">

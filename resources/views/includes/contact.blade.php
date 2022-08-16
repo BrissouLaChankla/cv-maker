@@ -35,26 +35,37 @@
             </div>
         </div>
     </div>
+    
     <div class="col-md-7">
         {!! Form::open([ 'method'=> 'post', 'action' => 'ContactController@store', 'class' => 'bg-white shadow-sm p-4', 'id' => 'contact-form']) !!}
         @csrf
+        @honeypot
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
                     {!! Form::label('name', 'Nom / Société')!!}<sup class="text-danger">*</sup>
                     {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
+                    @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                   </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     {!! Form::label('mail', 'E-mail')!!}<sup class="text-danger">*</sup>
                     {!! Form::email('mail', null, ['class' => 'form-control', 'required']) !!}
+                    @error('mail')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                   </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     {!! Form::label('subject', 'Sujet')!!}<sup class="text-danger">*</sup>
                     {!! Form::select('subject', ['emploi' => 'Proposition d\'emploi', 'mission' => 'Proposition de mission', 'question' => 'Question(s)',  'autre' => 'Autre'], null, ['class'=>'form-control', 'required']) !!}
+                    @error('subject')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                   </div>
             </div>
             <div class="col-12">
@@ -62,11 +73,39 @@
                     {!! Form::label('message', 'Message')!!}<sup class="text-danger">*</sup>
                     {!! Form::textarea('message', null, ['class' => 'form-control', 'required']) !!}
                   </div>
+                  @error('message')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
+           
             <div class="col-12 text-right">
                 {!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
             </div>
         </div>
         {!! Form::close() !!}
+        
     </div>
 </div>
+@if(Session::has('contact-success'))
+<script>
+    window.addEventListener('load', function () {
+        const Toast = swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', swal.stopTimer)
+                      toast.addEventListener('mouseleave', swal.resumeTimer)
+                    }
+                  })
+    
+            Toast.fire({
+                icon: 'success',
+                title: 'Super, j\'ai bien reçu votre mail ! 🤗'
+            });
+})
+     
+</script>
+@endif

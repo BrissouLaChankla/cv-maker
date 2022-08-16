@@ -11,14 +11,14 @@
         <span data-placement="bottom" data-toggle="tooltip" title="📅 Date de réalisation" class="badge badge-secondary">{{$realisation->date->format('m/Y')}}</span>
     </div>
 </div>
-<div class="infos p-5">
+<div class="infos p-3 p-md-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-between">
                 <div>
-                    <h2>{{$realisation->name}}, qu'est-ce que c'est ?</h2>
+                    <h2 class="mb-4">{{$realisation->name}}, qu'est-ce que c'est ?</h2>
                     {!! nl2br(e($realisation->description)) !!}
-                    <h3 class="mt-5 lil-h3 text-center">Technologies utilisées :</h2>
+                    <h3 class="mt-5 lil-h3 text-center">Technologies utilisées :</h3>
                         <div class="d-flex justify-content-center my-3">
                             @foreach ($realisation->technologies as $technology)
                                 <a data-placement="bottom" href="#" data-id="{{$technology->id}}" data-toggle="tooltip" title="{{$technology->name}}" style="background-color:{{$technology->color}}" class="hvr-grow logo-techno open-modal-techno rounded text-white d-flex align-items-center justify-content-center mr-3 text-decoration-none">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-6">
                 <div>
-                    <img src="{{ url('storage/realisations/'.$realisation->slug.'/background.webp') }}" class="img-fluid rounded shadow" alt="">
+                    <img src="{{ url('storage/realisations/'.$realisation->slug.'/background.webp') }}" class="img-fluid rounded shadow mt-3 mt-lg-0" alt="">
                 </div>
                 <div class="row">
                     @foreach ($pictures as $picture)

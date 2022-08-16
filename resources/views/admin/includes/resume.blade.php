@@ -203,7 +203,6 @@
                 </div>
                 <div class="col-md-6 mt-2 pl-2">
                     {{ Form::label('logo_icon', 'Balise de l\'icon') }}
-                    <small>Il faut que tu copies le code que </small>
                     {{ Form::text('logo_icon', null, ['class' => 'form-control']) }}
                     {{ Form::label('color', 'Couleur du logo', ['class' =>'mt-2']) }}
                     <div>

@@ -21,18 +21,29 @@ class ContactController extends Controller {
 
     public function store(Request $request) { 
 
-      $emailtosend = About::first()->email;
+      $validator = Validator::make($request->all(), [
+        'name' => 'required|min:3',
+        'subject' => 'required',
+        'mail' => 'required|max:255|email:rfc,dns',
+        'message' => 'required|min:3',
+    ]);
+    
+    if ($validator->fails()) {
+        return redirect(url()->previous(). '#contact')->withErrors($validator)->withInput();
+    } else {
+        $emailtosend = About::first()->email;
 
-      $mailData = [
-         'name' => $request->name,
-        'mail' => $request->mail,
-        'subject' => $request->subject,
-        'msg' => $request->message
-      ]; 
+        $mailData = [
+          'name' => $request->name,
+          'mail' => $request->mail,
+          'subject' => $request->subject,
+          'msg' => $request->message
+        ]; 
 
-      Mail::to($emailtosend)->send(new \App\Mail\Contact($mailData));
+        Mail::to($emailtosend)->send(new \App\Mail\Contact($mailData));
 
-      return "Message sent!!!";
+        return  redirect(url()->previous())->with('contact-success', 'Nous avons bien reçu votre formulaire 👌 On revient vers vous dés que possible');
+    }
 
   }
 }

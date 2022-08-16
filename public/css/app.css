@@ -20968,9 +20968,14 @@ header .avatar {
 .ml6 {
   position: relative;
   font-weight: 900;
-  font-size: 3.9em;
+  font-size: 3em;
 }
 
+@media screen and (min-width: 420px) {
+  .ml6 {
+    font-size: 3.9em;
+  }
+}
 @media screen and (min-width: 576px) {
   .ml6 {
     font-size: 5em;
